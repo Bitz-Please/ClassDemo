@@ -43,10 +43,11 @@ and open the template in the editor.
                         <p:message for="major" display="icon" />
                         
                         <p:outputLabel for="additionalInfo" value="Additional Information:" />
-                        <p:inputText id="additionalInfo" value="#{user.additionalInfo}" 
+                        <p:inputTextarea id="additionalInfo" value="#{user.additionalInfo}" 
                                      required="false" label="AdditionalInfo">
                             <f:validateLength minimum="2"/>
-                        </p:inputText>
+                        </p:inputTextarea>
+                      
                         <p:message for="additionalInfo" display="icon" />
                         
                     </h:panelGrid>

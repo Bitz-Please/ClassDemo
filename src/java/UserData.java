@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author robertwaters
  */
-class UserData {
+class UserData implements Serializable {
     private String name;
     private String password;
     private String email;
