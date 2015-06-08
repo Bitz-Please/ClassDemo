@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"         
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title> User Info </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        <div>
+            <h:outputText value="#{user.username}" />
+        </div>
+        <div>
+            <h:form>
+                <p:panel id="panel">
+                    <h:panelGrid columns="3" cellpadding="5">
+                        <p:outputLabel for="email" value="Email:" />
+                        <p:inputText id="email" value="#{user.email}" 
+                                     required="false" label="Email">
+                            <f:validateLength minimum="2"/>
+                        </p:inputText>
+                        <p:message for="email" display="icon" />
+                        
+                        <p:outputLabel for="address" value="Address:" />
+                        <p:inputText id="address" value="#{user.address}" 
+                                     required="false" label="Address">                             
+                            <f:validateLength minimum="2" />
+                        </p:inputText>                    
+                        <p:message for="address" display="icon" />
+                        
+                        <p:outputLabel for="major" value="Major:" />
+                        <p:inputText id="major" value="#{user.major}" 
+                                     required="false" label="Major">
+                            <f:validateLength minimum="2"/>
+                        </p:inputText>
+                        <p:message for="major" display="icon" />
+                        
+                        <p:outputLabel for="additionalInfo" value="Additional Information:" />
+                        <p:inputText id="additionalInfo" value="#{user.additionalInfo}" 
+                                     required="false" label="AdditionalInfo">
+                            <f:validateLength minimum="2"/>
+                        </p:inputText>
+                        <p:message for="additionalInfo" display="icon" />
+                        
+                    </h:panelGrid>
+                    <p:commandButton update="panel" value="Home" action="success"  />
+                    <p:commandButton update="panel" value="Update" action="#{user.updateUserData()}"  />
+                </p:panel>
+            </h:form>
+        </div>
+    </body>
+</html>
