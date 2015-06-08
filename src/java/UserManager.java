@@ -17,7 +17,7 @@ import javax.faces.bean.ApplicationScoped;
 @ApplicationScoped
 public class UserManager {
     
-    private Map<String, UserData> users = new HashMap<>();
+    private static Map<String, UserData> users = new HashMap<>();
 
     /**
      * Creates a new instance of UserManager
@@ -38,6 +38,7 @@ public class UserManager {
     public void addUsers(String user, String pass) {
         users.put(user, new UserData(user, pass));
     }
+    
     UserData find(String username) {
        System.out.println("Looking up user: " + username);
        return users.get(username);
