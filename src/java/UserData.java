@@ -48,7 +48,6 @@ class UserData {
     }
     
     public String getAdditionalInfo() {
-        System.out.println(additionalInfo);
         return additionalInfo;
     }
     
