@@ -129,7 +129,7 @@ public class User implements Serializable {
         UserData data = userManager.find(username);
         data.updateData(email, address, major, additionalInfo);
         userManager.saveData();
-        return "success";
+        return "profile";
     }
 
 }
