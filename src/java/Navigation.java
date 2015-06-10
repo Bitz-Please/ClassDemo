@@ -20,30 +20,38 @@ public class Navigation implements Serializable {
     public Navigation () {
         System.out.println("Making Navigation");
     }
+    
+    /**
+     * Directs xhtml code to login page 
+     * @return login
+     */
     public String loginPage() {
         return "login";
     }
     
+     /**
+     * Directs xhtml code to index page 
+     * @return index
+     */
     public String indexPage() {
         return "index";
     }
     
+     /**
+     * Directs xhtml code to registration page 
+     * @return registration
+     */
     public String registrationPage() {
         return "registration";
-    }
-    
-    public String frontPage() {
-        return "front";
-    }
-    
-    public String weatherPage() {
-        return "weather";
     }
 
     public Boolean contextRender(Boolean answer) {
         return answer;
 	}
-	
+    /**
+     * Directs xhtml code to userInfo page 
+     * @return userInfo
+     */
     public String userInfoPage() {
         return "userInfo";
     }

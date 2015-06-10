@@ -13,7 +13,7 @@ import javax.faces.context.FacesContext;
 
 /**
  *
- * @author robertwaters
+ * @author bitsplease
  */
 @ManagedBean
 @SessionScoped
@@ -37,61 +37,113 @@ public class User implements Serializable {
         //email = userManager.find(username).getEmail();
         //address = userManager.find(username).getAddress();
     }
-    
+    /**
+     * Getter for username
+     * @return username
+     */
     public String getUsername() { 
         return username;
     }
     
+    /**
+     * Getter for password
+     * @return password
+     */
     public String getPassword() {
         return password;
     }
     
+    /**
+     * Gets user email from userManager
+     * @return email
+     */
     public String getEmail() { 
         return userManager.find(username).getEmail();
     }
     
+    /**
+     * Gets user address from userManager
+     * @return address
+     */
     public String getAddress() { 
         return userManager.find(username).getAddress();
     }
     
+    /**
+     * Gets user major from userManager
+     * @return major
+     */
     public String getMajor() { 
         return userManager.find(username).getMajor();
     }
     
+    /**
+     * Gets user additional info from userManager
+     * @return additionalInfo
+     */
     public String getAdditionalInfo() { 
         return userManager.find(username).getAdditionalInfo();
     }
     
-    public void setUsername(String u) {
-        System.out.println("Setting name to " + u);
-        username = u;
+    /**
+     * Setter for username
+     * @param username 
+     */
+    public void setUsername(String username) {
+        System.out.println("Setting name to " + username);
+        this.username = username;
     }
     
-    public void setPassword(String p) {
-        System.out.println("Setting password to " + p);
-        password = p;
+    /**
+     * Setter for password
+     * @param password 
+     */
+    public void setPassword(String password) {
+        System.out.println("Setting password to " + password);
+        this.password = password;
     }
     
-    public void setEmail(String e) {
-        System.out.println("Setting email to " + e);
-        email = e;
+    /**
+     * Setter for email
+     * @param email 
+     */
+    public void setEmail(String email) {
+        System.out.println("Setting email to " + email);
+        email = email;
     }
     
-    public void setAddress(String a) {
-        System.out.println("Setting address to " + a);
-        address = a;
+    /**
+     * Setter for address
+     * @param address
+     */
+    public void setAddress(String address) {
+        System.out.println("Setting address to " + address);
+        this.address = address;
     }
     
-    public void setMajor(String m) {
-        System.out.println("Setting major to " + m);
-        major = m;
+    /**
+     * Setter for major
+     * @param major 
+     */
+    public void setMajor(String major) {
+        System.out.println("Setting major to " + major);
+        major = major;
     }
     
-    public void setAdditionalInfo(String ai) {
-        System.out.println("Setting Additional Info to " + ai);
-        additionalInfo = ai;
+    /**
+     * Setter for additonalInfo
+     * @param additionalInfo
+     */
+    public void setAdditionalInfo(String additionalInfo) {
+        System.out.println("Setting Additional Info to " + additionalInfo);
+        this.additionalInfo = additionalInfo;
     }
     
+    /**
+     * Queries userManager to verify that user has
+     * provided a correct username and password
+     * @return success
+     */
     public String login() {
         System.out.println("Doing some business logic here");
         UserData data = userManager.find(username);
@@ -108,12 +160,23 @@ public class User implements Serializable {
             return "success";
     }
     
+    /**
+     * Adds a new user to userManager
+     * @return login
+     */
     public String addUser() {
         userManager.addUsers(username, password);
         userManager.saveData();
         return "login";
     }
     
+    /**
+     * Queries userManager to verify that user has
+     * provided a correct username and password.
+     * If the username and password are accepted, then 
+     * the username is removed from userManager
+     * @return login
+     */
     public String delete() {
         UserData data = userManager.find(username);
         
@@ -127,23 +190,21 @@ public class User implements Serializable {
         } else {
             userManager.removeUser(username, password);
         }
-        
-        
         return "login";
     }
     
-    public String loginPage() {
-        return "login";
+    /**
+     * Connects userManager with User
+     * @param userManager 
+     */
+    public void setUserManager(UserManager userManager) {
+        this.userManager = userManager;
     }
     
-    public String registerPage() {
-        return "register";
-    }
-    
-    public void setUserManager(UserManager um) {
-        userManager = um;
-    }
-    
+    /**
+     * Provides userManager with user data to store
+     * @return profile
+     */
     public String updateUserData() {
         UserData data = userManager.find(username);
         data.updateData(email, address, major, additionalInfo);

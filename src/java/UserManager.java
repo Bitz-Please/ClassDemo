@@ -18,14 +18,13 @@ import java.io.OutputStream;
 
 /**
  *
- * @author robertwaters
+ * @author bitsplease
  */
 @ManagedBean (name = "userManager")
 @ApplicationScoped
 public class UserManager {
     
-    private final String FILE_NAME;
-    
+    private final String FILE_NAME; 
     private static Map<String, UserData> users = new HashMap<>();
 
     /**
@@ -41,7 +40,9 @@ public class UserManager {
             makeSomeUsers();
         }
     }
-
+    /**
+     * Generates default users to add to users HashMap
+     */
     private void makeSomeUsers() {
         users.put("Bob", new UserData("Bob", "pass"));
         users.put("Sally", new UserData("Sally", "pass"));
@@ -51,19 +52,37 @@ public class UserManager {
   
     }
     
+    /**
+     * Adds a new user to user HashMap
+     * @param user
+     * @param pass 
+     */
     public void addUsers(String user, String pass) {
         users.put(user, new UserData(user, pass));
     }
     
+    /**
+     * Removes an existing user form user HashMap
+     * @param user
+     * @param pass 
+     */
     public void removeUser(String user, String pass) {
         users.remove(user);
     }
 	
+    /**
+     * Queries user HashMap and returns associated user data
+     * @param username
+     * @return userData
+     */
     UserData find(String username) {
        System.out.println("Looking up user: f" + username);
        return users.get(username);
     }
     
+    /**
+     * Writes user HashMap to a data file
+     */
     public void saveData() {
         FileOutputStream fos;
         try {
@@ -76,6 +95,9 @@ public class UserManager {
            
     }
     
+     /**
+     * Sets 'users' instance variable to object read from data file  
+     */
     public void loadData() {
         FileInputStream fis;
         try {
