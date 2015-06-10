@@ -39,4 +39,8 @@ public class Navigation implements Serializable {
     public String weatherPage() {
         return "weather";
     }
+    
+    public String userInfoPage() {
+        return "userInfo";
+    }
 }
