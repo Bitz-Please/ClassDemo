@@ -114,6 +114,24 @@ public class User implements Serializable {
         return "login";
     }
     
+    public String delete() {
+        UserData data = userManager.find(username);
+        
+        if (data == null || !data.checkLogin(password)) {
+            username="";
+            password="";
+            System.out.println("No such user found or password wrong");
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Username or Password incorrect"));
+            return null;
+        } else {
+            userManager.removeUser(username, password);
+        }
+        
+        
+        return "login";
+    }
+    
     public String loginPage() {
         return "login";
     }
@@ -130,7 +148,7 @@ public class User implements Serializable {
         UserData data = userManager.find(username);
         data.updateData(email, address, major, additionalInfo);
         userManager.saveData();
-        return "success";
+        return "profile";
     }
 
 }

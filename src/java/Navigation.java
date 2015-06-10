@@ -39,7 +39,11 @@ public class Navigation implements Serializable {
     public String weatherPage() {
         return "weather";
     }
-    
+
+    public Boolean contextRender(Boolean answer) {
+        return answer;
+	}
+	
     public String userInfoPage() {
         return "userInfo";
     }

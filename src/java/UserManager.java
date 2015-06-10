@@ -47,6 +47,7 @@ public class UserManager {
         users.put("Sally", new UserData("Sally", "pass"));
         users.put("Fred", new UserData("Fred", "pass"));
         users.put("Timothy", new UserData("Timothy", "dani"));
+        users.put("User", new UserData("User", "pass"));
   
     }
     
@@ -54,8 +55,12 @@ public class UserManager {
         users.put(user, new UserData(user, pass));
     }
     
+    public void removeUser(String user, String pass) {
+        users.remove(user);
+    }
+	
     UserData find(String username) {
-       System.out.println("Looking up user: " + username);
+       System.out.println("Looking up user: f" + username);
        return users.get(username);
     }
     

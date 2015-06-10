@@ -16,12 +16,19 @@ and open the template in the editor.
     
     <h:body>
         <div>
-            Welcome to the application
             
-            <h:outputText value="#{user.username}" />
-            
-        
         <h:form>
+            <p:panel id="panel" header="Welcome to the Application #{user.username}">
+                <p:messages id="msgs" />
+                <p:contentFlow value="#{imagesView.images}" var="image" rendered="false" widgetVar="testPanel">
+                    <p:graphicImage value="images/#{image}" styleClass="content" />
+                </p:contentFlow>
+                
+            </p:panel> 
+            <p:contentFlow value="#{imagesView.images}" var="image">
+                <p:graphicImage value="images/#{image}" styleClass="content" />
+                
+            </p:contentFlow>
             <p:accordionPanel rendered="true">
                 <p:tab title="Good Information">
                     <h:outputText value= "Now is the time for all good people to
@@ -37,8 +44,9 @@ and open the template in the editor.
 
             </p:accordionPanel>
             <br />
+            <p:commandButton value="Delete Account" action="delete"  />
             <p:commandButton value="Logout" action="login"  />
-            <p:commandButton value="Profile" action="userInfo"  />
+            <p:commandButton value="Profile" action="profile"  />
         </h:form>
         
         </div>
