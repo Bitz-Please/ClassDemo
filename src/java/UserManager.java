@@ -45,6 +45,7 @@ public class UserManager {
         users.put("Sally", new UserData("Sally", "pass"));
         users.put("Fred", new UserData("Fred", "pass"));
         users.put("Timothy", new UserData("Timothy", "dani"));
+        users.put("User", new UserData("User", "pass"));
   
     }
     
