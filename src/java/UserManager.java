@@ -24,14 +24,16 @@ import java.io.OutputStream;
 @ApplicationScoped
 public class UserManager {
     
+    private final String FILE_NAME;
+    
     private static Map<String, UserData> users = new HashMap<>();
 
     /**
      * Creates a new instance of UserManager
      */
     public UserManager() {
-      
-        File file = new File("userData.dat");
+        FILE_NAME = "userData.dat";
+        File file = new File(FILE_NAME);
         if (file.length() != 0) {
             loadData();
         } else {
@@ -60,11 +62,11 @@ public class UserManager {
     public void saveData() {
         FileOutputStream fos;
         try {
-            fos = new FileOutputStream("userData.dat");
+            fos = new FileOutputStream(FILE_NAME);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(users);
         } catch(Exception e) {
-            System.out.println(e);
+            System.out.println("File not found");
         }
            
     }
@@ -72,11 +74,11 @@ public class UserManager {
     public void loadData() {
         FileInputStream fis;
         try {
-            fis = new FileInputStream("userData.dat");
+            fis = new FileInputStream(FILE_NAME);
             ObjectInputStream ois = new ObjectInputStream(fis);
             users = (HashMap) ois.readObject();
         } catch(Exception e) {
-            System.out.println(e);
+            System.out.println("File not found");
         }
     }
     
