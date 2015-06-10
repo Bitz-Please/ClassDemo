@@ -38,8 +38,12 @@ public class UserManager {
     public void addUsers(String user, String pass) {
         users.put(user, new UserData(user, pass));
     }
+    
+    public void removeUser(String user, String pass) {
+        users.remove(user);
+    }
     UserData find(String username) {
-       System.out.println("Looking up user: " + username);
+       System.out.println("Looking up user: f" + username);
        return users.get(username);
     }
     
