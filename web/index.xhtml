@@ -14,12 +14,10 @@
                 <p:messages id="msgs" />
                 <p:outputLabel value="Enjoy your stay!" />
                 <h:panelGrid columns="3" cellpadding="5" > 
-                <p:commandButton update="panel" value="Login Page" action="login"  />
+                <p:commandButton update="panel" value="Login Page" action="#{navigation.loginPage()}"  />
                 <p:commandButton update="panel" value="Register" action="registration"
                              icon="ui-icon-plus" />
                 </h:panelGrid> 
-               
-                
             </p:panel>  
         </h:form>
     </h:body>
