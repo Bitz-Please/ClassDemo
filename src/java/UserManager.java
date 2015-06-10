@@ -76,7 +76,7 @@ public class UserManager {
      * @return userData
      */
     UserData find(String username) {
-       System.out.println("Looking up user: f" + username);
+       System.out.println("Looking up user: " + username);
        return users.get(username);
     }
     

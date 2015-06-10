@@ -109,7 +109,7 @@ public class User implements Serializable {
      */
     public void setEmail(String email) {
         System.out.println("Setting email to " + email);
-        email = email;
+        this.email = email;
     }
     
     /**
@@ -127,7 +127,7 @@ public class User implements Serializable {
      */
     public void setMajor(String major) {
         System.out.println("Setting major to " + major);
-        major = major;
+        this.major = major;
     }
     
     /**
