@@ -1,0 +1,33 @@
+
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+    <body bgcolor="#sgsdf3">
+	<h:form>
+        <p:growl autoUpdate="true"/>
+ 
+    <p:panelMenu style="width:215px" >
+        <p:submenu label="Navigation" >
+            <p:menuitem value="Home" icon="ui-icon-disk" action="success" />
+            <p:menuitem value="Search" icon="ui-icon-arrowrefresh-1-w" action="search"/>
+            <p:menuitem value="Top Movies" icon="ui-icon-disk" />
+            <p:menuitem value="New Releases" icon="ui-icon-arrowrefresh-1-w" />
+        </p:submenu>
+        <p:submenu label="Account Information">
+            <p:menuitem value="Account" icon="ui-icon-disk" action="profile"/>
+            <p:menuitem value="Edit Profile" icon="ui-icon-arrowrefresh-1-w" action="userInfo" />
+            <p:menuitem value="Logout" icon="ui-icon-disk" action="login" />
+            <p:menuitem value="Delete Account" icon="ui-icon-arrowrefresh-1-w" action="delete"/>
+        </p:submenu>
+        
+    </p:panelMenu>
+
+	</h:form>
+        </body>
+</ui:composition>
+
+

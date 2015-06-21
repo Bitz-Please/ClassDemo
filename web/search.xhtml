@@ -15,7 +15,7 @@ and open the template in the editor.
     <h:body>
         <p:layout fullPage="true" resizeTitle="resize" style="background-color:#FFFFFF;">
         <p:layoutUnit position="north" size="68" id="north" >
-            <ui:include src="header.xhtml" />
+            <ui:include src="searchHeader.xhtml"/>
         </p:layoutUnit>
 
         <p:layoutUnit position="west" id="west" resizable="false" style="height:580px;overflow:hidden;" size="225">
@@ -26,12 +26,12 @@ and open the template in the editor.
             <ui:include src="contentF.xhtml" />
         </p:layoutUnit>
 
-        <p:layoutUnit position="east" size="0" style="width:100px; display:none;" id="east">
-            <h:outputText value="Current Events Placeholder" />
+        <p:layoutUnit position="east" size="0" style="width:0px; display:none;" id="east">
+            <h:outputText value="Top unit content." />
         </p:layoutUnit>
 
         <p:layoutUnit position="south" resizable="true" id="south">
-            <h:outputText value="Footer placeholder." />
+            <h:outputText value="Top unit content." />
         </p:layoutUnit>
     </p:layout>
     </h:body>
