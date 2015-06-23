@@ -164,7 +164,7 @@ public class User implements Serializable {
             return null;
         }
         System.out.println("Login Success");
-            return "success";
+            return "home";
     }
     
     /**

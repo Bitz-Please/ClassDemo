@@ -1,3 +1,4 @@
+import com.google.gson.Gson;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -5,18 +6,42 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ApplicationScoped;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+
+import javax.annotation.PostConstruct;
 
 import java.io.Reader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-@ManagedBean (name = "service")
+@ManagedBean (name = "rtservice")
 @ApplicationScoped
 
-public class RTRESTservice {
+public class RTRESTService {
 
     private final String API_KEY = "yedukp76ffytfuy24zsqk7f5";
+    
+    private List<Movie> dvdMovies = new ArrayList<Movie>();
+    private String dvdData;
+    
+    private List<Movie> theaterMovies = new ArrayList<Movie>();
+    private String theaterData;
+    
+    
+    @PostConstruct
+    protected void init() {
+        
+        dvdData = rottenRestNewDVDs();
+        theaterData = rottenRestOpenings();
+        
+    }
+    
 
     /***********************************************
      * Private API starts here                      *
@@ -30,22 +55,36 @@ public class RTRESTservice {
      * @return JSON encoded response
      * @throws Exception Gets thrown to next layer
      */
-    private static String httpGet(String endpoint) throws Exception {
+    private String httpGet(String endpoint) throws Exception {
         URL url = new URL(endpoint);
+        String data = "";
 
         try {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setDoOutput(true);
-
-            String msg = "";
-
-            Reader in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-            for (int c; (c = in.read()) >= 0; msg += (char) c) ;
-
-            return msg.toString();
-        } catch (Exception e) {
-            throw new Error(e);
-        }
+		conn.setRequestMethod("GET");
+		conn.setRequestProperty("Accept", "application/json");
+ 
+		if (conn.getResponseCode() != 200) {
+			throw new RuntimeException("Failed : HTTP error code : "
+					+ conn.getResponseCode());
+		}
+ 
+		BufferedReader br = new BufferedReader(new InputStreamReader(
+			(conn.getInputStream())));
+		String output;
+		System.out.println("Output from Server .... \n");
+		while ((output = br.readLine()) != null) {
+			System.out.println(output);
+                        data+=output;
+		}
+                System.out.println("Got JSON: " + data);
+		conn.disconnect();
+                } catch (MalformedURLException ex) {
+                   Logger.getLogger(RTRESTService.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    System.out.println("Cannot open url");
+                }
+        return data;
     }
 
     /**
@@ -54,7 +93,7 @@ public class RTRESTservice {
      * @param str The string to convert to JSON
      * @return JSON endcoded object of the given string
      */
-    private static JSONObject StringToJson(String str) {
+    private JSONObject StringToJson(String str) {
         try {
             return new JSONObject(str);
         } catch (JSONException e) {
@@ -69,9 +108,9 @@ public class RTRESTservice {
      * @param endpoint Validated string containing endpoint for server request
      * @return JSON Encoded response from the given endpoint
      */
-    private static JSONObject rottenRestCall(String endpoint) {
+    private String rottenRestCall(String endpoint) {
         try {
-            return StringToJson(httpGet(endpoint));
+            return httpGet(endpoint);
         } catch(Exception e) {
             throw new Error(e);
         }
@@ -87,7 +126,7 @@ public class RTRESTservice {
      * @param query The user's search term
      * @return Matched results from rotten tomatoes
      */
-    public JSONObject rottenRestSearch(String query) {
+    public String rottenRestSearch(String query) {
         
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" +
                 API_KEY + "&q=" + query;
@@ -100,7 +139,7 @@ public class RTRESTservice {
      *
      * @return First page of opening movies from Rotten Tomatoes
      */
-    public JSONObject rottenRestOpenings() {
+    public String rottenRestOpenings() {
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/" +
                 "opening.json?apikey=" + API_KEY;
 
@@ -112,11 +151,33 @@ public class RTRESTservice {
      *
      * @return First page of newly released DVDs from Rotten Tomatoes
      */
-    public JSONObject rottenRestNewDVDs() {
+    public String rottenRestNewDVDs() {
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/" +
                 "new_releases.json?apikey=" + API_KEY;
 
         return rottenRestCall(endpoint);
     }
+    
+    public List<Movie> getDvdMovies() {
+        Gson gson = new Gson();
+        RTResponse response = gson.fromJson(dvdData, RTResponse.class);
+        List<Movie> movies = response.getMovies();
+        for (Movie m : movies) {
+            dvdMovies.add(m);
+        }
+        return dvdMovies;    
+    }
+    
+    public List<Movie> getTheaterMovies() {
+        Gson gson = new Gson();
+        RTResponse response = gson.fromJson(theaterData, RTResponse.class);
+        List<Movie> movies = response.getMovies();
+        for (Movie m : movies) {
+            System.out.print(m);
+            theaterMovies.add(m);
+        }
+        return theaterMovies;    
+    }
+
 
 }
