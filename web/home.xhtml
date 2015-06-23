@@ -13,30 +13,6 @@ and open the template in the editor.
     <h:head>
     </h:head>
     <h:body>
-<<<<<<< HEAD
-        <div>
-            
-        <h:form>
-           <p:panel id="newRentals" header="Top Rentals">
-           
-                <!-- takes the images arrayList of "movie1.jpg, movie2,jpg, etc -->
-                <!-- uses the names to pick the right images in the web/images directory -->  
-                <p:contentFlow value="#{imagesView.images}" var="image">
-                    <p:graphicImage value="images/#{image}" styleClass="content" />
-
-                </p:contentFlow>
-            </p:panel>
-            
-            <br />
-            <p:commandButton value="Delete Account" action="delete"  />
-            <p:commandButton value="New To DVD" action="dvd"  />
-            <p:commandButton value="New To Theaters" action="theaters"  />
-            <p:commandButton value="Logout" action="login"  />
-            <p:commandButton value="Profile" action="profile"  />
-        </h:form>
-        
-        </div>
-=======
         <p:layout fullPage="true" resizeTitle="resize" style="background-color:#FFFFFF;">
         <p:layoutUnit position="north" size="68" id="north" >
             <ui:include src="header.xhtml" />
@@ -58,6 +34,5 @@ and open the template in the editor.
             <h:outputText value="Footer placeholder." />
         </p:layoutUnit>
     </p:layout>
->>>>>>> origin/master
     </h:body>
 </html>
