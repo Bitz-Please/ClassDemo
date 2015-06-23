@@ -53,12 +53,19 @@ public class User implements Serializable {
         return password;
     }
     
+    //The values for 'email', 'address', 'major', and 'additional information' 
+    //live in a 'UserData' object which is stored in a static hash map, which 
+    //lives in a 'UserManager'. The getters for these attributes pull the data 
+    //from that hash map via call to 'userManager'. These getters are called
+    //implictly by 'profile.xhtlm' and 'userInfo.xhtml' to display user info.
+    
+    
     /**
      * Gets user email from userManager
      * @return email
      */
     public String getEmail() { 
-        return userManager.find(username).getEmail();
+        return userManager.getEmail(username);
     }
     
     /**
@@ -66,7 +73,7 @@ public class User implements Serializable {
      * @return address
      */
     public String getAddress() { 
-        return userManager.find(username).getAddress();
+        return userManager.getAddress(username);
     }
     
     /**
@@ -74,7 +81,7 @@ public class User implements Serializable {
      * @return major
      */
     public String getMajor() { 
-        return userManager.find(username).getMajor();
+        return userManager.getMajor(username);
     }
     
     /**
@@ -82,7 +89,7 @@ public class User implements Serializable {
      * @return additionalInfo
      */
     public String getAdditionalInfo() { 
-        return userManager.find(username).getAdditionalInfo();
+        return userManager.getAdditionalInfo(username);
     }
     
     /**
