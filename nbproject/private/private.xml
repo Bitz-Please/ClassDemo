@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/User.java</file>
             <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/login.xhtml</file>
             <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/userInfo.xhtml</file>
@@ -14,6 +15,14 @@
             <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/Navigation.java</file>
             <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/UserData.java</file>
             <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/UserManager.java</file>
+=======
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/profile.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/success.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/welcomePrimefaces.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/src/java/ImagesView.java</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/src/java/User.java</file>
+>>>>>>> origin/master
         </group>
     </open-files>
 </project-private>

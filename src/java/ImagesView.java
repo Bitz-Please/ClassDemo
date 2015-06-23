@@ -9,7 +9,11 @@ import javax.faces.bean.ManagedBean;
 public class ImagesView {
      
     private List<String> images;
-     
+     /**
+      * Creates an arrayList of "movie1.jpg, movie2.jpg, etc"
+      * Used in the contentFlow to know the file names of
+      * what to display in the web/images directory.
+      */
     @PostConstruct
     public void init() {
         images = new ArrayList<String>();
@@ -18,6 +22,9 @@ public class ImagesView {
         }
     }
  
+    /**
+     * @return image arrayList
+     */
     public List<String> getImages() {
         return images;
     }
