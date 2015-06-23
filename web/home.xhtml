@@ -7,14 +7,13 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui" >
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     
     <h:head>
-        <title>Welcome to the App</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    
     <h:body>
+<<<<<<< HEAD
         <div>
             
         <h:form>
@@ -37,5 +36,28 @@ and open the template in the editor.
         </h:form>
         
         </div>
+=======
+        <p:layout fullPage="true" resizeTitle="resize" style="background-color:#FFFFFF;">
+        <p:layoutUnit position="north" size="68" id="north" >
+            <ui:include src="header.xhtml" />
+        </p:layoutUnit>
+
+        <p:layoutUnit position="west" id="west" resizable="false" style="height:580px;overflow:hidden;" size="225">
+            <ui:include src="menu.xhtml" />
+        </p:layoutUnit>
+
+        <p:layoutUnit  position="center" id="centerLayout">
+            <ui:include src="contentF.xhtml" />
+        </p:layoutUnit>
+
+        <p:layoutUnit position="east" size="0" style="width:100px; display:none;" id="east">
+            <h:outputText value="Current Events Placeholder" />
+        </p:layoutUnit>
+
+        <p:layoutUnit position="south" resizable="true" id="south">
+            <h:outputText value="Footer placeholder." />
+        </p:layoutUnit>
+    </p:layout>
+>>>>>>> origin/master
     </h:body>
 </html>
