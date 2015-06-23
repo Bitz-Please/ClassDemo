@@ -109,4 +109,36 @@ public class UserManager {
         }
     }
     
+    /**
+     * Gets user email from users
+     * @return address
+     */
+    public String getEmail(String user) { 
+        return users.get(user).getEmail();
+    }
+    
+    /**
+     * Gets user address from users
+     * @return address
+     */
+    public String getAddress(String user) { 
+        return users.get(user).getAddress();
+    }
+    
+    /**
+     * Gets user major from users
+     * @return major
+     */
+    public String getMajor(String user) { 
+        return users.get(user).getMajor();
+    }
+    
+    /**
+     * Gets user additional info from users
+     * @return additionalInfo
+     */
+    public String getAdditionalInfo(String user) { 
+        return users.get(user).getAdditionalInfo();
+    }
+    
 }
