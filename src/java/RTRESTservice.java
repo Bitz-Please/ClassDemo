@@ -1,6 +1,9 @@
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ApplicationScoped;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -8,9 +11,12 @@ import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class RTApp {
+@ManagedBean (name = "service")
+@ApplicationScoped
 
-    private static String apiKey = "yedukp76ffytfuy24zsqk7f5";
+public class RTRESTservice {
+
+    private final String API_KEY = "yedukp76ffytfuy24zsqk7f5";
 
     /***********************************************
      * Private API starts here                      *
@@ -81,10 +87,10 @@ public class RTApp {
      * @param query The user's search term
      * @return Matched results from rotten tomatoes
      */
-    public static JSONObject rottenRestSearch(String query) {
-        String apiKey = "yedukp76ffytfuy24zsqk7f5";
+    public JSONObject rottenRestSearch(String query) {
+        
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" +
-                apiKey + "&q=" + query;
+                API_KEY + "&q=" + query;
 
         return rottenRestCall(endpoint);
     }
@@ -94,9 +100,9 @@ public class RTApp {
      *
      * @return First page of opening movies from Rotten Tomatoes
      */
-    public static JSONObject rottenRestOpenings() {
+    public JSONObject rottenRestOpenings() {
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/" +
-                "opening.json?apikey=" + apiKey;
+                "opening.json?apikey=" + API_KEY;
 
         return rottenRestCall(endpoint);
     }
@@ -106,17 +112,11 @@ public class RTApp {
      *
      * @return First page of newly released DVDs from Rotten Tomatoes
      */
-    public static JSONObject rottenRestNewDVDs() {
+    public JSONObject rottenRestNewDVDs() {
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/" +
-                "new_releases.json?apikey=" + apiKey;
+                "new_releases.json?apikey=" + API_KEY;
 
         return rottenRestCall(endpoint);
     }
 
-    public static void main(String[] args) throws Exception {
-
-        System.out.println(rottenRestSearch("Clerks")); // or whatever
-        System.out.println(rottenRestOpenings());
-        System.out.println(rottenRestNewDVDs());
-    }
 }
