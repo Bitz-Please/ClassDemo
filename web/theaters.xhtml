@@ -14,7 +14,7 @@ and open the template in the editor.
     <h:body>
         <div>
         <h:form>
-            <p:dataTable id="dvdTable" var="dvd" value="#{rtservice.theaterMovies}" >
+            <p:dataTable id="dvdTable" var="dvd" value="#{rtservice.theaterMovies}" rows="25" paginator="true">
                     <p:column  headerText="Title">
                        <h:outputText value="#{dvd.title}" />
                     </p:column>
