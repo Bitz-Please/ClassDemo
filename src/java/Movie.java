@@ -11,6 +11,7 @@
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.util.ArrayList;
 import java.util.List;
 
 @Generated("org.jsonschema2pojo")
@@ -38,7 +39,7 @@ public class Movie {
     @Expose
     private Posters posters;
     @Expose
-    private List<Actor> abridged_cast;
+    private ArrayList<Actor> abridged_cast;
     @Expose
     private AltIds alternate_ids;
     @Expose
@@ -187,14 +188,14 @@ public class Movie {
     /**
      * @return the abridged_cast
      */
-    public List<Actor> getAbridged_cast() {
+    public ArrayList<Actor> getAbridged_cast() {
         return abridged_cast;
     }
 
     /**
      * @param abridged_cast the abridged_cast to set
      */
-    public void setAbridged_cast(List<Actor> abridged_cast) {
+    public void setAbridged_cast(ArrayList<Actor> abridged_cast) {
         this.abridged_cast = abridged_cast;
     }
 
