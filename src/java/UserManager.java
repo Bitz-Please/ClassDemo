@@ -59,6 +59,7 @@ public class UserManager {
      */
     public void addUsers(String user, String pass) {
         users.put(user, new UserData(user, pass));
+        saveData();
     }
     
     /**
@@ -89,6 +90,8 @@ public class UserManager {
             fos = new FileOutputStream(FILE_NAME);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(users);
+            oos.close();
+            fos.close();
         } catch(Exception e) {
             System.out.println("File not found");
         }
