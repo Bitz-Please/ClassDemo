@@ -39,6 +39,8 @@ public class RTRESTService {
         
         dvdData = rottenRestNewDVDs();
         theaterData = rottenRestOpenings();
+        buildDvdMovies();
+        buildTheaterMovies();
         
     }
     
@@ -158,26 +160,37 @@ public class RTRESTService {
         return rottenRestCall(endpoint);
     }
     
-    public List<Movie> getDvdMovies() {
+    public void buildDvdMovies() {
         Gson gson = new Gson();
         RTResponse response = gson.fromJson(dvdData, RTResponse.class);
         List<Movie> movies = response.getMovies();
         for (Movie m : movies) {
-            dvdMovies.add(m);
-        }
-        return dvdMovies;    
+            getDvdMovies().add(m);
+        }   
     }
     
-    public List<Movie> getTheaterMovies() {
+    public void buildTheaterMovies() {
         Gson gson = new Gson();
         RTResponse response = gson.fromJson(theaterData, RTResponse.class);
         List<Movie> movies = response.getMovies();
         for (Movie m : movies) {
             System.out.print(m);
-            theaterMovies.add(m);
-        }
-        return theaterMovies;    
+            getTheaterMovies().add(m);
+        }    
     }
 
+    /**
+     * @return the dvdMovies
+     */
+    public List<Movie> getDvdMovies() {
+        return dvdMovies;
+    }
+
+    /**
+     * @return the theaterMovies
+     */
+    public List<Movie> getTheaterMovies() {
+        return theaterMovies;
+    }
 
 }
