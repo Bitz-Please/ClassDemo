@@ -129,9 +129,16 @@ public class RTRESTService {
      * @return Matched results from rotten tomatoes
      */
     public String rottenRestSearch(String query) {
-        
+        String[] words = query.split(" ");
+        StringBuilder sentence = new StringBuilder(words[0]);
+
+        for (int i = 1; i < words.length; ++i) {
+            sentence.append("%20");
+            sentence.append(words[i]);
+        }
+
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" +
-                API_KEY + "&q=" + query;
+                API_KEY + "&q=" + sentence.toString();
 
         return rottenRestCall(endpoint);
     }
