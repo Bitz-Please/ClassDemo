@@ -20,7 +20,7 @@ public class RTResponse {
     @Expose
     private int total;
     @Expose
-    private List<Movie> movies;
+    private ArrayList<Movie> movies;
     @Expose
     private Links links;
     @Expose
@@ -43,14 +43,14 @@ public class RTResponse {
     /**
      * @return the movies
      */
-    public List<Movie> getMovies() {
+    public ArrayList<Movie> getMovies() {
         return movies;
     }
 
     /**
      * @param movies the movies to set
      */
-    public void setMovies(List<Movie> movies) {
+    public void setMovies(ArrayList<Movie> movies) {
         this.movies = movies;
     }
 

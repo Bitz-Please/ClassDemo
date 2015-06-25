@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean (name = "rtservice")
 @ApplicationScoped
@@ -34,12 +35,7 @@ public class RTRESTService implements Serializable {
     
     private List<Movie> theaterMovies = new ArrayList<Movie>();
     private String theaterData;
-    
-    private List<Movie> queryMovies = new ArrayList<Movie>();
-    private String queryData;
-    
-    private String query;
-    
+
     
     @PostConstruct
     protected void init() {
@@ -135,10 +131,10 @@ public class RTRESTService implements Serializable {
      * @param query The user's search term
      * @return Matched results from rotten tomatoes
      */
-    public String rottenRestSearch() {
+    public String rottenRestSearch(String search) {
         
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" +
-                API_KEY + "&q=" + query;
+                API_KEY + "&q=" + search;
 
         return rottenRestCall(endpoint);
     }
@@ -186,21 +182,16 @@ public class RTRESTService implements Serializable {
         }    
     }
     
-    public void buildSearch() {
+    public ArrayList<Movie> generateSearch(String queryData) {
         Gson gson = new Gson();
         RTResponse response = gson.fromJson(queryData, RTResponse.class);
-        List<Movie> movies = response.getMovies();
-        for (Movie m : movies) {
-            System.out.print(m);
-            getQueryMovies().add(m);
-        }    
+        ArrayList<Movie> movies = response.getMovies();
+        return movies;
     }
     
-    public String search() {
-        
-        queryData = rottenRestSearch();
-        buildSearch();
-        return "query";
+    public ArrayList<Movie> search(String search) {
+        String queryData = rottenRestSearch(search);
+        return generateSearch(queryData);
     }
     
     
@@ -219,27 +210,6 @@ public class RTRESTService implements Serializable {
      */
     public List<Movie> getTheaterMovies() {
         return theaterMovies;
-    }
-    
-    /**
-     * @return the theaterMovies
-     */
-    public List<Movie> getQueryMovies() {
-        return queryMovies;
-    }
-
-    /**
-     * @return the search
-     */
-    public String getQuery() {
-        return query;
-    }
-
-    /**
-     * @param search the search to set
-     */
-    public void setQuery(String query) {
-        this.query = query;
     }
 
 }

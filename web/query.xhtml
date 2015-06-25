@@ -1,38 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui" >>
+      xmlns:p="http://primefaces.org/ui"         
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Search</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
     </h:head>
     <h:body>
-        <div>
-        <h:form>
-            <p:dataTable id="dvdTable" var="dvd" value="#{rtservice.queryMovies}" rows="25" paginator="true">
-                    <p:column  headerText="Title">
-                       <h:outputText value="#{dvd.title}" />
-                    </p:column>
-
-                    <p:column headerText="Rating">
-                       <h:outputText value="#{dvd.mpaa_rating}" />
-                    </p:column>
-
-                    <p:column headerText="Year">
-                       <h:outputText value="#{dvd.year}" />
-                    </p:column>
-
-                    <p:column headerText="Runtime">
-                       <h:outputText value="#{dvd.runtime}" />
-                    </p:column>
-                 </p:dataTable>
-            <p:commandButton value="Home" action="home"  />
+        <h:form>       
+            <p:panel id="panel" header="Search">
+                <p:messages id="msgs" />
+                    <p:outputLabel for="search" value="Search:" />
+                    <p:inputText id="search" value="#{searchbean.search}" 
+                                 required="true" label="Search">
+                        <f:validateLength minimum="2"/>
+                    </p:inputText>
+                        
+                    <p:message for="search" display="icon" />
+               
+                <p:commandButton update="panel" value="Search" action="#{searchbean.search()}" 
+                             icon="ui-icon-check" />
+                <p:commandButton value="Go Back" action="home" 
+                             icon="ui-icon-arrowthick-1-w"/>
+              
+            </p:panel>  
         </h:form>
-        </div>
     </h:body>
 </html>
+
