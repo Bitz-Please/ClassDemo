@@ -135,7 +135,6 @@ public class RTRESTService implements Serializable {
      * @param query The user's search term
      * @return Matched results from rotten tomatoes
      */
-<<<<<<< HEAD
     public String rottenRestSearch(String query) {
         String[] words = query.split(" ");
         StringBuilder sentence = new StringBuilder(words[0]);
@@ -144,11 +143,6 @@ public class RTRESTService implements Serializable {
             sentence.append("%20");
             sentence.append(words[i]);
         }
-
-=======
-    public String rottenRestSearch() {
-        
->>>>>>> ed8bc73eca8355ef2e0d4fedda39cd9c37775271
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" +
                 API_KEY + "&q=" + sentence.toString();
 
