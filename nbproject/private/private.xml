@@ -3,10 +3,25 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/User.java</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/login.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/oldSuccess.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/menu.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/queryResults.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/profile.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/WEB-INF/web.xml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/searchHeader.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/home.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/UserData.java</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/org/primefaces/showcase/view/multimedia/ImagesView.java</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/ReleaseDates.java</file>
             <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/RTRESTService.java</file>
-            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/conf/MANIFEST.MF</file>
-            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/Navigation.java</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/menu1.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/RTResponse.java</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/index.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/search.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/query.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/web/registration.xhtml</file>
+            <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/SearchBean.java</file>
             <file>file:/Users/joesadler/IdeaProjects/ClassDemo/src/java/UserManager.java</file>
         </group>
     </open-files>

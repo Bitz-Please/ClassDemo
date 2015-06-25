@@ -18,7 +18,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-@ManagedBean
+@ManagedBean (name = "searchbean")
 @SessionScoped
 public class SearchBean implements Serializable {
     
@@ -33,7 +33,7 @@ public class SearchBean implements Serializable {
     public String search(){
         RTRESTService rtService = new RTRESTService();
         setMovies(rtService.search(search));
-        return "queryResults";
+        return "query_results";
     }
 
     /**
