@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import javax.annotation.PostConstruct;
 
 import java.io.Reader;
+import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,11 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean (name = "rtservice")
 @ApplicationScoped
 
-public class RTRESTService {
+public class RTRESTService implements Serializable {
 
     private final String API_KEY = "yedukp76ffytfuy24zsqk7f5";
     
@@ -32,6 +34,11 @@ public class RTRESTService {
     
     private List<Movie> theaterMovies = new ArrayList<Movie>();
     private String theaterData;
+    
+    private List<Movie> queryMovies = new ArrayList<Movie>();
+    private String queryData;
+    
+    private String query;
     
     
     @PostConstruct
@@ -128,6 +135,7 @@ public class RTRESTService {
      * @param query The user's search term
      * @return Matched results from rotten tomatoes
      */
+<<<<<<< HEAD
     public String rottenRestSearch(String query) {
         String[] words = query.split(" ");
         StringBuilder sentence = new StringBuilder(words[0]);
@@ -137,6 +145,10 @@ public class RTRESTService {
             sentence.append(words[i]);
         }
 
+=======
+    public String rottenRestSearch() {
+        
+>>>>>>> ed8bc73eca8355ef2e0d4fedda39cd9c37775271
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" +
                 API_KEY + "&q=" + sentence.toString();
 
@@ -185,6 +197,25 @@ public class RTRESTService {
             getTheaterMovies().add(m);
         }    
     }
+    
+    public void buildSearch() {
+        Gson gson = new Gson();
+        RTResponse response = gson.fromJson(queryData, RTResponse.class);
+        List<Movie> movies = response.getMovies();
+        for (Movie m : movies) {
+            System.out.print(m);
+            getQueryMovies().add(m);
+        }    
+    }
+    
+    public String search() {
+        
+        queryData = rottenRestSearch();
+        buildSearch();
+        return "query";
+    }
+    
+    
 
     /**
      * @return the dvdMovies
@@ -192,12 +223,35 @@ public class RTRESTService {
     public List<Movie> getDvdMovies() {
         return dvdMovies;
     }
+    
+    
 
     /**
      * @return the theaterMovies
      */
     public List<Movie> getTheaterMovies() {
         return theaterMovies;
+    }
+    
+    /**
+     * @return the theaterMovies
+     */
+    public List<Movie> getQueryMovies() {
+        return queryMovies;
+    }
+
+    /**
+     * @return the search
+     */
+    public String getQuery() {
+        return query;
+    }
+
+    /**
+     * @param search the search to set
+     */
+    public void setQuery(String query) {
+        this.query = query;
     }
 
 }
