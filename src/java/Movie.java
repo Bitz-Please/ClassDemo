@@ -86,7 +86,7 @@ public class Movie {
     public void setYear(Integer year) {
         this.year = year;
     }
-
+    
     /**
      * @return the mpaa_rating
      */
@@ -114,7 +114,7 @@ public class Movie {
     public void setRuntime(Integer runtime) {
         this.runtime = runtime;
     }
-
+    
     /**
      * @return the critics_consensus
      */
@@ -142,7 +142,7 @@ public class Movie {
     public void setRelease_dates(ReleaseDates release_dates) {
         this.release_dates = release_dates;
     }
-
+    
     /**
      * @return the ratings
      */
@@ -156,7 +156,7 @@ public class Movie {
     public void setRatings(Ratings ratings) {
         this.ratings = ratings;
     }
-
+    
     /**
      * @return the synopsis
      */
@@ -184,7 +184,7 @@ public class Movie {
     public void setPosters(Posters posters) {
         this.posters = posters;
     }
-
+    
     /**
      * @return the abridged_cast
      */
@@ -198,7 +198,7 @@ public class Movie {
     public void setAbridged_cast(ArrayList<Actor> abridged_cast) {
         this.abridged_cast = abridged_cast;
     }
-
+    
     /**
      * @return the alternate_ids
      */
@@ -212,7 +212,7 @@ public class Movie {
     public void setAlternate_ids(AltIds alternate_ids) {
         this.alternate_ids = alternate_ids;
     }
-
+    
     /**
      * @return the links
      */

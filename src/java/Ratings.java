@@ -51,7 +51,7 @@ class Ratings {
     public void setCritic_score(Integer critic_score) {
         this.critic_score = critic_score;
     }
-
+    
     /**
      * @return the audience_rating
      */

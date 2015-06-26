@@ -1,4 +1,5 @@
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -143,6 +144,7 @@ public class RTRESTService implements Serializable {
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=" +
                 API_KEY + "&q=" + sentence.toString();
 
+        System.out.println("We are searching at ------------> )" + endpoint);
         return rottenRestCall(endpoint);
     }
 
@@ -190,7 +192,9 @@ public class RTRESTService implements Serializable {
     }
     
     public ArrayList<Movie> generateSearch(String queryData) {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().registerTypeAdapter(Integer.class,
+                    new IntegerTypeAdapter()).create();
+        System.out.println("FINAL TEST ---------------------->" + queryData);
         RTResponse response = gson.fromJson(queryData, RTResponse.class);
         ArrayList<Movie> movies = response.getMovies();
         return movies;
@@ -198,6 +202,7 @@ public class RTRESTService implements Serializable {
     
     public ArrayList<Movie> search(String search) {
         String queryData = rottenRestSearch(search);
+        System.out.println("Query Data ------------->" + queryData);
         return generateSearch(queryData);
     }
     
