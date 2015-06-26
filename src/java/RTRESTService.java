@@ -1,3 +1,9 @@
+/*
+    RottenTomatoes API restCall managing class.
+
+    
+*/
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.json.JSONException;
@@ -172,6 +178,12 @@ public class RTRESTService implements Serializable {
         return rottenRestCall(endpoint);
     }
     
+    /**
+     *  Builds the Movie Object Classes based off the JSON movie response info
+     *  from the RottenTomatoes API call. Work done by gson.fromJson()
+     *  The particular query call for rottenTomatoes is the Current DVD 
+     *  releases.
+     */
     public void buildDvdMovies() {
         Gson gson = new Gson();
         RTResponse response = gson.fromJson(dvdData, RTResponse.class);
@@ -181,6 +193,13 @@ public class RTRESTService implements Serializable {
         }   
     }
     
+    
+    /**
+     *  Builds the Movie Object Classes based off the JSON movie response info
+     *  from the RottenTomatoes API call. Work done by gson.fromJson()
+     *  The particular query call for rottenTomatoes is the Current Theater 
+     *  releases.
+     */
     public void buildTheaterMovies() {
         Gson gson = new Gson();
         RTResponse response = gson.fromJson(theaterData, RTResponse.class);
@@ -191,7 +210,15 @@ public class RTRESTService implements Serializable {
         }    
     }
     
-    public ArrayList<Movie> generateSearch(String queryData) {
+    /**
+     *  Turns the JSON response information from RottenTomatoes API into 
+     *  valid Movie objects. Then gives the ArrayList of movies back to be displayed
+     *  to the user who searched.
+     * 
+     * @param queryData The raw JSON query data from RottenTomatoes API
+     * @return 
+     */
+    private ArrayList<Movie> generateSearch(String queryData) {
         Gson gson = new GsonBuilder().registerTypeAdapter(Integer.class,
                     new IntegerTypeAdapter()).create();
         System.out.println("FINAL TEST ---------------------->" + queryData);
@@ -200,6 +227,14 @@ public class RTRESTService implements Serializable {
         return movies;
     }
     
+    /**
+     *  Takes the search information and passes it into the rottenSearch.
+     * 
+     *  Passes the queryData into the formating method generateSearch().
+     * 
+     * @param search The search information that they want to look for
+     * @return 
+     */
     public ArrayList<Movie> search(String search) {
         String queryData = rottenRestSearch(search);
         System.out.println("Query Data ------------->" + queryData);
