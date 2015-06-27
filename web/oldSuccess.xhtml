@@ -10,18 +10,27 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui" >
     
     <h:head>
-        <title>Welcome to the App</title>
+        <title>Welcome to the Application</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     
     <h:body>
         <div>
-            Welcome to the application
             
-            <h:outputText value="#{user.username}" />
-            
-        
         <h:form>
+            <p:panel id="panel" header="Welcome to the Application #{user.username}">
+                <p:messages id="msgs" />
+                <!-- takes the images arrayList of "movie1.jpg, movie2,jpg, etc -->
+                <!-- uses the names to pick the right images in the web/images directory -->  
+                <p:contentFlow value="#{imagesView.images}" var="image" rendered="false" widgetVar="testPanel">
+                    <p:graphicImage value="images/#{image}" styleClass="content" />
+                </p:contentFlow>
+                
+            </p:panel> 
+            <p:contentFlow value="#{imagesView.images}" var="image">
+                <p:graphicImage value="images/#{image}" styleClass="content" />
+                
+            </p:contentFlow>
             <p:accordionPanel rendered="true">
                 <p:tab title="Good Information">
                     <h:outputText value= "Now is the time for all good people to
@@ -37,6 +46,7 @@ and open the template in the editor.
 
             </p:accordionPanel>
             <br />
+            <p:commandButton value="Delete Account" action="delete"  />
             <p:commandButton value="Logout" action="login"  />
             <p:commandButton value="Profile" action="profile"  />
         </h:form>

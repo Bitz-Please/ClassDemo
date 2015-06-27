@@ -18,20 +18,21 @@ import java.io.OutputStream;
 
 /**
  *
- * @author robertwaters
+ * @author bitsplease
  */
 @ManagedBean (name = "userManager")
 @ApplicationScoped
 public class UserManager {
     
+    private final String FILE_NAME; 
     private static Map<String, UserData> users = new HashMap<>();
 
     /**
      * Creates a new instance of UserManager
      */
     public UserManager() {
-      
-        File file = new File("userData.dat");
+        FILE_NAME = "userData.dat";
+        File file = new File(FILE_NAME);
         if (file.length() != 0) {
             loadData();
         } else {
@@ -39,7 +40,9 @@ public class UserManager {
             makeSomeUsers();
         }
     }
-
+    /**
+     * Generates default users to add to users HashMap
+     */
     private void makeSomeUsers() {
         users.put("Bob", new UserData("Bob", "pass"));
         users.put("Sally", new UserData("Sally", "pass"));
@@ -49,36 +52,96 @@ public class UserManager {
   
     }
     
+    /**
+     * Adds a new user to user HashMap
+     * @param user
+     * @param pass 
+     */
     public void addUsers(String user, String pass) {
         users.put(user, new UserData(user, pass));
+        saveData();
     }
     
+    /**
+     * Removes an existing user form user HashMap
+     * @param user
+     * @param pass 
+     */
+    public void removeUser(String user, String pass) {
+        users.remove(user);
+    }
+	
+    /**
+     * Queries user HashMap and returns associated user data
+     * @param username
+     * @return userData
+     */
     UserData find(String username) {
        System.out.println("Looking up user: " + username);
        return users.get(username);
     }
     
+    /**
+     * Writes user HashMap to a data file
+     */
     public void saveData() {
         FileOutputStream fos;
         try {
-            fos = new FileOutputStream("userData.dat");
+            fos = new FileOutputStream(FILE_NAME);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(users);
+            oos.close();
+            fos.close();
         } catch(Exception e) {
-            System.out.println(e);
+            System.out.println("File not found");
         }
            
     }
     
+     /**
+     * Sets 'users' instance variable to object read from data file  
+     */
     public void loadData() {
         FileInputStream fis;
         try {
-            fis = new FileInputStream("userData.dat");
+            fis = new FileInputStream(FILE_NAME);
             ObjectInputStream ois = new ObjectInputStream(fis);
             users = (HashMap) ois.readObject();
         } catch(Exception e) {
-            System.out.println(e);
+            System.out.println("File not found");
         }
+    }
+    
+    /**
+     * Gets user email from users
+     * @return address
+     */
+    public String getEmail(String user) { 
+        return users.get(user).getEmail();
+    }
+    
+    /**
+     * Gets user address from users
+     * @return address
+     */
+    public String getAddress(String user) { 
+        return users.get(user).getAddress();
+    }
+    
+    /**
+     * Gets user major from users
+     * @return major
+     */
+    public String getMajor(String user) { 
+        return users.get(user).getMajor();
+    }
+    
+    /**
+     * Gets user additional info from users
+     * @return additionalInfo
+     */
+    public String getAdditionalInfo(String user) { 
+        return users.get(user).getAdditionalInfo();
     }
     
 }
