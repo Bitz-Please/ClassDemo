@@ -185,7 +185,8 @@ public class RTRESTService implements Serializable {
      *  releases.
      */
     public void buildDvdMovies() {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().registerTypeAdapter(Integer.class,
+                    new IntegerTypeAdapter()).create();
         RTResponse response = gson.fromJson(dvdData, RTResponse.class);
         List<Movie> movies = response.getMovies();
         for (Movie m : movies) {
@@ -201,7 +202,8 @@ public class RTRESTService implements Serializable {
      *  releases.
      */
     public void buildTheaterMovies() {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().registerTypeAdapter(Integer.class,
+                    new IntegerTypeAdapter()).create();
         RTResponse response = gson.fromJson(theaterData, RTResponse.class);
         List<Movie> movies = response.getMovies();
         for (Movie m : movies) {
