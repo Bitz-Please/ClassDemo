@@ -6,17 +6,32 @@ and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+<<<<<<< HEAD
       xmlns:p="http://primefaces.org/ui" >>
+=======
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+>>>>>>> Zack
     <h:head>
         <title>New To DVD</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
+<<<<<<< HEAD
     <h:body>
+=======
+    <h:body style="padding-top: 100px; padding-bottom: 20px;">
+        <ui:include src="header_new.xhtml" />
+>>>>>>> Zack
         <div>
         <h:form>
             <p:dataTable id="dvdTable" var="dvd" value="#{rtservice.dvdMovies}" rows="25" paginator="true">
                     <p:column  headerText="Title">
+<<<<<<< HEAD
                        <h:outputText value="#{dvd.title}" />
+=======
+                        <h:commandLink value="#{dvd.title}" action="#{moviebean.setMovieAndGo(dvd)}">
+                        </h:commandLink>
+>>>>>>> Zack
                     </p:column>
 
                     <p:column headerText="Rating">
