@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author robertwaters
+ * @author bitsplease
  */
 class UserData implements Serializable {
     private String name;
@@ -19,34 +19,66 @@ class UserData implements Serializable {
     private String major;
     private String additionalInfo;
     
-    UserData(String nm, String ps) {
-        name = nm;
-        password = ps;
+    /**
+     * Creates a new instance of UserData
+     */
+    UserData(String name, String password) {
+        this.name = name;
+        this.password = password;
     }
     
-    void updateData(String em, String address, String major, String additionalInfo) {
-        this.email = em;
+    /**
+     * Updates user information 
+     * @param email
+     * @param address
+     * @param major
+     * @param additionalInfo 
+     */
+    void updateData(String email, String address, String major, String additionalInfo) {
+        this.email = email;
         this.address = address;
         this.major = major;
         this.additionalInfo = additionalInfo;
     }
     
-    boolean checkLogin(String p) {
-        return p.equals(password);
+    /**
+     * Checks to see if the user trying to login
+     * has provided the correct password
+     * @param password
+     * @return true if password is correct, false otherwise
+     */
+    boolean checkLogin(String password) {
+        return password.equals(this.password);
     }
     
+    /**
+     * Getter for user email
+     * @return email
+     */
     public String getEmail() {
         return email;
     }
     
+    /**
+     * Getter for user address
+     * @return address
+     */
     public String getAddress() {
         return address;
     }
     
+    /**
+     * Getter for user major
+     * @return major
+     */
     public String getMajor() {
         return major;
     }
     
+    /**
+     * Getter for additional information about user
+     * @return additionalInfo
+     */
     public String getAdditionalInfo() {
         return additionalInfo;
     }
