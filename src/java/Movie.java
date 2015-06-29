@@ -13,9 +13,13 @@ import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
 
 @Generated("org.jsonschema2pojo")
-
+@ManagedBean
+@SessionScoped
 public class Movie {
     
     @Expose
@@ -45,6 +49,10 @@ public class Movie {
     @Expose
     private MovieLinks links;
 
+    public Movie() {
+        System.out.println("Creating Movie");
+    }
+    
     /**
      * @return the id
      */
@@ -227,4 +235,17 @@ public class Movie {
         this.links = links;
     }
     
+    public String getPoster() {
+        String original = getPosters().getProfile();
+        int start = original.lastIndexOf("movie");
+        StringBuilder lastPart = new StringBuilder();
+        
+        for (int i = start; i < original.length() - 7; i++) {
+            lastPart.append(original.charAt(i));
+        }
+        
+        System.out.println("http://content6.flixster.com/" + lastPart.toString() + "det.jpg");
+        
+        return "http://content6.flixster.com/" + lastPart.toString() + "ori.jpg";
+    }
 }

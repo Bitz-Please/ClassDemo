@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"         
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Bits Please Moviematic</title>
+        <meta name="Bits-Please"></meta>
+    </h:head>
+    <!-- Add 50px padding top to the body for the navbar -->
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <ui:include src="header_new.xhtml" />
+        <b:jumbotron>
+            <b:container>
+                <h3>#{user.username}'s Profile!</h3>
+            </b:container>
+
+        </b:jumbotron>
+        <b:container>
+            <b:row>
+                <b:column col-md="4">
+                
+                    <h:outputText value="Email:" />
+                    <h:outputText value="#{user.email}" />
+                    <p><b:button outcome="" value="Edit"/></p>
+                </b:column>
+                <b:column col-md="4">
+                     
+                    <h:outputText value="Major:" />
+                    <h:outputText value="#{user.major}" />
+                    <p><b:button outcome="editProfile" value="Edit" /></p>
+                </b:column>
+                <b:column col-md="4">
+                     
+                    <h:outputText value="Address:" />
+                    <h:outputText value="#{user.address}" />
+                    <p><b:button outcome="" value="Edit"/></p>
+                </b:column>
+            </b:row>
+            <hr/>
+            <footer>
+            <p>© Bits-Please 2015</p>
+            </footer>
+        </b:container>
+
+    </h:body>
+</html>

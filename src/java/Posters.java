@@ -10,10 +10,14 @@
  */
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 @Generated("org.jsonschema2pojo")
-        
-class Posters {
+@ManagedBean (name="posters")
+@SessionScoped
+class Posters implements Serializable {
     
     @Expose
     private String thumbnail;
