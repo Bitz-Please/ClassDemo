@@ -6,32 +6,21 @@ and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-<<<<<<< HEAD
-      xmlns:p="http://primefaces.org/ui" >>
-=======
       xmlns:p="http://primefaces.org/ui" 
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
->>>>>>> Zack
     <h:head>
         <title>Search</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
         <div>
-<<<<<<< HEAD
-        <h:form>
-            <p:dataTable id="dvdTable" var="dvd" value="#{searchbean.movies}" rows="25" paginator="true">
-                    <p:column  headerText="Title">
-                       <h:outputText value="#{dvd.title}" />
-=======
         <ui:include src="header_new.xhtml" />
         <h:form style="padding-top: 15px">
             <p:dataTable id="dvdTable" var="dvd" value="#{searchbean.movies}" rows="25" paginator="true">
                     <p:column  headerText="Title">
                         <h:commandLink value="#{dvd.title}" action="#{moviebean.setMovieAndGo(dvd)}">
                         </h:commandLink>
->>>>>>> Zack
                     </p:column>
 
                     <p:column headerText="Rating">
@@ -46,11 +35,6 @@ and open the template in the editor.
                        <h:outputText value="#{dvd.runtime}" />
                     </p:column>
                  </p:dataTable>
-<<<<<<< HEAD
-            <p:commandButton value="Home" action="home"  />
-=======
-            <!--<p:commandButton value="Home" action="home"  />-->
->>>>>>> Zack
         </h:form>
         </div>
     </h:body>
