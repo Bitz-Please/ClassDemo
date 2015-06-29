@@ -174,7 +174,7 @@ public class User implements Serializable {
     public String addUser() {
         userManager.addUsers(username, password);
         userManager.saveData();
-        return "login";
+        return "login_new";
     }
     
     /**
