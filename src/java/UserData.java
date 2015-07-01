@@ -88,7 +88,7 @@ class UserData implements Serializable {
     
     public String getRating(Movie input) {
         String rating = personalRatings.get(input);
-        
+        System.out.println("MY USER OWNER IS " + name);
         if (rating != null) {
             return rating;
         } else {

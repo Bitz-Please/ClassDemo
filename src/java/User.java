@@ -223,13 +223,14 @@ public class User implements Serializable {
     }
     
     public String getMovieRating(Movie input) {
-        System.out.println("Getting rating for movie " + input.getTitle());
+        System.out.println("Getting rating for movie " + input.getTitle() + " for user " + username);
         return userManager.getRating(input, username);
     }
 
     public String addRating(Movie input, String rating) {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
         userManager.setRating(input, username, rating);
+        input.addRating(rating);
         userManager.saveData();
         return "movie";
         
