@@ -1,3 +1,8 @@
+/*
+    RottenTomatoes API restCall managing class.
+
+    
+*/
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -255,5 +260,4 @@ public class RTRESTService implements Serializable {
     public List<Movie> getTheaterMovies() {
         return theaterMovies;
     }
-
 }

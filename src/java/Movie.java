@@ -52,7 +52,7 @@ public class Movie {
     public Movie() {
         System.out.println("Creating Movie");
     }
-    
+
     /**
      * @return the id
      */
