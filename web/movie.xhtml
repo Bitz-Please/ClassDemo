@@ -33,11 +33,27 @@ and open the template in the editor.
                     </b:column>
 
                     <b:column col-md="4">
-                            <h1>#{moviebean.getMovie().title}</h1>
-                            <p><p:rating value="#{moviebean.getRatings()}" /></p>
+                        <h1>#{moviebean.getMovie().title}</h1>
                             
+                        <b:row>
+                                <h:outputText value="Critic's Rating:" />
+                            <p:rating value="#{moviebean.getRatings()}" />
+                        </b:row>
+                            <br/>
+                        <b:row>
+                                <h:outputText value="Users Rating:" />
+                            <p:rating value="#{moviebean.getRatings()}" />
+                        </b:row>
+                            <br/>
+                        <b:row>
+                                <h:outputText value="Your Rating:" />
+                            <p:rating value="#{moviebean.getRatings()}" />
+                        </b:row>
+                            <br/>
+                        <b:row>
                             <p>#{moviebean.getMovie().synopsis}
                             </p>
+                        </b:row> 
                     </b:column>
                 </b:row>
             </b:container>
