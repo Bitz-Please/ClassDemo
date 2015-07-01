@@ -155,6 +155,7 @@ public class Movie {
      * @return the ratings
      */
     public Ratings getRatings() {
+        System.out.println("I'VE BEEN FOUND, RATING ----" + ratings);
         return ratings;
     }
 

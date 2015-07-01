@@ -3,17 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/query.xhtml</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/Actor.java</file>
             <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/index.xhtml</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/dvd.xhtml</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/Posters.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/RTRESTService.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/theaters.xhtml</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/query_results.xhtml</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/SearchBean.java</file>
             <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/RTResponse.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/Movie.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/Ratings.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/ReleaseDates.java</file>
             <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/home.xhtml</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/contentF.xhtml</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/login.xhtml</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/Movie.java</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/RTRESTService.java</file>
         </group>
     </open-files>
 </project-private>

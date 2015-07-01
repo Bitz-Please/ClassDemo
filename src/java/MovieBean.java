@@ -45,6 +45,7 @@ public class MovieBean implements Serializable {
     }
     
     public Movie getMovie() {
+        System.out.println("I'VE BEEN FOUND, MOVIE-------" + movie);
         return movie;
     }
     
@@ -63,5 +64,16 @@ public class MovieBean implements Serializable {
         
         
         return "http://content6.flixster.com/" + lastPart.toString();
+    }
+    
+    public String getRatings() {
+        Ratings rating = movie.getRatings();
+        if (rating != null) {
+            return "" + rating.getCritics_score();
+        } else {
+            System.out.println("FAILURE");
+            return "5";
+        }
+        
     }
 }

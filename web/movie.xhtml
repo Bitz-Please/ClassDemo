@@ -21,13 +21,15 @@ and open the template in the editor.
         <b:jumbotron>
             <b:container>
                 <b:row>
-                    <b:column col-md="100">
-                        <img src="#{moviebean.getPoster()}" height="auto" width="25%"/>
-                        <p:rating value="#{ratingView.rating1}" />
+                    <b:column col-md="8">
+                        <img src="#{moviebean.getPoster()}" height="auto" width="60%"/>
+                        
                     </b:column>
 
-                    <b:column col-lg="4">
+                    <b:column col-md="4">
                             <h1>#{moviebean.getMovie().title}</h1>
+                            <p><p:rating value="#{moviebean.getRatings()}" /></p>
+                            
                             <p>#{moviebean.getMovie().synopsis}
                             </p>
                     </b:column>
