@@ -19,6 +19,8 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean (name = "moviebean")
 public class MovieBean implements Serializable {
     private Movie movie;
+    private String rate;
+    
     
     /**
      * Constructs a new MOvieBean object
@@ -34,9 +36,18 @@ public class MovieBean implements Serializable {
      */
     public String setMovieAndGo(Movie movie) {
         this.movie = movie;
+        rate = "0";
         return "movie";
     }
     
+    public void setRate(String rate) {
+        System.out.println("Setting Rate");
+        this.rate = rate;
+    }
+    
+    public String getRate() {
+        return rate;
+    }
     /**
      * @return the movie
      */
@@ -72,8 +83,12 @@ public class MovieBean implements Serializable {
             return "" + rating.getCritics_score();
         } else {
             System.out.println("FAILURE");
-            return "5";
+            return "0";
         }
-        
+    }
+    
+    public void rate(User user) {
+        System.out.println("Adding rating " + rate + " to " + movie + " for user " + user.getUsername());
+        user.addRating(movie, rate);
     }
 }

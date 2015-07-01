@@ -34,21 +34,31 @@ and open the template in the editor.
 
                     <b:column col-md="4">
                         <h1>#{moviebean.getMovie().title}</h1>
-                            
+                        <h:form>
                         <b:row>
                                 <h:outputText value="Critic's Rating:" />
-                            <p:rating value="#{moviebean.getRatings()}" />
+                            <p:rating value="#{moviebean.getRatings()}" disabled="true"/>
                         </b:row>
                             <br/>
                         <b:row>
                                 <h:outputText value="Users Rating:" />
-                            <p:rating value="#{moviebean.getRatings()}" />
+                            <p:rating value="#{moviebean.getRatings()}" disabled="true"/>
                         </b:row>
                             <br/>
                         <b:row>
-                                <h:outputText value="Your Rating:" />
-                            <p:rating value="#{moviebean.getRatings()}" />
+                            <h:outputText value="Your Rating:" />
+                            <p:rating id="userRating" value="#{user.getMovieRating(moviebean.getMovie())}" disabled="true" />
                         </b:row>
+                        <b:row>
+                            
+                            <h:outputText value="Enter a new rating:" />
+                            <p:rating value="#{moviebean.rate}" >
+                                <p:ajax event="rate" listener="#{moviebean.rate(user)}" update="userRating"/>
+                             </p:rating>
+                            
+                            <p:commandButton  immediate="true" action="#{user.addRating(moviebean.getMovie(), moviebean.getRate())}"   update="userRating" value="Rate"/>
+                        </b:row>
+                        </h:form>
                             <br/>
                         <b:row>
                             <p>#{moviebean.getMovie().synopsis}
