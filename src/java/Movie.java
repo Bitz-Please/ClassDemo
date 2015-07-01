@@ -49,9 +49,13 @@ public class Movie {
     @Expose
     private MovieLinks links;
     
+    private double avgRating = 0;
+    private int userRatings = 0;
+
     public Movie() {
         System.out.println("Creating Movie");
     }
+
     /**
      * @return the id
      */
@@ -154,6 +158,7 @@ public class Movie {
      * @return the ratings
      */
     public Ratings getRatings() {
+        System.out.println("I'VE BEEN FOUND, RATING ----" + ratings);
         return ratings;
     }
 
@@ -246,5 +251,15 @@ public class Movie {
         System.out.println("http://content6.flixster.com/" + lastPart.toString() + "det.jpg");
         
         return "http://content6.flixster.com/" + lastPart.toString() + "ori.jpg";
+    }
+    
+    public void addRating(String rating) {
+        userRatings++;
+        double newRating = Double.parseDouble(rating);
+        avgRating = ((avgRating * (userRatings - 1)) + newRating) / userRatings;
+    }
+    
+    public Double getAvgRating() {
+        return avgRating;
     }
 }

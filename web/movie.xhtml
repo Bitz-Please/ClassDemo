@@ -20,27 +20,52 @@ and open the template in the editor.
         <ui:include src="header_new.xhtml" />
         <b:jumbotron>
             <b:container>
-                <p:row>
-                    <p>
-                        <p:column>
-                            <img src="#{moviebean.getPoster()}" height="auto" width="25%"/>
-
-                            <p:panelGrid columns="2">
+                <b:row>
+                    <b:column col-md="8">
+                        <p><img src="#{moviebean.getPoster()}" height="auto" width="60%"/></p>
+                        <p:panelGrid columns="2">
                                 <h:outputText value="Rating:" />
                                 <h:outputText value="#{moviebean.movie.mpaa_rating}" />
 
                                 <h:outputText value="Runtime:" />
                                 <h:outputText value="#{moviebean.movie.runtime}" />
-                            </p:panelGrid>
-                        </p:column>
-                    </p>
+                        </p:panelGrid>
+                    </b:column>
 
-                    <p:column>
-                            <h1>#{moviebean.getMovie().title}</h1>
+                    <b:column col-md="4">
+                        <h1>#{moviebean.getMovie().title}</h1>
+                        <h:form>
+                        <b:row>
+                                <h:outputText value="Critic's Rating:" />
+                            <p:rating value="#{moviebean.getRatings()}" disabled="true"/>
+                        </b:row>
+                            <br/>
+                        <b:row>
+                                <h:outputText value="Users Rating:" />
+                            <p:rating value="#{moviebean.getAvgRating()}" disabled="true"/>
+                        </b:row>
+                            <br/>
+                        <b:row>
+                            <h:outputText value="Your Rating:" />
+                            <p:rating id="userRating" value="#{user.getMovieRating(moviebean.getMovie())}" disabled="true" />
+                        </b:row>
+                        <b:row>
+                            
+                            <h:outputText value="Enter a new rating:" />
+                            <p:rating value="#{moviebean.rate}" >
+                                <p:ajax event="rate" listener="#{moviebean.rate(user)}" update="userRating"/>
+                             </p:rating>
+                            
+                            <p:commandButton  immediate="true" action="#{user.addRating(moviebean.getMovie(), moviebean.getRate())}"   update="userRating" value="Rate"/>
+                        </b:row>
+                        </h:form>
+                            <br/>
+                        <b:row>
                             <p>#{moviebean.getMovie().synopsis}
                             </p>
-                    </p:column>
-                </p:row>
+                        </b:row> 
+                    </b:column>
+                </b:row>
             </b:container>
         </b:jumbotron>
         <b:container>

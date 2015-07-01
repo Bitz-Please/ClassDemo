@@ -5,6 +5,8 @@
  */
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -24,6 +26,7 @@ public class User implements Serializable {
     private String address;
     private String major;
     private String additionalInfo;
+    
     
     @ManagedProperty("#{userManager}")
     private UserManager userManager;
@@ -218,5 +221,18 @@ public class User implements Serializable {
         userManager.saveData();
         return "profile";
     }
+    
+    public String getMovieRating(Movie input) {
+        System.out.println("Getting rating for movie " + input.getTitle() + " for user " + username);
+        return userManager.getRating(input, username);
+    }
 
+    public String addRating(Movie input, String rating) {
+        System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
+        userManager.setRating(input, username, rating);
+        input.addRating(rating);
+        userManager.saveData();
+        return "movie";
+        
+    }
 }

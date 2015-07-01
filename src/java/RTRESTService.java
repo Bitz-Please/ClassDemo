@@ -260,5 +260,4 @@ public class RTRESTService implements Serializable {
     public List<Movie> getTheaterMovies() {
         return theaterMovies;
     }
-
 }
