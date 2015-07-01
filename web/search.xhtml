@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    
+    <h:head>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true" resizeTitle="resize" style="background-color:#FFFFFF;">
+        <p:layoutUnit position="north" size="100" id="north" >
+            <ui:include src="searchHeader.xhtml"/>
+        </p:layoutUnit>
+
+        <p:layoutUnit position="west" id="west" resizable="false" style="height:580px;overflow:hidden;" size="225">
+            <ui:include src="menu.xhtml" />
+        </p:layoutUnit>
+
+        <p:layoutUnit  position="center" id="centerLayout">
+            <ui:include src="contentF.xhtml" />
+        </p:layoutUnit>
+
+        <p:layoutUnit position="east" size="0" style="width:0px; display:none;" id="east">
+            <h:outputText value="Top unit content." />
+        </p:layoutUnit>
+
+        <p:layoutUnit position="south" resizable="true" id="south">
+            <h:outputText value="Top unit content." />
+        </p:layoutUnit>
+    </p:layout>
+    </h:body>
+</html>

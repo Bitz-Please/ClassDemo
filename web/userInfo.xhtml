@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"         
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title> User Info </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <ui:include src="header_new.xhtml" />
+        <div>
+            <h:outputText value="#{user.username}" />
+        </div>
+        <div>
+            <h:form>
+                <p:panel id="panel">
+                    <h:panelGrid columns="3" cellpadding="5">
+                        <p:outputLabel for="email" value="Email:" />
+                        <p:inputText id="email" value="#{user.email}" 
+                                     required="false" label="Email">
+                        </p:inputText>
+                        <p:message for="email" display="icon" />
+                        
+                        <p:outputLabel for="address" value="Address:" />
+                        <p:inputText id="address" value="#{user.address}" 
+                                     required="false" label="Address">                             
+                        </p:inputText>                    
+                        <p:message for="address" display="icon" />
+                        
+                        <p:outputLabel for="major" value="Major:" />
+                        <p:inputText id="major" value="#{user.major}" 
+                                     required="false" label="Major">
+                        </p:inputText>
+                        <p:message for="major" display="icon" />
+                        
+                        <p:outputLabel for="additionalInfo" value="Additional Information:" />
+                        <p:inputTextarea id="additionalInfo" value="#{user.additionalInfo}" 
+                                     required="false" label="AdditionalInfo">
+                        </p:inputTextarea>
+                      
+                        <p:message for="additionalInfo" display="icon" />
+                        
+                    </h:panelGrid>
+                    <p:commandButton update="panel" value="Update" action="#{user.updateUserData()}"  />
+                    <p:commandButton update="panel" value="Cancel" action="profile"  />
+                </p:panel>
+            </h:form>
+        </div>
+    </h:body>
+</html>
