@@ -4,11 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/megi/ClassDemo/src/java/UserData.java</file>
+            <file>file:/Users/megi/ClassDemo/src/java/SearchBean.java</file>
             <file>file:/Users/megi/ClassDemo/web/delete.xhtml</file>
             <file>file:/Users/megi/ClassDemo/src/java/MovieBean.java</file>
             <file>file:/Users/megi/ClassDemo/src/java/RTRESTService.java</file>
             <file>file:/Users/megi/ClassDemo/src/java/Movie.java</file>
             <file>file:/Users/megi/ClassDemo/src/java/org/primefaces/showcase/view/multimedia/ImagesView.java</file>
+            <file>file:/Users/megi/ClassDemo/src/java/org/primefaces/showcase/view/input/RatingView.java</file>
+            <file>file:/Users/megi/ClassDemo/src/java/MovieLinks.java</file>
         </group>
     </open-files>
 </project-private>
