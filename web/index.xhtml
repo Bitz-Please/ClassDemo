@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"         
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+    
     <h:head>
         <title>Hello CS2340</title>
         
@@ -15,8 +17,10 @@
                     <p:messages id="msgs" />
                     <p:outputLabel value="Enjoy your stay!" />
                     <h:panelGrid columns="3" cellpadding="5" > 
-                    <p:commandButton update="panel" value="Login Page" action="login"  />
-                    <p:commandButton update="panel" value="Register" action="registration"
+                    <b:commandButton update="panel" value="Login Page" action="login_new.xhtml"  />
+                    <b:commandButton update="panel" value="Register" action="registration.xhtml"
+                                 icon="ui-icon-plus" />
+                    <b:commandButton update="panel" value="test" action="contentFlow.xhtml"
                                  icon="ui-icon-plus" />
                     </h:panelGrid> 
 
@@ -26,4 +30,3 @@
         </center>
     </h:body>
 </html>
-

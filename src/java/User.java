@@ -5,6 +5,8 @@
  */
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -24,6 +26,7 @@ public class User implements Serializable {
     private String address;
     private String major;
     private String additionalInfo;
+    
     
     @ManagedProperty("#{userManager}")
     private UserManager userManager;
@@ -164,7 +167,7 @@ public class User implements Serializable {
             return null;
         }
         System.out.println("Login Success");
-            return "success";
+            return "home_new"; //"home"
     }
     
     /**
@@ -173,8 +176,8 @@ public class User implements Serializable {
      */
     public String addUser() {
         userManager.addUsers(username, password);
-        userManager.saveData();
-        return "login";
+        
+        return "userInfo";
     }
     
     /**
@@ -216,7 +219,37 @@ public class User implements Serializable {
         UserData data = userManager.find(username);
         data.updateData(email, address, major, additionalInfo);
         userManager.saveData();
-        return "profile";
+        return "profile_new";
+    }
+    
+    /**
+     * 
+     * @param input
+     * @return 
+     */
+    public String getMovieRating(Movie input) {
+        System.out.println("Getting rating for movie " + input.getTitle() + " for user " + username);
+        return userManager.getRating(input, username);
     }
 
+    /**
+     * 
+     * @param input
+     * @param rating
+     * @return 
+     */
+    public String addRating(Movie input, String rating) {
+        System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
+        userManager.setRating(input, username, rating);
+        input.addRatings(rating, username);
+        userManager.saveData();
+        return "movie";
+        
+    }
+    
+    /*
+    public String getRating(Movie input) {
+        
+    }
+    */
 }

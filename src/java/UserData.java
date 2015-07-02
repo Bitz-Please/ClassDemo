@@ -1,5 +1,7 @@
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,6 +20,7 @@ class UserData implements Serializable {
     private String address;
     private String major;
     private String additionalInfo;
+    private Map<Movie, String> personalRatings = new HashMap<>();
     
     /**
      * Creates a new instance of UserData
@@ -81,6 +84,22 @@ class UserData implements Serializable {
      */
     public String getAdditionalInfo() {
         return additionalInfo;
+    }
+    
+    public String getRating(Movie input) {
+        String rating = personalRatings.get(input);
+        System.out.println("MY USER OWNER IS " + name);
+        if (rating != null) {
+            return rating;
+        } else {
+            return "0";
+        }   
+    }
+    
+    public void setRating(Movie input, String rating) {
+        System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
+        personalRatings.put(input, rating);
+        
     }
     
 }

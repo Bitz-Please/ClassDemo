@@ -10,7 +10,7 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui" >
     
     <h:head>
-        <title>Welcome to the App</title>
+        <title>Welcome to the Application</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     
@@ -20,6 +20,8 @@ and open the template in the editor.
         <h:form>
             <p:panel id="panel" header="Welcome to the Application #{user.username}">
                 <p:messages id="msgs" />
+                <!-- takes the images arrayList of "movie1.jpg, movie2,jpg, etc -->
+                <!-- uses the names to pick the right images in the web/images directory -->  
                 <p:contentFlow value="#{imagesView.images}" var="image" rendered="false" widgetVar="testPanel">
                     <p:graphicImage value="images/#{image}" styleClass="content" />
                 </p:contentFlow>
