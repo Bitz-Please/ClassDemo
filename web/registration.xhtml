@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"         
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>Hello CS2340</title>
         
@@ -33,9 +34,9 @@
                     
                 </h:panelGrid>
                
-                <p:commandButton update="panel" value="Register User" action="#{user.addUser()}" 
+                <b:commandButton update="panel" value="Register User" action="#{user.addUser()}" 
                              icon="ui-icon-check" />
-                <p:commandButton update="panel" value="Cancel" action="login_new"
+                <b:commandButton update="panel" value="Cancel" action="login_new"
                              icon="ui-icon-arrowthick-1-w" />
                 
               
