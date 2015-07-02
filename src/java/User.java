@@ -167,6 +167,7 @@ public class User implements Serializable {
             return null;
         }
         System.out.println("Login Success");
+        userManager.saveData();
             return "home_new"; //"home"
     }
     

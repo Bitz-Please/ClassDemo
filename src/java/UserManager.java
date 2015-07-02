@@ -91,6 +91,7 @@ public class UserManager {
             oos.writeObject(users);
             oos.close();
             fos.close();
+            System.out.println("saved");
         } catch(Exception e) {
             System.out.println("File not found");
         }
@@ -106,6 +107,7 @@ public class UserManager {
             fis = new FileInputStream(FILE_NAME);
             ObjectInputStream ois = new ObjectInputStream(fis);
             users = (HashMap) ois.readObject();
+            
         } catch(Exception e) {
             System.out.println("File not found");
         }
