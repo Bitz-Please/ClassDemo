@@ -27,6 +27,7 @@ public class MovieManager {
     private final String FILE_NAME; 
     private static Map<String, Movie> movies = new HashMap<>();
     private ArrayList<Movie> currentQuery;
+    private static Map<String, 
     
     
     public MovieManager() {
@@ -91,6 +92,9 @@ public class MovieManager {
         
     }
     
+    public void addMajorRating(String major, Movie ratedMovie, String rating) {
+        
+    }
     
     /*
     public String callMovie(String title) {
