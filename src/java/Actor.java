@@ -10,10 +10,11 @@
  */
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 import java.util.List;
 
 @Generated("org.jsonschema2pojo")
-class Actor {
+class Actor implements Serializable {
     
     @Expose
     private String name;

@@ -10,10 +10,11 @@
  */
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 
 @Generated("org.jsonschema2pojo")
 
-public class AlternateIds {
+public class AlternateIds implements Serializable {
     @Expose
     private String imbd;
 }

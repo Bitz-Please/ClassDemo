@@ -31,6 +31,9 @@ public class User implements Serializable {
     @ManagedProperty("#{userManager}")
     private UserManager userManager;
     
+    @ManagedProperty("#{movieManager}")
+    private MovieManager movieManager;
+    
 
     /**
      * Creates a new instance of User
@@ -212,13 +215,21 @@ public class User implements Serializable {
     }
     
     /**
+     * Connects movieManager with User
+     * @param movieManager 
+     */
+    public void setMovieManager(MovieManager movieManager) {
+        this.movieManager = movieManager;
+    }
+    
+    /**
      * Provides userManager with user data to store
      * @return profile
      */
     public String updateUserData() {
         UserData data = userManager.find(username);
         data.updateData(email, address, major, additionalInfo);
-        userManager.saveData();
+        userManager.saveBinary();
         return "profile_new";
     }
     
@@ -242,9 +253,9 @@ public class User implements Serializable {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
         userManager.setRating(input, username, rating);
         input.addRatings(rating, username);
-        userManager.saveData();
+        userManager.saveBinary();
+        movieManager.saveBinary();
         return "movie";
-        
     }
     
     /*
