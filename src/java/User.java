@@ -246,4 +246,10 @@ public class User implements Serializable {
         return "movie";
         
     }
+    
+    /*
+    public String getRating(Movie input) {
+        
+    }
+    */
 }
