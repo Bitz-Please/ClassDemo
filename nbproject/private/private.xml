@@ -3,30 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/Users/megi/ClassDemo/src/java/UserData.java</file>
-            <file>file:/Users/megi/ClassDemo/src/java/SearchBean.java</file>
-            <file>file:/Users/megi/ClassDemo/web/delete.xhtml</file>
-            <file>file:/Users/megi/ClassDemo/src/java/MovieBean.java</file>
-            <file>file:/Users/megi/ClassDemo/src/java/RTRESTService.java</file>
-            <file>file:/Users/megi/ClassDemo/src/java/Movie.java</file>
-            <file>file:/Users/megi/ClassDemo/src/java/org/primefaces/showcase/view/multimedia/ImagesView.java</file>
-            <file>file:/Users/megi/ClassDemo/src/java/org/primefaces/showcase/view/input/RatingView.java</file>
-            <file>file:/Users/megi/ClassDemo/src/java/MovieLinks.java</file>
-=======
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/query.xhtml</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/Actor.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/index.xhtml</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/query_results.xhtml</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/SearchBean.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/RTResponse.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/home.xhtml</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/login.xhtml</file>
+
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/UserData.java</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/login_new.xhtml</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/User.java</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/movie.xhtml</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/MovieBean.java</file>
+            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/UserManager.java</file>
             <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/Movie.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/userInfo.xhtml</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/Ratings.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/RTRESTService.java</file>
->>>>>>> origin/Tim
         </group>
     </open-files>
 </project-private>

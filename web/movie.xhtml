@@ -41,7 +41,7 @@ and open the template in the editor.
                         </b:row>
                             <br/>
                         <b:row>
-                                <h:outputText value="Users Rating:" />
+                                <h:outputText value="Users Rating: #{moviebean.getMovie().getNumRatings()}" />
                             <p:rating value="#{moviebean.getAvgRating()}" disabled="true"/>
                         </b:row>
                             <br/>

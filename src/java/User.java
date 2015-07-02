@@ -222,15 +222,26 @@ public class User implements Serializable {
         return "profile";
     }
     
+    /**
+     * 
+     * @param input
+     * @return 
+     */
     public String getMovieRating(Movie input) {
         System.out.println("Getting rating for movie " + input.getTitle() + " for user " + username);
         return userManager.getRating(input, username);
     }
 
+    /**
+     * 
+     * @param input
+     * @param rating
+     * @return 
+     */
     public String addRating(Movie input, String rating) {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
         userManager.setRating(input, username, rating);
-        input.addRating(rating);
+        input.addRatings(rating, username);
         userManager.saveData();
         return "movie";
         
