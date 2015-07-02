@@ -21,7 +21,7 @@ and open the template in the editor.
         <div>
             <b:jumbotron>
             <b:container>
-                <h1>#{user.username}'s Profile Page</h1>
+                <h1>#{user.username}'s Edit Profile Page</h1>
                 <p>Please update your info below!
                 </p>
 <!--                <p>
@@ -62,11 +62,42 @@ and open the template in the editor.
                         <!--<b:row>-->
                         
                         <p:outputLabel for="chooseMajor" value="Choose Your Major:" style="padding-top:10px; padding-left: 0px" />
-                        <p:selectOneListbox id="chooseMajor" value="#{user.major}" required="true" >
-                            <f:selectItem itemLabel="Computer Science" itemValue="Computer Science" />
-                            <f:selectItem itemLabel="Option 2" itemValue="2" />
-                            <f:selectItem itemLabel="Option 3" itemValue="3" />
-                        </p:selectOneListbox>
+                        <p:selectOneMenu id="chooseMajor" value="#{user.major}" required="true" >
+                            <f:selectItem itemLabel="Aerospace Engineering" itemValue="Aerospace Engineering " />
+                            <f:selectItem itemLabel="Applied Languages and Intercultural Studies" itemValue="Applied Languages and Intercultural Studies " />
+                            <f:selectItem itemLabel="Applied Mathematics" itemValue="Applied Mathematics " />
+                            <f:selectItem itemLabel="Applied Physics" itemValue="Applied Physics " />
+                            <f:selectItem itemLabel="Architecture" itemValue="Architecture " />
+                            <f:selectItem itemLabel="Biochemistry" itemValue="Biochemistry " />
+                            <f:selectItem itemLabel="Biology" itemValue="Biology " />
+                            <f:selectItem itemLabel="Biomedical Engineering" itemValue="Biomedical Engineering " />
+                            <f:selectItem itemLabel="Business Administration" itemValue="Business Administration " />
+                            <f:selectItem itemLabel="Chemical and Biomolecular Engineering" itemValue="Chemical and Biomolecular Engineering " />
+                            <f:selectItem itemLabel="Chemistry" itemValue="Chemistry " />
+                            <f:selectItem itemLabel="Civil Engineering" itemValue="Civil Engineering " />
+                            <f:selectItem itemLabel="Computational Media" itemValue="Computational Media " />
+                            <f:selectItem itemLabel="Computer Engineering" itemValue="Computer Engineering " />
+                            <f:selectItem itemLabel="Computer Science" itemValue="Computer Science " />
+                            <f:selectItem itemLabel="Discrete Mathematics" itemValue="Discrete Mathematics " />
+                            <f:selectItem itemLabel="Earth and Atmospheric Sciences" itemValue="Earth and Atmospheric Sciences " />
+                            <f:selectItem itemLabel="Economics" itemValue="Economics " />
+                            <f:selectItem itemLabel="Economics and International Affairs" itemValue="Economics and International Affairs " />
+                            <f:selectItem itemLabel="Electrical Engineering" itemValue="Electrical Engineering " />
+                            <f:selectItem itemLabel="Environmental Engineering" itemValue="Environmental Engineering " />
+                            <f:selectItem itemLabel="Global Economics and Modern Languages" itemValue="Global Economics and Modern Languages " />
+                            <f:selectItem itemLabel="History, Technology, and Society" itemValue="History, Technology, and Society " />
+                            <f:selectItem itemLabel="Industrial Design" itemValue="Industrial Design " />
+                            <f:selectItem itemLabel="Industrial Engineering" itemValue="Industrial Engineering " />
+                            <f:selectItem itemLabel="International Affairs" itemValue="International Affairs " />
+                            <f:selectItem itemLabel="International Affairs and Modern Language" itemValue="International Affairs and Modern Language " />
+                            <f:selectItem itemLabel="Literature, Media, and Communication" itemValue="Literature, Media, and Communication " />
+                            <f:selectItem itemLabel="Materials Science and Engineering" itemValue="Materials Science and Engineering " />
+                            <f:selectItem itemLabel="Mechanical Engineering" itemValue="Mechanical Engineering " />
+                            <f:selectItem itemLabel="Nuclear and Radiological Engineering" itemValue="Nuclear and Radiological Engineering " />
+                            <f:selectItem itemLabel="Physics" itemValue="Physics " />
+                            <f:selectItem itemLabel="Psychology" itemValue="Psychology " />
+                            <f:selectItem itemLabel="Public Policy" itemValue="Public Policy " />
+                        </p:selectOneMenu>
                         <!--<p:message for="chooseMajor" display="icon" />-->
                         <!--</b:row>-->
                     </h:panelGrid>
