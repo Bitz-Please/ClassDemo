@@ -56,7 +56,6 @@ and open the template in the editor.
                                 <p:ajax event="rate" listener="#{moviebean.rate(user)}" update="userRating"/>
                              </p:rating>
                             
-                            <p:commandButton  immediate="true" action="#{user.addRating(moviebean.getMovie(), moviebean.getRate())}"   update="userRating" value="Rate"/>
                         </b:row>
                         </h:form>
                             <br/>

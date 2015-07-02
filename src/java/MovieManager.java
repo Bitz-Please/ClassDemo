@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javax.faces.bean.ApplicationScoped;
@@ -19,12 +20,13 @@ import javax.faces.bean.ManagedBean;
  * @author megi
  */
 
-@ManagedBean (name = "movieManager")
+@ManagedBean (name = "moviemanager")
 @ApplicationScoped
 public class MovieManager {
     
     private final String FILE_NAME; 
-    private static Map<String, MovieBean> movies = new HashMap<>();
+    private static Map<String, Movie> movies = new HashMap<>();
+    private ArrayList<Movie> currentQuery;
     
     
     public MovieManager() {
@@ -32,20 +34,21 @@ public class MovieManager {
         File file = new File(FILE_NAME);
         if (file.length() != 0) {
             loadData();
-    }
+        }
     }
     
     
-    public String addMovie(String title, Movie mov) {
-        
-        
-        MovieBean m = new MovieBean(mov);
-        if (!movies.containsKey(title)) {
-            movies.put(title,m);
-            saveData();
+    public String addMovie(ArrayList<Movie> newMovies) {
+
+        currentQuery = newMovies;
+        for(Movie mov : newMovies) {
+            if (!this.movies.containsKey(mov.getTitle())) {
+                this.movies.put(mov.getTitle() ,mov);
+                saveData();
+            } 
         }
         
-        return callMovie(title);
+        return "query_results";
     }
     
     
@@ -76,14 +79,22 @@ public class MovieManager {
     
     
     public Movie getMovie(String title) {
-        MovieBean mov = movies.get(title);
-        return mov.getMovie();
+        return movies.get(title);
+    }
+    
+    public ArrayList<Movie> getCurrentQuery() {
+        ArrayList<Movie> ret = new ArrayList<Movie>();
+        for(Movie current : currentQuery) {
+            ret.add(movies.get(current.getTitle()));
+        }
+        return ret;
+        
     }
     
     
-    
+    /*
     public String callMovie(String title) {
         return movies.get(title).setMovieAndGo();
-    }
+    } */
     
 }

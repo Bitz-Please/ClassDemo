@@ -25,10 +25,9 @@ public class MovieBean implements Serializable {
     /**
      * Constructs a new MOvieBean object
      */
-    public MovieBean(Movie movie) {
+    public MovieBean() {
         System.out.println("Creating MovieBean!!");
-        rate = "0";
-        this.movie = movie;
+        
     }
     
     /**
@@ -36,7 +35,8 @@ public class MovieBean implements Serializable {
      * @param movie
      * @return 
      */
-    public String setMovieAndGo() {
+    public String setMovieAndGo(Movie movie) {
+        this.movie = movie;
         return "movie";
     }
     

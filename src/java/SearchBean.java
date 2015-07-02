@@ -30,10 +30,10 @@ public class SearchBean implements Serializable {
         
     }
     
-    public String search(){
+    public ArrayList<Movie> search(){
         RTRESTService rtService = new RTRESTService();
         setMovies(rtService.search(search));
-        return "query_results";
+        return movies;
     }
 
     /**
