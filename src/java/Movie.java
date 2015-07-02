@@ -11,6 +11,7 @@
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,7 +23,7 @@ import javax.faces.bean.SessionScoped;
 @Generated("org.jsonschema2pojo")
 @ManagedBean
 @SessionScoped
-public class Movie {
+public class Movie implements Serializable{
     
     @Expose
     private String id;
@@ -54,6 +55,7 @@ public class Movie {
     private double avgRating = 0;
     private int userRatings = 0;
     private Map<String, Double> userCheck = new HashMap<>();
+    private int teach = 0;
 
     public Movie() {
         System.out.println("Creating Movie");

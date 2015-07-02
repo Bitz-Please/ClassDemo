@@ -3,14 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/UserData.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/login_new.xhtml</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/User.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/web/movie.xhtml</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/MovieBean.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/UserManager.java</file>
-            <file>file:/C:/Users/Timothy/Desktop/School%20Ga%20Tech/CS%202340/ClassDemo/src/java/Movie.java</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/login_new.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/src/java/MovieBean.java</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/src/java/UserManager.java</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/dvd.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/src/java/RTRESTService.java</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/index.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/header_new.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/userInfo.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/query_results.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/theaters.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/src/java/UserData.java</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/src/java/Posters.java</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/src/java/Movie.java</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/header.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/src/java/Actor.java</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/web/home_new.xhtml</file>
+            <file>file:/C:/Users/tleeo_000/Desktop/gt%20files/CS%202340/ClassDemo/src/java/User.java</file>
         </group>
     </open-files>
 </project-private>
