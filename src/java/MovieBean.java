@@ -91,7 +91,6 @@ public class MovieBean implements Serializable {
     public void rate(User user, MovieManager manage) {
         System.out.println("Adding rating " + rate + " to " + movie + " for user " + user.getUsername());
         user.addRating(movie, rate);
-        manage.addMajorRating(user.getMajor(), movie, rate);
         rate = "0";
     }
     

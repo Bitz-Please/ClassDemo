@@ -87,7 +87,7 @@ class UserData implements Serializable {
     }
     
     public String getRating(Movie input) {
-        String rating = personalRatings.get(input);
+        String rating = getPersonalRatings().get(input);
         System.out.println("MY USER OWNER IS " + name);
         if (rating != null) {
             return rating;
@@ -98,8 +98,17 @@ class UserData implements Serializable {
     
     public void setRating(Movie input, String rating) {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
-        personalRatings.put(input, rating);
+        getPersonalRatings().put(input, rating);
         
     }
+
+    /**
+     * @return the personalRatings
+     */
+    public Map<Movie, String> getPersonalRatings() {
+        return personalRatings;
+    }
+    
+   
     
 }

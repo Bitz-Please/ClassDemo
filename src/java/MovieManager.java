@@ -5,8 +5,10 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
@@ -27,7 +29,7 @@ public class MovieManager {
     private final String FILE_NAME; 
     private static Map<String, Movie> movies = new HashMap<>();
     private ArrayList<Movie> currentQuery;
-    private static Map<String, 
+    private String currentRecommendation;
     
     
     public MovieManager() {
@@ -91,14 +93,63 @@ public class MovieManager {
         return ret;
         
     }
-    
-    public void addMajorRating(String major, Movie ratedMovie, String rating) {
+
+    public Set<Map.Entry<Movie, RecommendedMovie>> getRecommended(UserManager manage) {
+        // Get all users
+        Map<String, UserData> usersTemp = manage.getUserMap();
+        Set<Map.Entry<String, UserData>> allUsers = usersTemp.entrySet();
         
+        ArrayList<Map<Movie, String>> ratedMoviesByMajor = new ArrayList<>();
+        
+        // Filter out only users with a major
+        for (Map.Entry<String, UserData> current : allUsers) {
+            if (current.getValue().getMajor().equals(currentRecommendation)) {
+                ratedMoviesByMajor.add(current.getValue().getPersonalRatings());
+            }
+        }
+        
+        // Start building new list.
+        ArrayList<Movie> currentMovies = new ArrayList<Movie>();
+        Map<Movie, RecommendedMovie> ret = new HashMap<>();
+        
+        for (Map<Movie, String> current: ratedMoviesByMajor) {
+            Set<Map.Entry<Movie, String>> individualRatings = current.entrySet();
+            
+            
+            for (Map.Entry<Movie, String> individualMovie : individualRatings) {
+                if (!currentMovies.contains(individualMovie.getKey())) {
+                    currentMovies.add(individualMovie.getKey());
+                    ret.put(individualMovie.getKey(), new RecommendedMovie(individualMovie));
+                } else {
+                    ret.get(individualMovie.getKey()).addRating(individualMovie.getValue());
+                }
+            }
+        
+        }
+        
+        
+        
+        return ret.entrySet();
     }
+    
     
     /*
     public String callMovie(String title) {
         return movies.get(title).setMovieAndGo();
     } */
+
+    /**
+     * @return the currentRecommendation
+     */
+    public String getCurrentRecommendation() {
+        return currentRecommendation;
+    }
+
+    /**
+     * @param currentRecommendation the currentRecommendation to set
+     */
+    public void setCurrentRecommendation(String currentRecommendation) {
+        this.currentRecommendation = currentRecommendation;
+    }
     
 }

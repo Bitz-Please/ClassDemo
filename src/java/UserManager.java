@@ -152,4 +152,8 @@ public class UserManager {
         users.get(user).setRating(input, rating);
     }
     
+    public Map<String, UserData> getUserMap() {
+        return users;
+    }
+    
 }

@@ -23,7 +23,7 @@ import javax.faces.bean.SessionScoped;
 @Generated("org.jsonschema2pojo")
 @ManagedBean
 @SessionScoped
-public class Movie implements Serializable{
+public class Movie implements Serializable, Comparable{
     
     @Expose
     private String id;
@@ -272,11 +272,11 @@ public class Movie implements Serializable{
         if (oldRating == null) {
             userRatings++;
             double newRating = Double.parseDouble(rating);
-            avgRating = ((avgRating * (userRatings - 1)) + newRating) / userRatings;
+            setAvgRating(((avgRating * (userRatings - 1)) + newRating) / userRatings);
             userCheck.put(username, newRating);
         } else {
             double newRating = Double.parseDouble(rating);
-            avgRating = ((avgRating * userRatings) - oldRating + newRating) / userRatings;
+            setAvgRating(((avgRating * userRatings) - oldRating + newRating) / userRatings);
             userCheck.put(username, newRating);
         }
     }
@@ -288,7 +288,27 @@ public class Movie implements Serializable{
         return avgRating;
     }
     
-    public int getNumRatings() {
+    public int getUserRatings() {
         return userRatings;
+    }
+    
+    /**
+     * @param avgRating the avgRating to set
+     */
+    public void setAvgRating(double avgRating) {
+        this.avgRating = avgRating;
+    }
+
+    /**
+     * @param userRatings the userRatings to set
+     */
+    public void setUserRatings(int userRatings) {
+        this.userRatings = userRatings;
+    }
+    
+    @Override
+    public int compareTo(Object o) {
+        Movie other = (Movie) o;
+        return (int) (this.avgRating - other.getAvgRating());
     }
 }
