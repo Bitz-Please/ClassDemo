@@ -90,6 +90,7 @@ public class MovieBean implements Serializable {
     public void rate(User user) {
         System.out.println("Adding rating " + rate + " to " + movie + " for user " + user.getUsername());
         user.addRating(movie, rate);
+        rate = "0";
     }
     
     public String getAvgRating() {

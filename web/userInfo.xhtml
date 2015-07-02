@@ -9,7 +9,8 @@ and open the template in the editor.
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"         
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title> User Info </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,39 +22,45 @@ and open the template in the editor.
             <h:outputText value="#{user.username}" />
         </div>
         <div>
-            <h:form>
+            <b:container>
+                <h:form>
                 <p:panel id="panel">
                     <h:panelGrid columns="3" cellpadding="5">
-                        <p:outputLabel for="email" value="Email:" />
+                        <h:column >
+                        <p:outputLabel for="email" value="Email:" style="padding-top:10px; padding-left: 25px"/>
                         <p:inputText id="email" value="#{user.email}" 
-                                     required="false" label="Email">
+                                     required="false" label="Email" style="padding-top:10px; padding-left: 25px">
                         </p:inputText>
                         <p:message for="email" display="icon" />
                         
-                        <p:outputLabel for="address" value="Address:" />
+                        <p:outputLabel for="address" value="Address:" style="padding-top:10px; padding-left: 25px"/>
                         <p:inputText id="address" value="#{user.address}" 
-                                     required="false" label="Address">                             
+                                     required="false" label="Address" style="padding-top:10px; padding-left: 25px">                             
                         </p:inputText>                    
                         <p:message for="address" display="icon" />
                         
-                        <p:outputLabel for="major" value="Major:" />
-                        <p:inputText id="major" value="#{user.major}" 
-                                     required="false" label="Major">
-                        </p:inputText>
-                        <p:message for="major" display="icon" />
                         
-                        <p:outputLabel for="additionalInfo" value="Additional Information:" />
+                        
+                        <p:outputLabel for="additionalInfo" value="Additional Information:" style="padding-top:10px; padding-left: 25px" />
                         <p:inputTextarea id="additionalInfo" value="#{user.additionalInfo}" 
-                                     required="false" label="AdditionalInfo">
+                                     required="false" label="AdditionalInfo" >
                         </p:inputTextarea>
                       
                         <p:message for="additionalInfo" display="icon" />
-                        
+                        </h:column>
+                        <h:column>
+                            <p:selectOneListbox id="basic" value="#{user.major}" required="true" >
+                            <f:selectItem itemLabel="Computer Science" itemValue="Computer Science" />
+                            <f:selectItem itemLabel="Option 2" itemValue="2" />
+                            <f:selectItem itemLabel="Option 3" itemValue="3" />
+                        </p:selectOneListbox>
+                        </h:column>
                     </h:panelGrid>
                     <p:commandButton update="panel" value="Update" action="#{user.updateUserData()}"  />
                     <p:commandButton update="panel" value="Cancel" action="profile"  />
                 </p:panel>
-            </h:form>
+                </h:form>
+            </b:container>
         </div>
     </h:body>
 </html>

@@ -176,8 +176,8 @@ public class User implements Serializable {
      */
     public String addUser() {
         userManager.addUsers(username, password);
-        userManager.saveData();
-        return "login_new";
+        
+        return "userInfo";
     }
     
     /**
@@ -219,7 +219,7 @@ public class User implements Serializable {
         UserData data = userManager.find(username);
         data.updateData(email, address, major, additionalInfo);
         userManager.saveData();
-        return "profile";
+        return "profile_new";
     }
     
     /**
