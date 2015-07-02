@@ -48,7 +48,7 @@ public class Movie implements Serializable{
     @Expose
     private ArrayList<Actor> abridged_cast;
     @Expose
-    private AltIds alternate_ids;
+    private AlternateIds alternate_ids;
     @Expose
     private MovieLinks links;
     
@@ -219,14 +219,14 @@ public class Movie implements Serializable{
     /**
      * @return the alternate_ids
      */
-    public AltIds getAlternate_ids() {
+    public AlternateIds getAlternate_ids() {
         return alternate_ids;
     }
 
     /**
      * @param alternate_ids the alternate_ids to set
      */
-    public void setAlternate_ids(AltIds alternate_ids) {
+    public void setAlternate_ids(AlternateIds alternate_ids) {
         this.alternate_ids = alternate_ids;
     }
     
