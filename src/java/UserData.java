@@ -20,7 +20,7 @@ class UserData implements Serializable {
     private String address;
     private String major;
     private String additionalInfo;
-    private static Map<Movie, String> personalRatings = new HashMap<>();
+    private Map<Movie, String> personalRatings = new HashMap<>();
     
     /**
      * Creates a new instance of UserData
