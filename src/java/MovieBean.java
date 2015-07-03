@@ -29,6 +29,8 @@ public class MovieBean implements Serializable {
         System.out.println("Creating MovieBean!!");
     }
     
+    
+    
     /**
      * Called from CommandLinks to set movie attribute and go to the movie page
      * @param movie
@@ -39,15 +41,24 @@ public class MovieBean implements Serializable {
         return "movie";
     }
     
+    /**
+     * Sets the rating of the movie
+     * @param rate 
+     */
     public void setRate(String rate) {
         System.out.println("Setting Rate");
         this.rate = rate;
     }
     
+    /**
+     * gets the rate of the movie
+     * @return the rate
+     */
     public String getRate() {
         return rate;
     }
     /**
+     * Gets the movie
      * @return the movie
      */
     public Movie getMovie() {
@@ -56,6 +67,7 @@ public class MovieBean implements Serializable {
     }
     
     /**
+     * Gets the poster of the movie
      * @return the full res poster URL
      */
     public String getPoster() {
@@ -76,6 +88,10 @@ public class MovieBean implements Serializable {
         }
     }
     
+    /**
+     * Gets the rating of a particular movie
+     * @return the rating
+     */
     public String getRatings() {
         Ratings rating = movie.getRatings();
         if (rating != null) {
@@ -85,13 +101,21 @@ public class MovieBean implements Serializable {
             return "0";
         }
     }
-    
+    /**
+     * Lets a user rate a movie
+     * @param user the user rating the movie
+     */
     public void rate(User user) {
         System.out.println("Adding rating " + rate + " to " + movie + " for user " + user.getUsername());
         user.addRating(movie, rate);
+        //manage.addMajorRating(user.getMajor(), movie, rate);
         rate = "0";
     }
     
+    /**
+     * Gets the average rating for a movie
+     * @return the average rating
+     */
     public String getAvgRating() {
         return "" + movie.getAvgRating().intValue();
     }

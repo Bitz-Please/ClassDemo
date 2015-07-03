@@ -5,7 +5,7 @@
  */
 
 /**
- *
+ *Class that stores the ratings of a particular movie
  * @author joesadler
  */
 import javax.annotation.Generated;
@@ -26,6 +26,7 @@ class Ratings implements Serializable {
     private Integer audience_score;
 
     /**
+     * getter for the critic's rating
      * @return the critics_rating
      */
     public String getCritics_rating() {
@@ -33,6 +34,7 @@ class Ratings implements Serializable {
     }
 
     /**
+     * setter for the critic's rating
      * @param critics_rating the critics_rating to set
      */
     public void setCritics_rating(String critics_rating) {
@@ -40,6 +42,7 @@ class Ratings implements Serializable {
     }
 
     /**
+     * getter for the critic's score
      * @return the critic_score
      */
     public Integer getCritics_score() {
@@ -48,6 +51,7 @@ class Ratings implements Serializable {
     }
 
     /**
+     * setter for the critic's score
      * @param critic_score the critic_score to set
      */
     public void setCritics_score(Integer critic_score) {
@@ -55,6 +59,7 @@ class Ratings implements Serializable {
     }
     
     /**
+     * getter for the audience's rating
      * @return the audience_rating
      */
     public String getAudience_rating() {
@@ -62,6 +67,7 @@ class Ratings implements Serializable {
     }
 
     /**
+     * setter for the audience's rating
      * @param audience_rating the audience_rating to set
      */
     public void setAudience_rating(String audience_rating) {
@@ -69,6 +75,7 @@ class Ratings implements Serializable {
     }
 
     /**
+     * getter for the audience's score
      * @return the audience_score
      */
     public Integer getAudience_score() {
@@ -76,6 +83,7 @@ class Ratings implements Serializable {
     }
 
     /**
+     * setter for the audience's score
      * @param audience_score the audience_score to set
      */
     public void setAudience_score(Integer audience_score) {

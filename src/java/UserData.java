@@ -10,7 +10,7 @@ import java.util.Map;
  */
 
 /**
- *
+ *Stores the data of the current user
  * @author bitsplease
  */
 class UserData implements Serializable {
@@ -24,6 +24,8 @@ class UserData implements Serializable {
     
     /**
      * Creates a new instance of UserData
+     * @param name the name of the user
+     * @param password password of the user account
      */
     UserData(String name, String password) {
         this.name = name;
@@ -32,10 +34,10 @@ class UserData implements Serializable {
     
     /**
      * Updates user information 
-     * @param email
-     * @param address
-     * @param major
-     * @param additionalInfo 
+     * @param email the email of the user
+     * @param address the address of the user
+     * @param major the major of the user
+     * @param additionalInfo any extra information about the user
      */
     void updateData(String email, String address, String major, String additionalInfo) {
         this.email = email;
@@ -86,6 +88,12 @@ class UserData implements Serializable {
         return additionalInfo;
     }
     
+    
+    /**
+     * Gets the user's rating of a particular movie
+     * @param input the movie object to get the rating of
+     * @return the rating of the movie
+     */
     public String getRating(Movie input) {
         String rating = personalRatings.get(input);
         System.out.println("MY USER OWNER IS " + name);
@@ -96,6 +104,11 @@ class UserData implements Serializable {
         }   
     }
     
+    /**
+     * Sets the user's rating on a particular movie
+     * @param input the movie to be rated
+     * @param rating the rating
+     */
     public void setRating(Movie input, String rating) {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
         personalRatings.put(input, rating);

@@ -18,7 +18,7 @@ import javax.faces.bean.ManagedBean;
  * and open the template in the editor.
  */
 /**
- *
+ *Class that manages the movies rated by the users
  * @author megi
  */
 
@@ -28,13 +28,20 @@ public final class MovieManager {
     
     private static Map<String, Movie> movies = new HashMap<>();
     private ArrayList<Movie> currentQuery;
+    //private static Map<String, 
     
-    
+    /**
+     * Creates the movie manager object
+     */
     public MovieManager() {
         loadBinary();
     }
     
-    
+    /**
+     * Adds movies to the existing list of movies
+     * @param newMovies the movies to add
+     * @return the results of the query
+     */
     public String addMovie(ArrayList<Movie> newMovies) {
 
         currentQuery = newMovies;
@@ -48,8 +55,8 @@ public final class MovieManager {
         return "query_results";
     }
     
+    
     public void saveBinary() {
-        
         try {
             ObjectOutputStream os = new ObjectOutputStream(
                     new FileOutputStream(getPath() + "resources/savedMovies.bin"));
@@ -100,10 +107,19 @@ public final class MovieManager {
 //    }
     
     
+    /**
+     * Gets a particular movie
+     * @param title the title of the movie
+     * @return the movie
+     */
     public Movie getMovie(String title) {
         return movies.get(title);
     }
     
+    /**
+     * Getter for the current query
+     * @return the current query of movies
+     */
     public ArrayList<Movie> getCurrentQuery() {
         ArrayList<Movie> ret = new ArrayList<Movie>();
         for(Movie current : currentQuery) {
@@ -126,8 +142,10 @@ public final class MovieManager {
         
         return lastPart.toString().replace("%20", " ") + "/";
     }
-    
-    
+   
+    public void addMajorRating(String major, Movie ratedMovie, String rating) {
+        
+    }
     /*
     public String callMovie(String title) {
         return movies.get(title).setMovieAndGo();
