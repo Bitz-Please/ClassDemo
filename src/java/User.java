@@ -14,7 +14,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 /**
- *Hold the data for a particular user
+ *
  * @author bitsplease
  */
 @ManagedBean
@@ -171,7 +171,7 @@ public class User implements Serializable {
         }
         System.out.println("Login Success");
         userManager.saveBinary();
-        return "home_new"; //"home"
+            return "home_new"; //"home"
     }
     
     /**
@@ -257,6 +257,7 @@ public class User implements Serializable {
         userManager.saveBinary();
         movieManager.saveBinary();
         return "movie";
+        
     }
     
     /*

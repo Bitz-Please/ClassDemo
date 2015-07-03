@@ -5,7 +5,7 @@
  */
 
 /**
- *Holds information about an actor in a particular movie
+ *
  * @author joesadler
  */
 import javax.annotation.Generated;
@@ -24,7 +24,6 @@ class Actor implements Serializable {
     private List<String> characters;
 
     /**
-     * Getter for the name of the actor
      * @return the name
      */
     public String getName() {
@@ -32,7 +31,6 @@ class Actor implements Serializable {
     }
 
     /**
-     * Setter for name of the actor
      * @param name the name to set
      */
     public void setName(String name) {
@@ -40,7 +38,6 @@ class Actor implements Serializable {
     }
    
     /**
-     * Getter for the id of the actor
      * @return the id
      */
     public String getId() {
@@ -48,7 +45,6 @@ class Actor implements Serializable {
     }
 
     /**
-     * Setter for the id of an actor
      * @param id the id to set
      */
     public void setId(String id) {
@@ -56,7 +52,6 @@ class Actor implements Serializable {
     }
 
     /**
-     * Getter for all of the characters an actor has played
      * @return the characters
      */
     public List<String> getCharacters() {
@@ -64,7 +59,6 @@ class Actor implements Serializable {
     }
 
     /**
-     * Setter for the characters an actor has played
      * @param characters the characters to set
      */
     public void setCharacters(List<String> characters) {

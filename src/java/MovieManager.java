@@ -5,12 +5,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.*;
 import java.util.Set;
+import java.util.logging.*;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 
@@ -20,30 +21,24 @@ import javax.faces.bean.ManagedBean;
  * and open the template in the editor.
  */
 /**
- *Class that manages the movies rated by the users
+ *
  * @author megi
  */
 
 @ManagedBean (name = "movieManager")
 @ApplicationScoped
-public final class MovieManager {
-    
+public class MovieManager implements Serializable {
+     
     private static Map<String, Movie> movies = new HashMap<>();
     private ArrayList<Movie> currentQuery;
     private String currentRecommendation;
     
-    /**
-     * Creates the movie manager object
-     */
+    
     public MovieManager() {
         loadBinary();
     }
     
-    /**
-     * Adds movies to the existing list of movies
-     * @param newMovies the movies to add
-     * @return the results of the query
-     */
+    
     public String addMovie(ArrayList<Movie> newMovies) {
 
         currentQuery = newMovies;
@@ -57,7 +52,9 @@ public final class MovieManager {
         return "query_results";
     }
     
-    
+    /**
+     * Saves the persistent data in the project's Resources folder
+     */
     public void saveBinary() {
         try {
             ObjectOutputStream os = new ObjectOutputStream(
@@ -69,6 +66,10 @@ public final class MovieManager {
         }
     }
     
+    
+    /**
+     * Loads the persistent data in the project's Resources folder
+     */
     public void loadBinary() {
         try {
             ObjectInputStream is = new ObjectInputStream(
@@ -82,46 +83,11 @@ public final class MovieManager {
         }
     }
     
-//    
-//    public void saveData() {
-//        FileOutputStream fos;
-//        try {
-//            fos = new FileOutputStream(FILE_NAME);
-//            ObjectOutputStream oos = new ObjectOutputStream(fos);
-//            oos.writeObject(movies);
-//            oos.close();
-//            fos.close();
-//        } catch(Exception e) {
-//            System.out.println("File not found");
-//        }
-//           
-//    }
-//    
-//    public void loadData() {
-//        FileInputStream fis;
-//        try {
-//            fis = new FileInputStream(FILE_NAME);
-//            ObjectInputStream ois = new ObjectInputStream(fis);
-//            movies = (HashMap) ois.readObject();
-//        } catch(Exception e) {
-//            System.out.println("File not found");
-//        }
-//    }
     
-    
-    /**
-     * Gets a particular movie
-     * @param title the title of the movie
-     * @return the movie
-     */
     public Movie getMovie(String title) {
         return movies.get(title);
     }
     
-    /**
-     * Getter for the current query
-     * @return the current query of movies
-     */
     public ArrayList<Movie> getCurrentQuery() {
         ArrayList<Movie> ret = new ArrayList<Movie>();
         for(Movie current : currentQuery) {
@@ -129,20 +95,6 @@ public final class MovieManager {
         }
         return ret;
         
-    }
-    
-    private String getPath() {
-        String path = UserManager.class.getProtectionDomain().getCodeSource().getLocation().getPath();
-        
-        int last = path.lastIndexOf("ClassDemo");
-        
-        StringBuilder lastPart = new StringBuilder();
-        
-        for (int i = 0; i < last + 9; i++) {
-            lastPart.append(path.charAt(i));
-        }
-        
-        return lastPart.toString().replace("%20", " ") + "/";
     }
 
     public Set<Map.Entry<Movie, RecommendedMovie>> getRecommended(UserManager manage) {
@@ -179,8 +131,11 @@ public final class MovieManager {
         }
         
         
+        
         return ret.entrySet();
     }
+    
+    
     /*
     public String callMovie(String title) {
         return movies.get(title).setMovieAndGo();
@@ -198,6 +153,20 @@ public final class MovieManager {
      */
     public void setCurrentRecommendation(String currentRecommendation) {
         this.currentRecommendation = currentRecommendation;
+    }
+    
+    private String getPath() {
+        String path = UserManager.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        
+        int last = path.lastIndexOf("ClassDemo");
+        
+        StringBuilder lastPart = new StringBuilder();
+        
+        for (int i = 0; i < last + 9; i++) {
+            lastPart.append(path.charAt(i));
+        }
+        
+        return lastPart.toString().replace("%20", " ") + "/";
     }
     
 }

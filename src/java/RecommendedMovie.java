@@ -10,7 +10,7 @@ import java.util.Map;
  */
 
 /**
- *The recommended movie object that the recommender algorithm comes up with
+ *
  * @author Timothy
  */
 
@@ -29,7 +29,6 @@ public class RecommendedMovie {
     
     
     /**
-     * Getter for the movie object
      * @return the movie
      */
     public Movie getMovie() {
@@ -37,7 +36,6 @@ public class RecommendedMovie {
     }
 
     /**
-     * Setter for the movie object
      * @param movie the movie to set
      */
     public void setMovie(Movie movie) {

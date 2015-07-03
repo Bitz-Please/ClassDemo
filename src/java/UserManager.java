@@ -16,7 +16,6 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.io.Serializable;
 import java.util.logging.*;
 
 /**
@@ -25,23 +24,14 @@ import java.util.logging.*;
  */
 @ManagedBean (name = "userManager")
 @ApplicationScoped
-public class UserManager implements Serializable {
-    
-//    private final String FILE_NAME; 
+public class UserManager {
+     
     private static Map<String, UserData> users = new HashMap<>();
 
     /**
      * Creates a new instance of UserManager
      */
     public UserManager() {
-//        FILE_NAME = "userData.dat";
-//        File file = new File(FILE_NAME);
-//        if (file.length() != 0) {
-//            loadData();
-//        } else {
-//            System.out.println("Creating User Manager");
-//            makeSomeUsers();
-//        }
         loadBinary();
     }
     /**
@@ -62,7 +52,6 @@ public class UserManager implements Serializable {
      */
     public void addUsers(String user, String pass) {
         users.put(user, new UserData(user, pass));
-//        saveData();
         saveBinary();
     }
     
@@ -85,6 +74,9 @@ public class UserManager implements Serializable {
        return users.get(username);
     }
     
+    /**
+     * Saves the binary files for persistent data in the project's Resources folder
+     */
     public void saveBinary() {
         
         try {
@@ -97,6 +89,10 @@ public class UserManager implements Serializable {
         }
     }
     
+    
+    /**
+     * Loads the binary files for persistent data in the project's Resources folder
+     */
     public void loadBinary() {
         try {
             ObjectInputStream is = new ObjectInputStream(
@@ -110,38 +106,6 @@ public class UserManager implements Serializable {
         }
     }
     
-//    /**
-//     * Writes user HashMap to a data file
-//     */
-//    public void saveData() {
-//        FileOutputStream fos;
-//        try {
-//            fos = new FileOutputStream(FILE_NAME);
-//            ObjectOutputStream oos = new ObjectOutputStream(fos);
-//            oos.writeObject(users);
-//            oos.close();
-//            fos.close();
-//            System.out.println("Saving Data in Users");
-//        } catch(Exception e) {
-//            System.out.println("UserManage: File not found");
-//        }
-//           
-//    }
-    
-//     /**
-//     * Sets 'users' instance variable to object read from data file  
-//     */
-//    public void loadData() {
-//        FileInputStream fis;
-//        try {
-//            fis = new FileInputStream(FILE_NAME);
-//            ObjectInputStream ois = new ObjectInputStream(fis);
-//            users = (HashMap) ois.readObject();
-//        } catch(Exception e) {
-//            System.out.println("File not found");
-//        }
-//    }
-//    
     /**
      * Gets user email from users
      * @return address
@@ -174,25 +138,17 @@ public class UserManager implements Serializable {
         return users.get(user).getAdditionalInfo();
     }
     
-    /**
-     * Gets a particular user's rating of a particular movie
-     * @param input the movie 
-     * @param user the user 
-     * @return 
-     */
     public String getRating(Movie input, String user) {
         return users.get(user).getRating(input);
     }
     
-    /**
-     * sets the rating of a particular movie from a particular user
-     * @param input the movie to be rated
-     * @param user the user rating the movie
-     * @param rating the rating
-     */
     public void setRating(Movie input, String user, String rating) {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
         users.get(user).setRating(input, rating);
+    }
+    
+    public Map<String, UserData> getUserMap() {
+        return users;
     }
     
     private String getPath() {
@@ -207,10 +163,6 @@ public class UserManager implements Serializable {
         }
         
         return lastPart.toString().replace("%20", " ") + "/";
-    }
-    
-    public Map<String, UserData> getUserMap() {
-        return users;
     }
     
 }
