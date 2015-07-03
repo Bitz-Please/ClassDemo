@@ -356,4 +356,32 @@ public class Movie implements Serializable, Comparable{
         Movie other = (Movie) o;
         return (int) (this.avgRating - other.getAvgRating());
     }
+    
+    /**
+     * Equals method for Movie Class
+     * @param other the object for equality to be checked
+     * @return whether the Movie is equal or not
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) {
+            return false;
+        }
+        if (this == other) {
+            return true;
+        }
+        if (!(other instanceof Movie)) {
+            return false;
+        }
+        Movie that = (Movie) other;
+        return this.getId().equals(that.getId());
+    }
+    
+    /**
+     * @return the hashCode of the movie based on its unique iD
+     */
+    @Override
+    public int hashCode() {
+        return this.getId().hashCode();
+    }
 }
