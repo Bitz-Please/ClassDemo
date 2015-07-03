@@ -5,7 +5,7 @@
  */
 
 /**
- *
+ *Class that deals with the release dates of movies
  * @author joesadler
  */
 import javax.annotation.Generated;
@@ -21,6 +21,7 @@ class ReleaseDates {
     private String dvd;
 
     /**
+     * Getter for the theater of the movie
      * @return the theater
      */
     public String getTheater() {
@@ -28,6 +29,7 @@ class ReleaseDates {
     }
 
     /**
+     * setter for the theater of the movie
      * @param theater the theater to set
      */
     public void setTheater(String theater) {
@@ -35,6 +37,7 @@ class ReleaseDates {
     }
 
     /**
+     * Getter for the name of the dvd
      * @return the dvd
      */
     public String getDvd() {
@@ -42,6 +45,7 @@ class ReleaseDates {
     }
 
     /**
+     * setter for the name of the dvd
      * @param dvd the dvd to set
      */
     public void setDvd(String dvd) {

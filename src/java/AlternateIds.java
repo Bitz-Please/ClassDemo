@@ -5,7 +5,7 @@
  */
 
 /**
- *
+ * AlternateIds class
  * @author joesadler
  */
 import javax.annotation.Generated;

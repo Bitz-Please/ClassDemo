@@ -5,7 +5,7 @@
  */
 
 /**
- *
+ *The class for the movie object that holds information about a particular movie
  * @author joesadler
  */
 
@@ -57,11 +57,15 @@ public class Movie implements Serializable{
     private Map<String, Double> userCheck = new HashMap<>();
     private int teach = 0;
 
+    /**
+     * Creates the movie object
+     */
     public Movie() {
         System.out.println("Creating Movie");
     }
 
     /**
+     * Gets the id of the movie
      * @return the id
      */
     public String getId() {
@@ -69,6 +73,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * sets the id of the movie
      * @param id the id to set
      */
     public void setId(String id) {
@@ -76,6 +81,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Gets the title of the movie
      * @return the title
      */
     public String getTitle() {
@@ -83,6 +89,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Sets the title of the movie
      * @param title the title to set
      */
     public void setTitle(String title) {
@@ -90,6 +97,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Gets the year the movie was released
      * @return the year
      */
     public Integer getYear() {
@@ -97,6 +105,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Sets the year the movie was released
      * @param year the year to set
      */
     public void setYear(Integer year) {
@@ -104,6 +113,7 @@ public class Movie implements Serializable{
     }
     
     /**
+     * Gets the MPAA rating of the movie
      * @return the mpaa_rating
      */
     public String getMpaa_rating() {
@@ -111,6 +121,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Sets the MPAA rating of the movie
      * @param mpaa_rating the mpaa_rating to set
      */
     public void setMpaa_rating(String mpaa_rating) {
@@ -118,6 +129,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Gets the runtime of the movie
      * @return the runtime
      */
     public Integer getRuntime() {
@@ -125,6 +137,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Sets the runtime of the movie
      * @param runtime the runtime to set
      */
     public void setRuntime(Integer runtime) {
@@ -132,6 +145,7 @@ public class Movie implements Serializable{
     }
     
     /**
+     * Gets the critic's rating
      * @return the critics_consensus
      */
     public String getCritics_consensus() {
@@ -139,6 +153,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Sets the critic's rating
      * @param critics_consensus the critics_consensus to set
      */
     public void setCritics_consensus(String critics_consensus) {
@@ -153,6 +168,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Gets the release dates of the movie
      * @param release_dates the release_dates to set
      */
     public void setRelease_dates(ReleaseDates release_dates) {
@@ -160,6 +176,7 @@ public class Movie implements Serializable{
     }
     
     /**
+     * gets the ratings of the movie
      * @return the ratings
      */
     public Ratings getRatings() {
@@ -168,6 +185,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * sets the ratings of the movie
      * @param ratings the ratings to set
      */
     public void setRatings(Ratings ratings) {
@@ -175,6 +193,7 @@ public class Movie implements Serializable{
     }
     
     /**
+     * Getter for the synopsis 
      * @return the synopsis
      */
     public String getSynopsis() {
@@ -182,6 +201,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Setter for the synopsis
      * @param synopsis the synopsis to set
      */
     public void setSynopsis(String synopsis) {
@@ -189,6 +209,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Getter for the poster
      * @return the posters
      */
     public Posters getPosters() {
@@ -196,6 +217,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Setter for the poster
      * @param posters the posters to set
      */
     public void setPosters(Posters posters) {
@@ -203,6 +225,7 @@ public class Movie implements Serializable{
     }
     
     /**
+     * Getter for the cast
      * @return the abridged_cast
      */
     public ArrayList<Actor> getAbridged_cast() {
@@ -210,6 +233,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Setter for the cast
      * @param abridged_cast the abridged_cast to set
      */
     public void setAbridged_cast(ArrayList<Actor> abridged_cast) {
@@ -217,6 +241,7 @@ public class Movie implements Serializable{
     }
     
     /**
+     * Getter for the alternate ids
      * @return the alternate_ids
      */
     public AltIds getAlternate_ids() {
@@ -224,6 +249,7 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Setter for the alternate ids
      * @param alternate_ids the alternate_ids to set
      */
     public void setAlternate_ids(AltIds alternate_ids) {
@@ -231,6 +257,7 @@ public class Movie implements Serializable{
     }
     
     /**
+     * Getter for the links
      * @return the links
      */
     public MovieLinks getLinks() {
@@ -238,12 +265,16 @@ public class Movie implements Serializable{
     }
 
     /**
+     * Setter for the links
      * @param links the links to set
      */
     public void setLinks(MovieLinks links) {
         this.links = links;
     }
-    
+    /**
+     * getter for the poster
+     * @return 
+     */
     public String getPoster() {
         String original = getPosters().getProfile();
         int start = original.lastIndexOf("movie");
@@ -282,12 +313,17 @@ public class Movie implements Serializable{
     }
     
     /**
+     * getter for the average rating of the movie
      * @return Average Rating of the movie
      */
     public Double getAvgRating() {
         return avgRating;
     }
     
+    /**
+     * Getter for the number of ratings a movie has
+     * @return 
+     */
     public int getNumRatings() {
         return userRatings;
     }

@@ -5,7 +5,7 @@
  */
 
 /**
- *
+ *Class that manages the posters of a movie
  * @author joesadler
  */
 import javax.annotation.Generated;
@@ -29,6 +29,7 @@ class Posters implements Serializable {
     private String original;
 
     /**
+     * Getter for the thumbnail of the movie
      * @return the thumbnail
      */
     public String getThumbnail() {
@@ -36,6 +37,7 @@ class Posters implements Serializable {
     }
 
     /**
+     * Setter for the thumbnail of the movie
      * @param thumbnail the thumbnail to set
      */
     public void setThumbnail(String thumbnail) {
@@ -43,6 +45,7 @@ class Posters implements Serializable {
     }
 
     /**
+     * getter for the profile of the movie
      * @return the profile
      */
     public String getProfile() {
@@ -50,6 +53,7 @@ class Posters implements Serializable {
     }
 
     /**
+     * setter for the profile of the movie
      * @param profile the profile to set
      */
     public void setProfile(String profile) {
@@ -57,6 +61,7 @@ class Posters implements Serializable {
     }
 
     /**
+     * getter for the details of the movie
      * @return the detailed
      */
     public String getDetailed() {
@@ -64,6 +69,7 @@ class Posters implements Serializable {
     }
 
     /**
+     * setter for the details of the movie
      * @param detailed the detailed to set
      */
     public void setDetailed(String detailed) {

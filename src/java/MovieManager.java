@@ -16,7 +16,7 @@ import javax.faces.bean.ManagedBean;
  * and open the template in the editor.
  */
 /**
- *
+ *Class that manages the movies rated by the users
  * @author megi
  */
 
@@ -29,7 +29,9 @@ public class MovieManager {
     private ArrayList<Movie> currentQuery;
     //private static Map<String, 
     
-    
+    /**
+     * Creates the movie manager object
+     */
     public MovieManager() {
         FILE_NAME = "movieData.dat";
         File file = new File(FILE_NAME);
@@ -38,7 +40,11 @@ public class MovieManager {
         }
     }
     
-    
+    /**
+     * Adds movies to the existing list of movies
+     * @param newMovies the movies to add
+     * @return the results of the query
+     */
     public String addMovie(ArrayList<Movie> newMovies) {
 
         currentQuery = newMovies;
@@ -53,6 +59,9 @@ public class MovieManager {
     }
     
     
+    /**
+     * Saves the rated movies
+     */
     public void saveData() {
         FileOutputStream fos;
         try {
@@ -67,6 +76,9 @@ public class MovieManager {
            
     }
     
+    /**
+     * laods the existing rated movies 
+     */
     public void loadData() {
         FileInputStream fis;
         try {
@@ -79,10 +91,19 @@ public class MovieManager {
     }
     
     
+    /**
+     * Gets a particular movie
+     * @param title the title of the movie
+     * @return the movie
+     */
     public Movie getMovie(String title) {
         return movies.get(title);
     }
     
+    /**
+     * Getter for the current query
+     * @return the current query of movies
+     */
     public ArrayList<Movie> getCurrentQuery() {
         ArrayList<Movie> ret = new ArrayList<Movie>();
         for(Movie current : currentQuery) {
@@ -92,6 +113,7 @@ public class MovieManager {
         
     }
     
+   
     public void addMajorRating(String major, Movie ratedMovie, String rating) {
         
     }

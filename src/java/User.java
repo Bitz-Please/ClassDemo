@@ -14,7 +14,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 /**
- *
+ *Hold the data for a particular user
  * @author bitsplease
  */
 @ManagedBean

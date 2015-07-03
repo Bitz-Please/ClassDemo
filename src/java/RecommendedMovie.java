@@ -5,7 +5,7 @@
  */
 
 /**
- *
+ *The recommended movie object that the recommender algorithm comes up with
  * @author Timothy
  */
 
@@ -19,6 +19,7 @@ public class RecommendedMovie {
     private String rating;
 
     /**
+     * Getter for the movie object
      * @return the movie
      */
     public Movie getMovie() {
@@ -26,6 +27,7 @@ public class RecommendedMovie {
     }
 
     /**
+     * Setter for the movie object
      * @param movie the movie to set
      */
     public void setMovie(Movie movie) {
@@ -33,6 +35,7 @@ public class RecommendedMovie {
     }
 
     /**
+     * Getter for the rating of the movie
      * @return the rating
      */
     public String getRating() {
@@ -40,6 +43,7 @@ public class RecommendedMovie {
     }
 
     /**
+     * Setter for the rating of the movie
      * @param rating the rating to set
      */
     public void setRating(String rating) {

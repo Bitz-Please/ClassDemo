@@ -10,13 +10,17 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 /**
- *
+ *Manages the navigation of the page
  * @author tleeo_000
  */
 @ManagedBean
 @SessionScoped
 public class Navigation implements Serializable {
     
+    
+    /**
+     * creates the navigation object
+     */
     public Navigation () {
         System.out.println("Making Navigation");
     }
@@ -45,6 +49,11 @@ public class Navigation implements Serializable {
         return "registration";
     }
 
+    /**
+     * The contextRender
+     * @param answer the answer
+     * @return the answer passed into the contextRender
+     */
     public Boolean contextRender(Boolean answer) {
         return answer;
 	}

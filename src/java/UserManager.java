@@ -143,10 +143,22 @@ public class UserManager {
         return users.get(user).getAdditionalInfo();
     }
     
+    /**
+     * Gets a particular user's rating of a particular movie
+     * @param input the movie 
+     * @param user the user 
+     * @return 
+     */
     public String getRating(Movie input, String user) {
         return users.get(user).getRating(input);
     }
     
+    /**
+     * sets the rating of a particular movie from a particular user
+     * @param input the movie to be rated
+     * @param user the user rating the movie
+     * @param rating the rating
+     */
     public void setRating(Movie input, String user, String rating) {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
         users.get(user).setRating(input, rating);
