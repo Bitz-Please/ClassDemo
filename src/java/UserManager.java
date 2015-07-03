@@ -209,4 +209,8 @@ public class UserManager implements Serializable {
         return lastPart.toString().replace("%20", " ") + "/";
     }
     
+    public Map<String, UserData> getUserMap() {
+        return users;
+    }
+    
 }

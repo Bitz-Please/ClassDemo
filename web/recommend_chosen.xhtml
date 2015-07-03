@@ -78,12 +78,37 @@ and open the template in the editor.
                 </h:form>
             </b:jumbotron>
         </div>
+        
         <p:panel>
             
                <p:commandButton value="Home" action="home_new"/>
         </p:panel>
         <b:container>
-          
+            <h:form style="padding-top: 15px">
+            <p:dataTable id="dvdTable" var="dvd" value="#{movieManager.getRecommended(userManager)}" rows="25" paginator="true">
+                    <p:column  headerText="Title">
+                        <h:commandLink value="#{dvd.getKey().title}" action="#{moviebean.setMovieAndGo(dvd)}">
+                        </h:commandLink>
+                    </p:column>
+
+                    <p:column headerText="Year">
+                       <h:outputText value="#{dvd.getKey().year}" />
+                    </p:column>
+
+                    <p:column headerText="Runtime">
+                       <h:outputText value="#{dvd.getKey().runtime}" />
+                    </p:column>
+                
+                    <p:column headerText="Times Rated">
+                       <h:outputText value="#{dvd.getValue().getUserRatings()}" />
+                    </p:column>
+                
+                    <p:column headerText="Rating">
+                       <h:outputText value="#{dvd.getValue().getAvgRating()}" />
+                    </p:column>
+
+                 </p:dataTable>
+            </h:form>
             <hr/>
             <footer>
             <p>© Company 2014</p>

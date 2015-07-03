@@ -170,7 +170,8 @@ public class User implements Serializable {
             return null;
         }
         System.out.println("Login Success");
-            return "home_new"; //"home"
+        userManager.saveBinary();
+        return "home_new"; //"home"
     }
     
     /**
