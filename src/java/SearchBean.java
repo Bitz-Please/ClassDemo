@@ -5,8 +5,8 @@
  */
 
 /**
- *
- * @author joesadler
+ * A class that implements the search of a movie based on user input
+ * @author bitsplease
  */
 
 import java.io.Serializable;
@@ -26,10 +26,17 @@ public class SearchBean implements Serializable {
     private String search;
     private ArrayList<Movie> movies;
     
+    /**
+     * Creates the searchbean object
+     */
     public SearchBean() {
         
     }
     
+    /**
+     * Searches for movies that match the search criteria
+     * @return list of movies that match the criteria
+     */
     public ArrayList<Movie> search(){
         RTRESTService rtService = new RTRESTService();
         setMovies(rtService.search(search));
@@ -37,6 +44,7 @@ public class SearchBean implements Serializable {
     }
 
     /**
+     * Gets what the user searched for
      * @return the search
      */
     public String getSearch() {
@@ -44,6 +52,7 @@ public class SearchBean implements Serializable {
     }
 
     /**
+     * Sets the serach parameter
      * @param search the search to set
      */
     public void setSearch(String search) {
@@ -51,6 +60,7 @@ public class SearchBean implements Serializable {
     }
 
     /**
+     * Get the movies that matched the search description
      * @return the movies
      */
     public ArrayList<Movie> getMovies() {
@@ -58,6 +68,7 @@ public class SearchBean implements Serializable {
     }
 
     /**
+     * Get the searched movies
      * @param movies the movies to set
      */
     public void setMovies(ArrayList<Movie> movies) {

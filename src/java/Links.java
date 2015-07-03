@@ -5,7 +5,7 @@
  */
 
 /**
- *
+ *Stores all of the links of a movie
  * @author joesadler
  */
 import javax.annotation.Generated;
@@ -24,6 +24,7 @@ public class Links implements Serializable {
     private String alternate;
 
     /**
+     * Getter for the self link
      * @return the self
      */
     public String getSelf() {
@@ -31,6 +32,7 @@ public class Links implements Serializable {
     }
 
     /**
+     * Setter for the self link
      * @param self the self to set
      */
     public void setSelf(String self) {
@@ -38,6 +40,7 @@ public class Links implements Serializable {
     }
 
     /**
+     * Getter for the next link
      * @return the next
      */
     public String getNext() {
@@ -45,6 +48,7 @@ public class Links implements Serializable {
     }
 
     /**
+     * Setter for the next link
      * @param next the next to set
      */
     public void setNext(String next) {
@@ -52,6 +56,7 @@ public class Links implements Serializable {
     }
 
     /**
+     * Getter for the alternate link
      * @return the alternate
      */
     public String getAlternate() {
@@ -59,6 +64,7 @@ public class Links implements Serializable {
     }
 
     /**
+     * Setter for the alternate link
      * @param alternate the alternate to set
      */
     public void setAlternate(String alternate) {

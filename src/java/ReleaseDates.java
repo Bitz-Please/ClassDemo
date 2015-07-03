@@ -5,7 +5,7 @@
  */
 
 /**
- *
+ *Class that deals with the release dates of movies
  * @author joesadler
  */
 import javax.annotation.Generated;

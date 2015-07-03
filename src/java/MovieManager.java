@@ -21,7 +21,7 @@ import javax.faces.bean.ManagedBean;
  * and open the template in the editor.
  */
 /**
- *
+ *Class that manages the movies rated by the users
  * @author megi
  */
 
@@ -33,12 +33,18 @@ public class MovieManager implements Serializable {
     private ArrayList<Movie> currentQuery;
     private String currentRecommendation;
     
-    
+    /**
+     * Creates the movie manager object
+     */
     public MovieManager() {
         loadBinary();
     }
     
-    
+    /**
+     * Adds movies to the existing list of movies
+     * @param newMovies the movies to add
+     * @return the results of the query
+     */
     public String addMovie(ArrayList<Movie> newMovies) {
 
         currentQuery = newMovies;
@@ -83,11 +89,19 @@ public class MovieManager implements Serializable {
         }
     }
     
-    
+    /**
+     * Gets a particular movie
+     * @param title the title of the movie
+     * @return the movie
+     */
     public Movie getMovie(String title) {
         return movies.get(title);
     }
     
+    /**
+     * Getter for the current query
+     * @return the current query of movies
+     */
     public ArrayList<Movie> getCurrentQuery() {
         ArrayList<Movie> ret = new ArrayList<Movie>();
         for(Movie current : currentQuery) {
@@ -96,7 +110,12 @@ public class MovieManager implements Serializable {
         return ret;
         
     }
-
+    
+    /**
+     * Returns the recommended movies
+     * @param manage the UserManager class
+     * @return the set of movies to recommend the user
+     */
     public Set<Map.Entry<Movie, RecommendedMovie>> getRecommended(UserManager manage) {
         // Get all users
         Map<String, UserData> usersTemp = manage.getUserMap();
@@ -155,6 +174,10 @@ public class MovieManager implements Serializable {
         this.currentRecommendation = currentRecommendation;
     }
     
+    /**
+     * Gets the current working path of the project
+     * @return the path of the project
+     */
     private String getPath() {
         String path = UserManager.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         

@@ -5,7 +5,7 @@
  */
 
 /**
- *
+ *Class that stores the ratings of a particular movie
  * @author joesadler
  */
 import javax.annotation.Generated;
