@@ -10,7 +10,7 @@ import java.util.Map;
  */
 
 /**
- *
+ *The recommended movie object that the recommender algorithm comes up with
  * @author Timothy
  */
 

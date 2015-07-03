@@ -87,7 +87,7 @@ and open the template in the editor.
             <h:form style="padding-top: 15px">
             <p:dataTable id="dvdTable" var="dvd" value="#{movieManager.getRecommended(userManager)}" rows="25" paginator="true">
                     <p:column  headerText="Title">
-                        <h:commandLink value="#{dvd.getKey().title}" action="#{moviebean.setMovieAndGo(dvd)}">
+                        <h:commandLink value="#{dvd.getKey().title}" action="#{moviebean.setMovieAndGo(dvd.getKey())}">
                         </h:commandLink>
                     </p:column>
 
