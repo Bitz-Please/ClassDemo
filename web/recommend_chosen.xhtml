@@ -33,7 +33,7 @@ and open the template in the editor.
                         
                         <p:outputLabel for="chooseMajor" value="Choose a major and we will show you the top recommendations by other Users!" style="padding-top:10px; padding-left: 0px" />
                         <p:outputLabel for="chooseMajor" value="Choose Your Major:" style="padding-top:10px; padding-left: 0px" />
-                        <p:selectOneMenu id="chooseMajor" value="#{moviemanager.currentRecommendation}" required="true" >
+                        <p:selectOneMenu id="chooseMajor" value="#{movieManager.currentRecommendation}" required="true" >
                             <f:selectItem itemLabel="Aerospace Engineering" itemValue="Aerospace Engineering " />
                             <f:selectItem itemLabel="Applied Languages and Intercultural Studies" itemValue="Applied Languages and Intercultural Studies " />
                             <f:selectItem itemLabel="Applied Mathematics" itemValue="Applied Mathematics " />
@@ -85,9 +85,9 @@ and open the template in the editor.
         </p:panel>
         <b:container>
             <h:form style="padding-top: 15px">
-            <p:dataTable id="dvdTable" var="dvd" value="#{moviemanager.getRecommended(userManager)}" rows="25" paginator="true">
+            <p:dataTable id="dvdTable" var="dvd" value="#{movieManager.getRecommended(userManager)}" rows="25" paginator="true">
                     <p:column  headerText="Title">
-                        <h:commandLink value="#{dvd.getKey().title}" action="#{moviebean.setMovieAndGo(dvd)}">
+                        <h:commandLink value="#{dvd.getKey().title}" action="#{moviebean.setMovieAndGo(dvd.getKey())}">
                         </h:commandLink>
                     </p:column>
 

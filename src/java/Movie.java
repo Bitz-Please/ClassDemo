@@ -5,7 +5,7 @@
  */
 
 /**
- *
+ *The class for the movie object that holds information about a particular movie
  * @author joesadler
  */
 
@@ -57,11 +57,15 @@ public class Movie implements Serializable, Comparable{
     private Map<String, Double> userCheck = new HashMap<>();
     private int teach = 0;
 
+     /**
+     * Creates the movie object
+     */
     public Movie() {
         System.out.println("Creating Movie");
     }
 
     /**
+     * Gets the id of the movie
      * @return the id
      */
     public String getId() {
@@ -69,6 +73,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * sets the id of the movie
      * @param id the id to set
      */
     public void setId(String id) {
@@ -76,6 +81,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Gets the title of the movie
      * @return the title
      */
     public String getTitle() {
@@ -83,13 +89,15 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Sets the title of the movie
      * @param title the title to set
      */
     public void setTitle(String title) {
         this.title = title;
     }
-
+    
     /**
+     * Gets the year the movie was released
      * @return the year
      */
     public Integer getYear() {
@@ -97,6 +105,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Sets the year the movie was released
      * @param year the year to set
      */
     public void setYear(Integer year) {
@@ -104,6 +113,7 @@ public class Movie implements Serializable, Comparable{
     }
     
     /**
+     * Gets the MPAA rating of the movie
      * @return the mpaa_rating
      */
     public String getMpaa_rating() {
@@ -111,6 +121,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Sets the MPAA rating of the movie
      * @param mpaa_rating the mpaa_rating to set
      */
     public void setMpaa_rating(String mpaa_rating) {
@@ -118,6 +129,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Gets the runtime of the movie
      * @return the runtime
      */
     public Integer getRuntime() {
@@ -125,6 +137,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Sets the runtime of the movie
      * @param runtime the runtime to set
      */
     public void setRuntime(Integer runtime) {
@@ -132,6 +145,7 @@ public class Movie implements Serializable, Comparable{
     }
     
     /**
+     * Gets the critic's rating
      * @return the critics_consensus
      */
     public String getCritics_consensus() {
@@ -139,6 +153,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Sets the critic's rating
      * @param critics_consensus the critics_consensus to set
      */
     public void setCritics_consensus(String critics_consensus) {
@@ -146,20 +161,23 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
-     * @return the release_dates
+     * Gets the release dates of the movie
+     * @return the release dates
      */
     public ReleaseDates getRelease_dates() {
         return release_dates;
     }
 
     /**
-     * @param release_dates the release_dates to set
+     * Sets the release dates
+     * @param release_dates the release dates to be set
      */
     public void setRelease_dates(ReleaseDates release_dates) {
         this.release_dates = release_dates;
     }
     
     /**
+     * gets the ratings of the movie
      * @return the ratings
      */
     public Ratings getRatings() {
@@ -168,6 +186,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * sets the ratings of the movie
      * @param ratings the ratings to set
      */
     public void setRatings(Ratings ratings) {
@@ -175,6 +194,7 @@ public class Movie implements Serializable, Comparable{
     }
     
     /**
+     * Getter for the synopsis 
      * @return the synopsis
      */
     public String getSynopsis() {
@@ -182,6 +202,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Setter for the synopsis
      * @param synopsis the synopsis to set
      */
     public void setSynopsis(String synopsis) {
@@ -189,6 +210,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Getter for the poster
      * @return the posters
      */
     public Posters getPosters() {
@@ -196,6 +218,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Setter for the poster
      * @param posters the posters to set
      */
     public void setPosters(Posters posters) {
@@ -203,6 +226,7 @@ public class Movie implements Serializable, Comparable{
     }
     
     /**
+     * Getter for the cast
      * @return the abridged_cast
      */
     public ArrayList<Actor> getAbridged_cast() {
@@ -210,6 +234,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Setter for the cast
      * @param abridged_cast the abridged_cast to set
      */
     public void setAbridged_cast(ArrayList<Actor> abridged_cast) {
@@ -217,6 +242,7 @@ public class Movie implements Serializable, Comparable{
     }
     
     /**
+     * Getter for the alternate ids
      * @return the alternate_ids
      */
     public AltIds getAlternate_ids() {
@@ -224,6 +250,7 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Setter for the alternate ids
      * @param alternate_ids the alternate_ids to set
      */
     public void setAlternate_ids(AltIds alternate_ids) {
@@ -231,6 +258,7 @@ public class Movie implements Serializable, Comparable{
     }
     
     /**
+     * Getter for the links
      * @return the links
      */
     public MovieLinks getLinks() {
@@ -238,12 +266,17 @@ public class Movie implements Serializable, Comparable{
     }
 
     /**
+     * Setter for the links
      * @param links the links to set
      */
     public void setLinks(MovieLinks links) {
         this.links = links;
     }
     
+    /**
+     * Gets the High-Res Poster Image
+     * @return link to high-res poster URL
+     */
     public String getPoster() {
         String original = getPosters().getProfile();
         int start = original.lastIndexOf("movie");
@@ -282,30 +315,42 @@ public class Movie implements Serializable, Comparable{
     }
     
     /**
+     * getter for the average rating of the movie
      * @return Average Rating of the movie
      */
     public Double getAvgRating() {
         return avgRating;
     }
     
+    /**
+     * Getter for user ratings
+     * @return the user ratings
+     */
     public int getUserRatings() {
         return userRatings;
     }
     
     /**
-     * @param avgRating the avgRating to set
+     * getter for the average rating of the movie
+     * @return Average Rating of the movie
      */
     public void setAvgRating(double avgRating) {
         this.avgRating = avgRating;
     }
 
     /**
-     * @param userRatings the userRatings to set
+     * Getter for the number of ratings a movie has
+     * @return 
      */
     public void setUserRatings(int userRatings) {
         this.userRatings = userRatings;
     }
     
+    /**
+     * Compares one movie to another
+     * @param o the other movie to compare to this movie
+     * @return the comparison integer
+     */
     @Override
     public int compareTo(Object o) {
         Movie other = (Movie) o;

@@ -53,7 +53,7 @@ and open the template in the editor.
                             
                             <h:outputText value="Enter a new rating:" />
                             <p:rating value="#{moviebean.rate}" >
-                                <p:ajax event="rate" listener="#{moviebean.rate(user, moviemanager)}" update="userRating"/>
+                                <p:ajax event="rate" listener="#{moviebean.rate(user, movieManager)}" update="userRating"/>
                              </p:rating>
                             
                         </b:row>

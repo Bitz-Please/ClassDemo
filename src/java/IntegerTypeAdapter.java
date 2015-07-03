@@ -16,7 +16,12 @@ import java.io.IOException;
 public class IntegerTypeAdapter extends TypeAdapter<Number> {
     
     
-    
+    /**
+     * Writer of the JSON
+     * @param jsonWriter the jsonWriter to write this integer value
+     * @param number the number to write
+     * @throws IOException if the number is null exception is thrown
+     */
     @Override
     public void write(JsonWriter jsonWriter, Number number) throws IOException {
         if (number == null) {
@@ -26,6 +31,12 @@ public class IntegerTypeAdapter extends TypeAdapter<Number> {
         jsonWriter.value(number);
     }
 
+    /**
+     * The is the json reader for integers
+     * @param jsonReader the jsonReader object
+     * @return The read integer from the json
+     * @throws IOException if the next is formatted incorrectly
+     */
     @Override
     public Number read(JsonReader jsonReader) throws IOException {
         if (jsonReader.peek() == JsonToken.NULL) {

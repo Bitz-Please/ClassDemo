@@ -14,7 +14,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 /**
- *
+ *Hold the data for a particular user
  * @author bitsplease
  */
 @ManagedBean
@@ -30,6 +30,9 @@ public class User implements Serializable {
     
     @ManagedProperty("#{userManager}")
     private UserManager userManager;
+    
+    @ManagedProperty("#{movieManager}")
+    private MovieManager movieManager;
     
 
     /**
@@ -167,7 +170,7 @@ public class User implements Serializable {
             return null;
         }
         System.out.println("Login Success");
-        userManager.saveData();
+        userManager.saveBinary();
             return "home_new"; //"home"
     }
     
@@ -213,13 +216,21 @@ public class User implements Serializable {
     }
     
     /**
+     * Connects movieManager with User
+     * @param movieManager 
+     */
+    public void setMovieManager(MovieManager movieManager) {
+        this.movieManager = movieManager;
+    }
+    
+    /**
      * Provides userManager with user data to store
      * @return profile
      */
     public String updateUserData() {
         UserData data = userManager.find(username);
         data.updateData(email, address, major, additionalInfo);
-        userManager.saveData();
+        userManager.saveBinary();
         return "profile_new";
     }
     
@@ -243,7 +254,8 @@ public class User implements Serializable {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
         userManager.setRating(input, username, rating);
         input.addRatings(rating, username);
-        userManager.saveData();
+        userManager.saveBinary();
+        movieManager.saveBinary();
         return "movie";
         
     }
