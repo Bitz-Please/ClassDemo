@@ -27,7 +27,6 @@ public class MovieBean implements Serializable {
      */
     public MovieBean() {
         System.out.println("Creating MovieBean!!");
-        
     }
     
     /**

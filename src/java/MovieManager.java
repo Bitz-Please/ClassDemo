@@ -22,7 +22,7 @@ import javax.faces.bean.ManagedBean;
  * @author megi
  */
 
-@ManagedBean (name = "moviemanager")
+@ManagedBean (name = "movieManager")
 @ApplicationScoped
 public final class MovieManager {
     

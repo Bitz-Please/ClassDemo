@@ -18,7 +18,6 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.util.logging.*;
-import sun.util.logging.PlatformLogger;
 
 /**
  *
