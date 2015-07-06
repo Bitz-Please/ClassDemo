@@ -15,18 +15,27 @@
             <file>file:/Users/megi/ClassDemo/web/login_new.xhtml</file>
             <file>file:/Users/megi/ClassDemo/web/home_new.xhtml</file>
             <file>file:/Users/megi/ClassDemo/src/java/Navigation.java</file>
+            <file>file:/Users/megi/ClassDemo/src/java/RTResponse.java</file>
             <file>file:/Users/megi/ClassDemo/src/java/MovieBean.java</file>
+            <file>file:/Users/megi/ClassDemo/src/java/Actor.java</file>
             <file>file:/Users/megi/ClassDemo/src/java/RTRESTService.java</file>
+            <file>file:/Users/megi/ClassDemo/src/java/AltIds.java</file>
             <file>file:/Users/megi/ClassDemo/src/java/Movie.java</file>
             <file>file:/Users/megi/ClassDemo/web/welcomePrimefaces.xhtml</file>
+            <file>file:/Users/megi/ClassDemo/src/java/MovieManager.java</file>
+            <file>file:/Users/megi/ClassDemo/src/java/RecommendedMovie.java</file>
             <file>file:/Users/megi/ClassDemo/src/java/UserData.java</file>
             <file>file:/Users/megi/ClassDemo/src/java/UserManager.java</file>
             <file>file:/Users/megi/ClassDemo/web/recommend.xhtml</file>
+            <file>file:/Users/megi/ClassDemo/src/java/Links.java</file>
             <file>file:/Users/megi/ClassDemo/web/oldSuccess.xhtml</file>
+            <file>file:/Users/megi/ClassDemo/src/java/AlternateIds.java</file>
+            <file>file:/Users/megi/ClassDemo/src/java/IntegerTypeAdapter.java</file>
             <file>file:/Users/megi/ClassDemo/web/registration.xhtml</file>
             <file>file:/Users/megi/ClassDemo/web/New%20Text%20Document.txt</file>
             <file>file:/Users/megi/ClassDemo/src/java/MovieLinks.java</file>
             <file>file:/Users/megi/ClassDemo/web/profile_new.xhtml</file>
+            <file>file:/Users/megi/ClassDemo/src/java/ReleaseDates.java</file>
             <file>file:/Users/megi/ClassDemo/src/java/SearchBean.java</file>
             <file>file:/Users/megi/ClassDemo/src/java/User.java</file>
             <file>file:/Users/megi/ClassDemo/web/query.xhtml</file>
@@ -35,6 +44,7 @@
             <file>file:/Users/megi/ClassDemo/web/profile.xhtml</file>
             <file>file:/Users/megi/ClassDemo/web/menu1.xhtml</file>
             <file>file:/Users/megi/ClassDemo/web/index.xhtml</file>
+            <file>file:/Users/megi/ClassDemo/src/java/Ratings.java</file>
         </group>
     </open-files>
 </project-private>
