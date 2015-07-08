@@ -7,6 +7,7 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.faces.bean.ManagedBean;
@@ -15,6 +16,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.util.logging.*;
 
 /**
  *
@@ -23,22 +25,14 @@ import java.io.OutputStream;
 @ManagedBean (name = "userManager")
 @ApplicationScoped
 public class UserManager {
-    
-    private final String FILE_NAME; 
+     
     private static Map<String, UserData> users = new HashMap<>();
 
     /**
      * Creates a new instance of UserManager
      */
     public UserManager() {
-        FILE_NAME = "userData.dat";
-        File file = new File(FILE_NAME);
-        if (file.length() != 0) {
-            loadData();
-        } else {
-            System.out.println("Creating User Manager");
-            makeSomeUsers();
-        }
+        loadBinary();
     }
     /**
      * Generates default users to add to users HashMap
@@ -58,7 +52,7 @@ public class UserManager {
      */
     public void addUsers(String user, String pass) {
         users.put(user, new UserData(user, pass));
-        saveData();
+        saveBinary();
     }
     
     /**
@@ -81,33 +75,34 @@ public class UserManager {
     }
     
     /**
-     * Writes user HashMap to a data file
+     * Saves the binary files for persistent data in the project's Resources folder
      */
-    public void saveData() {
-        FileOutputStream fos;
+    public void saveBinary() {
+        
         try {
-            fos = new FileOutputStream(FILE_NAME);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(users);
-            oos.close();
-            fos.close();
-        } catch(Exception e) {
-            System.out.println("File not found");
+            ObjectOutputStream os = new ObjectOutputStream(
+                    new FileOutputStream(getPath() + "resources/savedUsers.bin"));
+            os.writeObject(users);
+            os.close();
+        } catch (IOException ex) {
+            Logger.getLogger(UserManager.class.getName()).log(Level.SEVERE, null, ex);
         }
-           
     }
     
-     /**
-     * Sets 'users' instance variable to object read from data file  
+    
+    /**
+     * Loads the binary files for persistent data in the project's Resources folder
      */
-    public void loadData() {
-        FileInputStream fis;
+    public void loadBinary() {
         try {
-            fis = new FileInputStream(FILE_NAME);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            users = (HashMap) ois.readObject();
-        } catch(Exception e) {
-            System.out.println("File not found");
+            ObjectInputStream is = new ObjectInputStream(
+                    new FileInputStream(getPath() + "resources/savedUsers.bin"));
+            users = (Map<String, UserData>) is.readObject();
+            is.close();
+        } catch (IOException ex) {
+            Logger.getLogger(UserManager.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -143,13 +138,50 @@ public class UserManager {
         return users.get(user).getAdditionalInfo();
     }
     
+    /**
+     * Gets a particular user's rating of a particular movie
+     * @param input the movie 
+     * @param user the user 
+     * @return 
+     */
     public String getRating(Movie input, String user) {
         return users.get(user).getRating(input);
     }
     
+    /**
+     * sets the rating of a particular movie from a particular user
+     * @param input the movie to be rated
+     * @param user the user rating the movie
+     * @param rating the rating
+     */
     public void setRating(Movie input, String user, String rating) {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
         users.get(user).setRating(input, rating);
     }
     
+    /**
+     * Getter for the UserMap
+     * @return the UserMap
+     */
+    public Map<String, UserData> getUserMap() {
+        return users;
+    }
+    
+    /**
+     * Getter for the project's path
+     * @return the project's current path
+     */
+    private String getPath() {
+        String path = UserManager.class.getProtectionDomain().getCodeSource().getLocation().getPath();
+        
+        int last = path.lastIndexOf("ClassDemo");
+        
+        StringBuilder lastPart = new StringBuilder();
+        
+        for (int i = 0; i < last + 9; i++) {
+            lastPart.append(path.charAt(i));
+        }
+        
+        return lastPart.toString().replace("%20", " ") + "/";
+    }
 }

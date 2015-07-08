@@ -5,15 +5,16 @@
  */
 
 /**
- *
+ *Holds information about an actor in a particular movie
  * @author joesadler
  */
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 import java.util.List;
 
 @Generated("org.jsonschema2pojo")
-class Actor {
+class Actor implements Serializable {
     
     @Expose
     private String name;
@@ -23,6 +24,7 @@ class Actor {
     private List<String> characters;
 
     /**
+     * Getter for the name of the actor
      * @return the name
      */
     public String getName() {
@@ -30,6 +32,7 @@ class Actor {
     }
 
     /**
+     * Setter for name of the actor
      * @param name the name to set
      */
     public void setName(String name) {
@@ -37,6 +40,7 @@ class Actor {
     }
    
     /**
+     * Getter for the id of the actor
      * @return the id
      */
     public String getId() {
@@ -44,6 +48,7 @@ class Actor {
     }
 
     /**
+     * Setter for the id of an actor
      * @param id the id to set
      */
     public void setId(String id) {
@@ -51,6 +56,7 @@ class Actor {
     }
 
     /**
+     * Getter for all of the characters an actor has played
      * @return the characters
      */
     public List<String> getCharacters() {
@@ -58,6 +64,7 @@ class Actor {
     }
 
     /**
+     * Setter for the characters an actor has played
      * @param characters the characters to set
      */
     public void setCharacters(List<String> characters) {

@@ -1,62 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"         
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui" 
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui">
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title> User Info </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Movie Recommender</title>
     </h:head>
     
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <div>
         <ui:include src="header_new.xhtml" />
-        <div>
             <b:jumbotron>
-            <b:container>
-                <h1>#{user.username}'s Edit Profile Page</h1>
-                <p>Please update your info below!
-                </p>
-<!--                <p>
-                    <a href="https://github.com/TheCoder4eu/BootsFacesWeb/blob/master/src/main/webapp/examples/jumbotron.xhtml" class="btn btn-lg btn-info">View Page Source »</a>
-                </p>-->
-            </b:container>
+                <b:row>
+                    <b:container>
+                        <h1>Movie Recommender</h1>
+                        <p>Choose a major!
 
-            </b:jumbotron>
-            <!--<h:outputText value="#{user.username}" />-->
-        </div>
-        <div>
-            <b:container>
+                        </p>
+                    </b:container>
+                </b:row>
                 <h:form>
                 <p:panel id="panel">
                     <h:panelGrid columns="3" cellpadding="5">
-                        <!--<h:column >-->
-                        <p:outputLabel for="email" value="Email:" style="padding-top:10px; padding-left: 0px"/>
-                        <p:inputText id="email" value="#{user.email}" 
-                                     required="false" label="Email" style="padding-top:10px; padding-left: 0px">
-                        </p:inputText>                      
-                        <p:outputLabel for="address" value="Address:" style="padding-top:10px; padding-left: 0px"/>
-                        <p:inputText id="address" value="#{user.address}" 
-                                     required="false" label="Address" style="padding-top:10px; padding-left: 0px">                             
-                        </p:inputText>                    
-                        <!--<p:message for="address" display="icon" />-->
-                        <p:outputLabel for="additionalInfo" value="Additional Information:" style="padding-top:10px; padding-left: 0px" />
-                        <p:inputTextarea id="additionalInfo" value="#{user.additionalInfo}" 
-                                     required="false" label="AdditionalInfo" >
-                        </p:inputTextarea>
-                        <!--<p:message for="additionalInfo" display="icon" />-->
-                        <!--</h:column>-->
-                        <!--<b:row>-->
                         
+                        
+                        <p:outputLabel for="chooseMajor" value="Choose a major and we will show you the top recommendations by other Users!" style="padding-top:10px; padding-left: 0px" />
                         <p:outputLabel for="chooseMajor" value="Choose Your Major:" style="padding-top:10px; padding-left: 0px" />
-                        <p:selectOneMenu id="chooseMajor" value="#{user.major}" required="true" >
+                        <p:selectOneMenu id="chooseMajor" value="#{movieManager.currentRecommendation}" required="true" >
                             <f:selectItem itemLabel="Aerospace Engineering" itemValue="Aerospace Engineering " />
                             <f:selectItem itemLabel="Applied Languages and Intercultural Studies" itemValue="Applied Languages and Intercultural Studies " />
                             <f:selectItem itemLabel="Applied Mathematics" itemValue="Applied Mathematics " />
@@ -95,11 +72,48 @@ and open the template in the editor.
                         <!--<p:message for="chooseMajor" display="icon" />-->
                         <!--</b:row>-->
                     </h:panelGrid>
-                    <b:commandButton update="panel" value="Update" action="#{user.updateUserData()}" />
-                    <b:commandButton update="panel" value="Cancel" action="profile" />
+                    <b:commandButton update="panel" value="Update" action="recommend_chosen" />
+                    <b:commandButton update="panel" value="Cancel" action="home_new" />
                 </p:panel>
                 </h:form>
-            </b:container>
+            </b:jumbotron>
         </div>
+        
+        <p:panel>
+            
+               <p:commandButton value="Home" action="home_new"/>
+        </p:panel>
+        <b:container>
+            <h:form style="padding-top: 15px">
+            <p:dataTable id="dvdTable" var="dvd" value="#{movieManager.getRecommended(userManager)}" rows="25" paginator="true">
+                    <p:column  headerText="Title">
+                        <h:commandLink value="#{dvd.getKey().title}" action="#{moviebean.setMovieAndGo(dvd.getKey())}">
+                        </h:commandLink>
+                    </p:column>
+
+                    <p:column headerText="Year">
+                       <h:outputText value="#{dvd.getKey().year}" />
+                    </p:column>
+
+                    <p:column headerText="Runtime">
+                       <h:outputText value="#{dvd.getKey().runtime}" />
+                    </p:column>
+                
+                    <p:column headerText="Times Rated">
+                       <h:outputText value="#{dvd.getValue().getUserRatings()}" />
+                    </p:column>
+                
+                    <p:column headerText="Rating">
+                       <h:outputText value="#{dvd.getValue().getAvgRating()}" />
+                    </p:column>
+
+                 </p:dataTable>
+            </h:form>
+            <hr/>
+            <footer>
+            <p>© Company 2014</p>
+            </footer>
+        </b:container>
+
     </h:body>
 </html>

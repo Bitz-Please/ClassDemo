@@ -5,15 +5,16 @@
  */
 
 /**
- *
+ *Class that deals with the release dates of movies
  * @author joesadler
  */
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 
 @Generated("org.jsonschema2pojo")
         
-class ReleaseDates {
+class ReleaseDates implements Serializable {
     
     @Expose
     private String theater;

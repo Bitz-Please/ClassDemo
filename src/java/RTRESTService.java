@@ -8,16 +8,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ApplicationScoped;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import javax.annotation.PostConstruct;
-
 import java.io.Reader;
 import java.io.Serializable;
 import java.net.HttpURLConnection;

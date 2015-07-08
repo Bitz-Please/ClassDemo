@@ -13,6 +13,10 @@
                            icon="glyphicon glyphicon-home"
                            iconAlign="left">
                 </b:navLink>
+                 <b:navLink value="Movie Recommender" href="recommend.xhtml"
+                           icon ="glyphicon glyphicon-stats"
+                           iconAlign="left">
+                </b:navLink>
                 
                 <b:dropMenu value="Top Movies">
                     <b:navLink icon="glyphicon glyphicon-film" iconAlign="left"
@@ -28,7 +32,7 @@
                              required="true" label="Query" 
                              style="width: 350px"/>
                 <b:commandButton value="" look="inverse" icon="glyphicon glyphicon-search"
-                           iconAlign="right" action="#{moviemanager.addMovie(searchbean.search())}"
+                           iconAlign="right" action="#{movieManager.addMovie(searchbean.search())}"
                            size="mini">
                 </b:commandButton>
             </h:form>

@@ -10,10 +10,11 @@
  */
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 
 @Generated("org.jsonschema2pojo")
 
-public class MovieLinks {
+public class MovieLinks implements Serializable {
     
     @Expose
     private String self;
@@ -27,6 +28,7 @@ public class MovieLinks {
     private String similar;
 
     /**
+     * Getter for the movie link
      * @return the self
      */
     public String getSelf() {
@@ -34,6 +36,7 @@ public class MovieLinks {
     }
 
     /**
+     * Setter for the movie link
      * @param self the self to set
      */
     public void setSelf(String self) {
@@ -41,6 +44,7 @@ public class MovieLinks {
     }
 
     /**
+     * Getter for the alternate link
      * @return the alternate
      */
     public String getAlternate() {
@@ -48,6 +52,7 @@ public class MovieLinks {
     }
 
     /**
+     * Setter for the alternate link
      * @param alternate the alternate to set
      */
     public void setAlternate(String alternate) {
@@ -55,6 +60,7 @@ public class MovieLinks {
     }
 
     /**
+     * Getter for the cast of the movie
      * @return the cast
      */
     public String getCast() {
@@ -62,6 +68,7 @@ public class MovieLinks {
     }
 
     /**
+     * Setter for the cast of the movie
      * @param cast the cast to set
      */
     public void setCast(String cast) {
@@ -69,6 +76,7 @@ public class MovieLinks {
     }
 
     /**
+     * Getter for the reviews of the movie
      * @return the reviews
      */
     public String getReviews() {
@@ -76,6 +84,7 @@ public class MovieLinks {
     }
 
     /**
+     * Setter for the reviews of a movie
      * @param reviews the reviews to set
      */
     public void setReviews(String reviews) {
@@ -83,6 +92,7 @@ public class MovieLinks {
     }
 
     /**
+     * Getter for similar movies
      * @return the similar
      */
     public String getSimilar() {
@@ -90,6 +100,7 @@ public class MovieLinks {
     }
 
     /**
+     * Setter for similar movies
      * @param similar the similar to set
      */
     public void setSimilar(String similar) {
