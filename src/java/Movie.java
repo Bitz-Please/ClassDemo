@@ -23,7 +23,7 @@ import javax.faces.bean.SessionScoped;
 @Generated("org.jsonschema2pojo")
 @ManagedBean
 @SessionScoped
-public class Movie implements Serializable{
+public class Movie implements Serializable, Comparable{
     
     @Expose
     private String id;
@@ -57,7 +57,7 @@ public class Movie implements Serializable{
     private Map<String, Double> userCheck = new HashMap<>();
     private int teach = 0;
 
-    /**
+     /**
      * Creates the movie object
      */
     public Movie() {
@@ -95,7 +95,7 @@ public class Movie implements Serializable{
     public void setTitle(String title) {
         this.title = title;
     }
-
+    
     /**
      * Gets the year the movie was released
      * @return the year
@@ -161,15 +161,16 @@ public class Movie implements Serializable{
     }
 
     /**
-     * @return the release_dates
+     * Gets the release dates of the movie
+     * @return the release dates
      */
     public ReleaseDates getRelease_dates() {
         return release_dates;
     }
 
     /**
-     * Gets the release dates of the movie
-     * @param release_dates the release_dates to set
+     * Sets the release dates
+     * @param release_dates the release dates to be set
      */
     public void setRelease_dates(ReleaseDates release_dates) {
         this.release_dates = release_dates;
@@ -271,9 +272,10 @@ public class Movie implements Serializable{
     public void setLinks(MovieLinks links) {
         this.links = links;
     }
+    
     /**
-     * getter for the poster
-     * @return 
+     * Gets the High-Res Poster Image
+     * @return link to high-res poster URL
      */
     public String getPoster() {
         String original = getPosters().getProfile();
@@ -303,11 +305,11 @@ public class Movie implements Serializable{
         if (oldRating == null) {
             userRatings++;
             double newRating = Double.parseDouble(rating);
-            avgRating = ((avgRating * (userRatings - 1)) + newRating) / userRatings;
+            setAvgRating(((avgRating * (userRatings - 1)) + newRating) / userRatings);
             userCheck.put(username, newRating);
         } else {
             double newRating = Double.parseDouble(rating);
-            avgRating = ((avgRating * userRatings) - oldRating + newRating) / userRatings;
+            setAvgRating(((avgRating * userRatings) - oldRating + newRating) / userRatings);
             userCheck.put(username, newRating);
         }
     }
@@ -321,10 +323,65 @@ public class Movie implements Serializable{
     }
     
     /**
+     * Getter for user ratings
+     * @return the user ratings
+     */
+    public int getUserRatings() {
+        return userRatings;
+    }
+    
+    /**
+     * getter for the average rating of the movie
+     * @return Average Rating of the movie
+     */
+    public void setAvgRating(double avgRating) {
+        this.avgRating = avgRating;
+    }
+
+    /**
      * Getter for the number of ratings a movie has
      * @return 
      */
-    public int getNumRatings() {
-        return userRatings;
+    public void setUserRatings(int userRatings) {
+        this.userRatings = userRatings;
+    }
+    
+    /**
+     * Compares one movie to another
+     * @param o the other movie to compare to this movie
+     * @return the comparison integer
+     */
+    @Override
+    public int compareTo(Object o) {
+        Movie other = (Movie) o;
+        return (int) (this.avgRating - other.getAvgRating());
+    }
+    
+    /**
+     * Equals method for Movie Class
+     * @param other the object for equality to be checked
+     * @return whether the Movie is equal or not
+     */
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) {
+            return false;
+        }
+        if (this == other) {
+            return true;
+        }
+        if (!(other instanceof Movie)) {
+            return false;
+        }
+        Movie that = (Movie) other;
+        return this.getId().equals(that.getId());
+    }
+    
+    /**
+     * @return the hashCode of the movie based on its unique iD
+     */
+    @Override
+    public int hashCode() {
+        return this.getId().hashCode();
     }
 }

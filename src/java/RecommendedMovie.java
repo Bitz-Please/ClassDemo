@@ -1,3 +1,8 @@
+
+import java.util.Map;
+
+
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,17 +14,21 @@
  * @author Timothy
  */
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 public class RecommendedMovie {
     
     private Movie movie;
-    private String rating;
+    private int userRatings;
+    private double avgRating;
 
+    public RecommendedMovie (Map.Entry<Movie, String> input) {
+        this.movie = input.getKey();
+        this.avgRating = Double.parseDouble(input.getValue());
+        userRatings++;
+    }
+    
+    
     /**
-     * Getter for the movie object
      * @return the movie
      */
     public Movie getMovie() {
@@ -27,29 +36,38 @@ public class RecommendedMovie {
     }
 
     /**
-     * Setter for the movie object
      * @param movie the movie to set
      */
     public void setMovie(Movie movie) {
         this.movie = movie;
     }
-
+    
     /**
-     * Getter for the rating of the movie
-     * @return the rating
+     * Adds a unique rating & username entry to 
+     * a movie's ratings. Checks to see if the user
+     * has rated the movie before or not and acts 
+     * accordingly.
+     * @param rating rating of movie
+     * @param username user responsible for rating
      */
-    public String getRating() {
-        return rating;
+    public void addRating(String rating) {
+        userRatings++;
+        double newRating = Double.parseDouble(rating);
+        avgRating = (((getAvgRating() * (getUserRatings() - 1)) + newRating) / getUserRatings());
     }
 
     /**
-     * Setter for the rating of the movie
-     * @param rating the rating to set
+     * @return the avgRating
      */
-    public void setRating(String rating) {
-        this.rating = rating;
+    public double getAvgRating() {
+        return avgRating;
     }
-    
-    
+
+    /**
+     * @return the userRatings
+     */
+    public int getUserRatings() {
+        return userRatings;
+    }
     
 }

@@ -16,11 +16,10 @@ import javax.faces.context.FacesContext;
 @ManagedBean
 @SessionScoped
 public class Navigation implements Serializable {
-    
-    
+
     /**
      * creates the navigation object
-     */
+     */    
     public Navigation () {
         System.out.println("Making Navigation");
     }

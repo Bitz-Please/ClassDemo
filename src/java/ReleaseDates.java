@@ -10,10 +10,11 @@
  */
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 
 @Generated("org.jsonschema2pojo")
         
-class ReleaseDates {
+class ReleaseDates implements Serializable {
     
     @Expose
     private String theater;
@@ -21,7 +22,6 @@ class ReleaseDates {
     private String dvd;
 
     /**
-     * Getter for the theater of the movie
      * @return the theater
      */
     public String getTheater() {
@@ -29,7 +29,6 @@ class ReleaseDates {
     }
 
     /**
-     * setter for the theater of the movie
      * @param theater the theater to set
      */
     public void setTheater(String theater) {
@@ -37,7 +36,6 @@ class ReleaseDates {
     }
 
     /**
-     * Getter for the name of the dvd
      * @return the dvd
      */
     public String getDvd() {
@@ -45,7 +43,6 @@ class ReleaseDates {
     }
 
     /**
-     * setter for the name of the dvd
      * @param dvd the dvd to set
      */
     public void setDvd(String dvd) {

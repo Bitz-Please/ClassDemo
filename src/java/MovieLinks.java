@@ -5,16 +5,16 @@
  */
 
 /**
- *Stores the links of a movie
+ *
  * @author joesadler
  */
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 
 @Generated("org.jsonschema2pojo")
 
-
-public class MovieLinks {
+public class MovieLinks implements Serializable {
     
     @Expose
     private String self;
@@ -44,7 +44,7 @@ public class MovieLinks {
     }
 
     /**
-     * Geter for the alternate link
+     * Getter for the alternate link
      * @return the alternate
      */
     public String getAlternate() {

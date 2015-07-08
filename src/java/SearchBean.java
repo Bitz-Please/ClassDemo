@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 
+/**
+ * A class that implements the search of a movie based on user input
+ * @author bitsplease
+ */
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.faces.application.FacesMessage;
@@ -13,10 +18,6 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-/**
- * A class that implements the search of a movie based on user input
- * @author bitsplease
- */
 @ManagedBean (name = "searchbean")
 @SessionScoped
 public class SearchBean implements Serializable {
@@ -43,7 +44,7 @@ public class SearchBean implements Serializable {
     }
 
     /**
-     * Gets what the user serached for
+     * Gets what the user searched for
      * @return the search
      */
     public String getSearch() {

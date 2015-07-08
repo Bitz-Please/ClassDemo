@@ -57,6 +57,7 @@ public class MovieBean implements Serializable {
     public String getRate() {
         return rate;
     }
+    
     /**
      * Gets the movie
      * @return the movie
@@ -67,7 +68,6 @@ public class MovieBean implements Serializable {
     }
     
     /**
-     * Gets the poster of the movie
      * @return the full res poster URL
      */
     public String getPoster() {
@@ -101,14 +101,14 @@ public class MovieBean implements Serializable {
             return "0";
         }
     }
+    
     /**
      * Lets a user rate a movie
      * @param user the user rating the movie
-     */
-    public void rate(User user) {
+     */   
+    public void rate(User user, MovieManager manage) {
         System.out.println("Adding rating " + rate + " to " + movie + " for user " + user.getUsername());
         user.addRating(movie, rate);
-        //manage.addMajorRating(user.getMajor(), movie, rate);
         rate = "0";
     }
     
