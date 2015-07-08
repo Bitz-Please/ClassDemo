@@ -190,6 +190,7 @@ public class UserManager {
         ArrayList<UserData> ret = new ArrayList<UserData>();
         for(UserData current : users.values()) {
             ret.add(current);
+            System.out.println(current.getName());
         }
         System.out.println("getting list of users");
         return ret;
