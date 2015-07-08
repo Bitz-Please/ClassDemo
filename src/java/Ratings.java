@@ -18,7 +18,7 @@ class Ratings {
     @Expose
     private String critics_rating;
     @Expose
-    private Integer critic_score;
+    private Integer critics_score;
     @Expose
     private String audience_rating;
     @Expose
@@ -41,15 +41,16 @@ class Ratings {
     /**
      * @return the critic_score
      */
-    public Integer getCritic_score() {
-        return critic_score;
+    public Integer getCritics_score() {
+        System.out.println("I'VE BEEN FOUND, SCORE-----" + critics_score);
+        return (critics_score / 20);
     }
 
     /**
      * @param critic_score the critic_score to set
      */
-    public void setCritic_score(Integer critic_score) {
-        this.critic_score = critic_score;
+    public void setCritics_score(Integer critic_score) {
+        this.critics_score = critic_score;
     }
     
     /**

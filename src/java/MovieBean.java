@@ -19,12 +19,15 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean (name = "moviebean")
 public class MovieBean implements Serializable {
     private Movie movie;
+    private String rate;
+    
     
     /**
      * Constructs a new MOvieBean object
      */
     public MovieBean() {
         System.out.println("Creating MovieBean!!");
+        
     }
     
     /**
@@ -37,10 +40,19 @@ public class MovieBean implements Serializable {
         return "movie";
     }
     
+    public void setRate(String rate) {
+        System.out.println("Setting Rate");
+        this.rate = rate;
+    }
+    
+    public String getRate() {
+        return rate;
+    }
     /**
      * @return the movie
      */
     public Movie getMovie() {
+        System.out.println("I'VE BEEN FOUND, MOVIE-------" + movie);
         return movie;
     }
     
@@ -63,5 +75,25 @@ public class MovieBean implements Serializable {
         } else {
             return "PosterNotFound.png";
         }
+    }
+    
+    public String getRatings() {
+        Ratings rating = movie.getRatings();
+        if (rating != null) {
+            return "" + rating.getCritics_score();
+        } else {
+            System.out.println("FAILURE");
+            return "0";
+        }
+    }
+    
+    public void rate(User user) {
+        System.out.println("Adding rating " + rate + " to " + movie + " for user " + user.getUsername());
+        user.addRating(movie, rate);
+        rate = "0";
+    }
+    
+    public String getAvgRating() {
+        return "" + movie.getAvgRating().intValue();
     }
 }

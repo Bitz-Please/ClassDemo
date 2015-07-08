@@ -28,7 +28,7 @@
                              required="true" label="Query" 
                              style="width: 350px"/>
                 <b:commandButton value="" look="inverse" icon="glyphicon glyphicon-search"
-                           iconAlign="right" action="#{searchbean.search()}"
+                           iconAlign="right" action="#{moviemanager.addMovie(searchbean.search())}"
                            size="mini">
                 </b:commandButton>
             </h:form>
@@ -39,7 +39,6 @@
                         <b:navLink value="Logout" href="login_new.xhtml"></b:navLink>
                     </b:dropMenu>
                 </b:navbarLinks>
-                #{' '}
             </h:form>
         </b:navBar>
 </ui:composition>

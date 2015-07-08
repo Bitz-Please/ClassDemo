@@ -25,26 +25,28 @@ and open the template in the editor.
 
         </b:jumbotron>
         <b:container>
+            <h:form>
             <b:row>
                 <b:column col-md="4">
                 
                     <h:outputText value="Email:" />
                     <h:outputText value="#{user.email}" />
-                    <p><b:button outcome="" value="Edit"/></p>
+                    <p><b:commandButton action="userInfo" value="Edit" /></p>
                 </b:column>
                 <b:column col-md="4">
                      
                     <h:outputText value="Major:" />
                     <h:outputText value="#{user.major}" />
-                    <p><b:button outcome="editProfile" value="Edit" /></p>
+                    <p><b:commandButton action="userInfo" value="Edit" /></p>
                 </b:column>
                 <b:column col-md="4">
                      
                     <h:outputText value="Address:" />
                     <h:outputText value="#{user.address}" />
-                    <p><b:button outcome="" value="Edit"/></p>
+                    <p><b:commandButton action="userInfo" value="Edit" /></p>
                 </b:column>
             </b:row>
+            </h:form>
             <hr/>
             <footer>
             <p>© Bits-Please 2015</p>

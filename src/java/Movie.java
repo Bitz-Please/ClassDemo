@@ -11,8 +11,11 @@
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -20,7 +23,7 @@ import javax.faces.bean.SessionScoped;
 @Generated("org.jsonschema2pojo")
 @ManagedBean
 @SessionScoped
-public class Movie {
+public class Movie implements Serializable{
     
     @Expose
     private String id;
@@ -49,9 +52,15 @@ public class Movie {
     @Expose
     private MovieLinks links;
     
+    private double avgRating = 0;
+    private int userRatings = 0;
+    private Map<String, Double> userCheck = new HashMap<>();
+    private int teach = 0;
+
     public Movie() {
         System.out.println("Creating Movie");
     }
+
     /**
      * @return the id
      */
@@ -154,6 +163,7 @@ public class Movie {
      * @return the ratings
      */
     public Ratings getRatings() {
+        System.out.println("I'VE BEEN FOUND, RATING ----" + ratings);
         return ratings;
     }
 
@@ -246,5 +256,39 @@ public class Movie {
         System.out.println("http://content6.flixster.com/" + lastPart.toString() + "det.jpg");
         
         return "http://content6.flixster.com/" + lastPart.toString() + "ori.jpg";
+    }
+    
+    /**
+     * Adds a unique rating & username entry to 
+     * a movie's ratings. Checks to see if the user
+     * has rated the movie before or not and acts 
+     * accordingly.
+     * @param rating rating of movie
+     * @param username user responsible for rating
+     */
+    public void addRatings(String rating, String username) {
+        
+        Double oldRating = userCheck.get(username);
+        if (oldRating == null) {
+            userRatings++;
+            double newRating = Double.parseDouble(rating);
+            avgRating = ((avgRating * (userRatings - 1)) + newRating) / userRatings;
+            userCheck.put(username, newRating);
+        } else {
+            double newRating = Double.parseDouble(rating);
+            avgRating = ((avgRating * userRatings) - oldRating + newRating) / userRatings;
+            userCheck.put(username, newRating);
+        }
+    }
+    
+    /**
+     * @return Average Rating of the movie
+     */
+    public Double getAvgRating() {
+        return avgRating;
+    }
+    
+    public int getNumRatings() {
+        return userRatings;
     }
 }

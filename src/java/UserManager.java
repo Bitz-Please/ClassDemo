@@ -49,7 +49,6 @@ public class UserManager {
         users.put("Fred", new UserData("Fred", "pass"));
         users.put("Timothy", new UserData("Timothy", "dani"));
         users.put("User", new UserData("User", "pass"));
-  
     }
     
     /**
@@ -142,6 +141,15 @@ public class UserManager {
      */
     public String getAdditionalInfo(String user) { 
         return users.get(user).getAdditionalInfo();
+    }
+    
+    public String getRating(Movie input, String user) {
+        return users.get(user).getRating(input);
+    }
+    
+    public void setRating(Movie input, String user, String rating) {
+        System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
+        users.get(user).setRating(input, rating);
     }
     
 }
