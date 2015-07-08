@@ -1,0 +1,91 @@
+  <!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"         
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Bits Please Moviematic</title>
+        <meta name="Bits-Please"></meta>
+    </h:head>
+    <!-- Add 50px padding top to the body for the navbar -->
+    <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <b:navBar brand="Bits-Please" inverse="true" fixed="top">
+
+            <h:form styleClass="navbar-form navbar-right">
+                <div class="form-group">
+                    <b:navLink value="Register" href="registration.xhtml"
+                               icon="glyphicon glyphicon-home"
+                               iconAlign="left">
+                    </b:navLink>
+                </div>
+                <div class="form-group">
+                    <b:inputText placeholder="Username" fieldSize="sm"
+                                 id="username" value="#{admin.adminName}"
+                                 required="true">
+                        <f:validateLength minimum="2" />
+                    </b:inputText>
+                    <!--input type="text" class="form-control" placeholder="Search"/-->
+                </div>
+                <div class="form-group">
+                    <b:inputSecret placeholder="Password" fieldSize="sm"
+                                 id="password" value="#{admin.password}"
+                                 required="true">
+                        <f:validateLength minimum="2" />
+                    </b:inputSecret>
+                </div> 
+                
+                <b:commandButton action="#{admin.login()}" value="Login"
+                                 look="success" icon="chevron-right"
+                                 iconAlign="right"/>
+                <b:messages style="color:darkRed" for="password" errorClass="text"/>
+            </h:form>
+        </b:navBar>
+        <b:jumbotron>
+            <b:container>
+                <h1>Welcome to Bits-Please Presents Moviematic!</h1>
+                <p>We are proud to present this new social networking site to share your movie
+                    tastes with all of your friends!
+                </p>
+<!--                <p>
+                    <a href="https://github.com/TheCoder4eu/BootsFacesWeb/blob/master/src/main/webapp/examples/jumbotron.xhtml" class="btn btn-lg btn-info">View Page Source »</a>
+                </p>-->
+            </b:container>
+
+        </b:jumbotron>
+        <b:container>
+<!--            <b:row>
+                <b:column col-md="4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><b:button outcome="" value="View details »"/></p>
+                </b:column>
+                <b:column col-md="4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><b:button outcome="" value="View details »"/></p>
+                </b:column>
+                <b:column col-md="4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><b:button outcome="" value="View details »"/></p>
+                </b:column>
+            </b:row>-->
+            <hr/>
+            <footer>
+            <p>© Bits-Please 2015</p>
+            </footer>
+        </b:container>
+
+    </h:body>
+</html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Admin User List</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+     <h:body style="padding-top: 100px; padding-bottom: 20px;">
+        <ui:include src="header_new.xhtml" />
+        <div>
+        <p:panel><p:dataTable id="table" var="users" value="#{admin.users}">
+                <p:column headerText="Status">
+                    <p:commandLink action="#{users.toggleLock()}" value="#{users.getStatus()}" />
+                </p:column>
+                
+                <p:column headerText="Name">
+                    <h:outputText value="#{users.name}" />
+                </p:column>
+                    
+                <p:column headerText="Username">
+                    <h:outputText value="#{users.userName}" />
+                </p:column>
+
+                <p:column headerText="Password">
+                    <h:outputText value="#{users.password}" />
+                </p:column>
+
+                <p:column headerText="Major">
+                    <h:outputText value="#{users.major}" />
+                </p:column>
+
+                <p:column headerText="Email">
+                    <h:outputText value="#{users.email}" />
+                </p:column>
+
+            </p:dataTable>
+            </p:panel>
+            <p:commandButton action="#{admin.logout()}" value="logout"/>
+        </div>
+    </h:body>
+  
+</html>
