@@ -7,44 +7,75 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui" 
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:p="http://primefaces.org/ui"         
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
         <title>Admin User List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-     <h:body style="padding-top: 100px; padding-bottom: 20px;">
-        <ui:include src="header_new.xhtml" />
-        <div>
-        <p:panel><p:dataTable id="table" var="users" value="#{admin.users}">
-                <p:column headerText="Status">
-                    <p:commandLink action="#{users.toggleLock()}" value="#{users.getStatus()}" />
-                </p:column>
+       <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <b:navBar brand="Bits-Please" inverse="true" fixed="top">
+            
+
+            <h:form styleClass="navbar-form navbar-right">
+                           <div class="form-group">
+                    <b:navLink value="" href="index.xhtml"
+                               icon="glyphicon glyphicon-home"
+                               iconAlign="left">
+                    </b:navLink>
+                </div>
                 
-                <p:column headerText="Name">
-                    <h:outputText value="#{users.name}" />
-                </p:column>
-                    
-                <p:column headerText="Username">
-                    <h:outputText value="#{users.userName}" />
-                </p:column>
+                <b:commandButton action="#{admin.login()}" value="Request User List"
+                                 look="success" icon="chevron-right"
+                                 iconAlign="right"/>
+                <b:messages style="color:darkRed" for="password" errorClass="text"/>
+            </h:form>
+        </b:navBar>
+        <b:jumbotron>
+            <b:container>
+                <h1>Moviematic Admin Login Success! #{admin.userManager.getCurrentQuery()[0].name}</h1>
+                <p>
+                </p>
+<!--                <p>
+                    <a href="https://github.com/TheCoder4eu/BootsFacesWeb/blob/master/src/main/webapp/examples/jumbotron.xhtml" class="btn btn-lg btn-info">View Page Source »</a>
+                </p>-->
 
-                <p:column headerText="Password">
-                    <h:outputText value="#{users.password}" />
-                </p:column>
 
-                <p:column headerText="Major">
-                    <h:outputText value="#{users.major}" />
-                </p:column>
 
-                <p:column headerText="Email">
-                    <h:outputText value="#{users.email}" />
-                </p:column>
+            </b:container>
 
-            </p:dataTable>
-            </p:panel>
-            <p:commandButton action="#{admin.logout()}" value="logout"/>
-        </div>
+            
+ 
+        </b:jumbotron>
+        <b:container>
+<!--            <b:row>
+                <b:column col-md="4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><b:button outcome="" value="View details »"/></p>
+                </b:column>
+                <b:column col-md="4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><b:button outcome="" value="View details »"/></p>
+                </b:column>
+                <b:column col-md="4">
+                    <h2>Heading</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                       ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><b:button outcome="" value="View details »"/></p>
+                </b:column>
+            </b:row>-->
+            <hr/>
+            <footer>
+            <p>© Bits-Please 2015</p>
+            </footer>
+        </b:container>
+
     </h:body>
   
 </html>

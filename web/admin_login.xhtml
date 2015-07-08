@@ -12,7 +12,7 @@ and open the template in the editor.
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:b="http://bootsfaces.net/ui">
     <h:head>
-        <title>Bits Please Moviematic</title>
+        <title>Bits Please Moviematic Admin Login</title>
         <meta name="Bits-Please"></meta>
     </h:head>
     <!-- Add 50px padding top to the body for the navbar -->
@@ -21,13 +21,13 @@ and open the template in the editor.
 
             <h:form styleClass="navbar-form navbar-right">
                 <div class="form-group">
-                    <b:navLink value="Register" href="registration.xhtml"
+                    <b:navLink value="" href="index.xhtml"
                                icon="glyphicon glyphicon-home"
                                iconAlign="left">
                     </b:navLink>
                 </div>
                 <div class="form-group">
-                    <b:inputText placeholder="Username" fieldSize="sm"
+                    <b:inputText placeholder="Admin Name" fieldSize="sm"
                                  id="username" value="#{admin.adminName}"
                                  required="true">
                         <f:validateLength minimum="2" />
@@ -50,13 +50,15 @@ and open the template in the editor.
         </b:navBar>
         <b:jumbotron>
             <b:container>
-                <h1>Welcome to Bits-Please Presents Moviematic!</h1>
-                <p>We are proud to present this new social networking site to share your movie
-                    tastes with all of your friends!
+                <h1>Moviematic Admin Login!</h1>
+                <p>
                 </p>
 <!--                <p>
                     <a href="https://github.com/TheCoder4eu/BootsFacesWeb/blob/master/src/main/webapp/examples/jumbotron.xhtml" class="btn btn-lg btn-info">View Page Source »</a>
                 </p>-->
+
+
+
             </b:container>
 
         </b:jumbotron>

@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.logging.*;
 
 /**
@@ -183,6 +184,16 @@ public class UserManager {
         }
         
         return lastPart.toString().replace("%20", " ") + "/";
+    }
+    
+   public ArrayList<UserData> getCurrentQuery() {
+        ArrayList<UserData> ret = new ArrayList<UserData>();
+        for(UserData current : users.values()) {
+            ret.add(current);
+        }
+        System.out.println("getting list of users");
+        return ret;
+        
     }
     
 }

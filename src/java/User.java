@@ -27,7 +27,6 @@ public class User implements Serializable {
     private String major;
     private String additionalInfo;
     
-    
     @ManagedProperty("#{userManager}")
     private UserManager userManager;
     

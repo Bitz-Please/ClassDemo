@@ -1,7 +1,10 @@
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,8 +17,12 @@ import java.util.Map;
  * @author bitsplease
  */
 class UserData implements Serializable {
+    
+    @Expose
     private String name;
+    @Expose
     private String password;
+    @Expose
     private String email;
     private String address;
     private String major;
@@ -119,6 +126,17 @@ class UserData implements Serializable {
      */
     public Map<Movie, String> getPersonalRatings() {
         return personalRatings;
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
     
    
