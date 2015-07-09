@@ -50,7 +50,42 @@ and open the template in the editor.
 
 
             </b:container>
+            <b:container>
+                <h1>List of Users</h1>
+                <p>
+                </p>
+<!--                <p>
+                    <a href="https://github.com/TheCoder4eu/BootsFacesWeb/blob/master/src/main/webapp/examples/jumbotron.xhtml" class="btn btn-lg btn-info">View Page Source »</a>
+                </p>-->
 
+
+            <h:form style="padding-top: 15px">
+            <p:dataTable id="userTable" var="userData" value="#{admin.userManager.getCurrentQuery()}" rows="25" paginator="true">
+                    <p:column  headerText="Action">
+                        <h:commandLink value="#{userData.getBanStatus()}" action="#{userData.banUser()}" >
+                        </h:commandLink>
+                    </p:column>
+                    <p:column headerText="Username">
+                       <h:outputText value="#{userData.name}" />
+                    </p:column>
+                    <p:column headerText="Account Banned">
+                       <h:outputText value="#{userData.banned}" />
+                    </p:column>
+                    <p:column headerText="Email">
+                       <h:outputText value="#{userData.email}" />
+                    </p:column>
+
+                    <p:column headerText="Major">
+                       <h:outputText value="#{userData.major}" />
+                    </p:column>
+                
+                    <p:column headerText="Major">
+                       <h:outputText value="#{userData.password}" />
+                    </p:column>
+                 </p:dataTable>
+            </h:form>
+
+            </b:container>
             
         </b:jumbotron>
            
