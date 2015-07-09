@@ -2,6 +2,10 @@
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +17,11 @@ import java.util.Map;
  *Stores the data of the current user
  * @author bitsplease
  */
-class UserData implements Serializable {
+
+@ManagedBean
+@ApplicationScoped
+public class UserData implements Serializable {
+    
     private String name;
     private String password;
     private String email;
@@ -40,10 +48,10 @@ class UserData implements Serializable {
      * @param additionalInfo any extra information about the user
      */
     void updateData(String email, String address, String major, String additionalInfo) {
-        this.email = email;
-        this.address = address;
-        this.major = major;
-        this.additionalInfo = additionalInfo;
+        this.setEmail(email);
+        this.setAddress(address);
+        this.setMajor(major);
+        this.setAdditionalInfo(additionalInfo);
     }
     
     /**
@@ -53,7 +61,7 @@ class UserData implements Serializable {
      * @return true if password is correct, false otherwise
      */
     boolean checkLogin(String password) {
-        return password.equals(this.password);
+        return password.equals(this.getPassword());
     }
     
     /**
@@ -95,7 +103,7 @@ class UserData implements Serializable {
      */    
     public String getRating(Movie input) {
         String rating = getPersonalRatings().get(input);
-        System.out.println("MY USER OWNER IS " + name);
+        System.out.println("MY USER OWNER IS " + getName());
         if (rating != null) {
             return rating;
         } else {
@@ -119,6 +127,69 @@ class UserData implements Serializable {
      */
     public Map<Movie, String> getPersonalRatings() {
         return personalRatings;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * @param major the major to set
+     */
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    /**
+     * @param additionalInfo the additionalInfo to set
+     */
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
+    }
+
+    /**
+     * @param personalRatings the personalRatings to set
+     */
+    public void setPersonalRatings(Map<Movie, String> personalRatings) {
+        this.personalRatings = personalRatings;
     }
     
 }

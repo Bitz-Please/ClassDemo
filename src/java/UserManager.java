@@ -16,6 +16,9 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import java.util.logging.*;
 
 /**
@@ -183,5 +186,21 @@ public class UserManager {
         }
         
         return lastPart.toString().replace("%20", " ") + "/";
+    }
+    
+    public List<UserData> getUserList() {
+        
+        Set<Map.Entry<String, UserData>> tempList = users.entrySet();
+        List<UserData> ret = new ArrayList<>();
+        for (Map.Entry<String, UserData> current : tempList) {
+            ret.add(current.getValue());
+        }
+        
+        for(UserData current: ret) {
+            System.out.println("HI, MY NAME IS " + current.getName());
+            System.out.println("HI, MY EMAIL IS " + current.getEmail());
+        }
+        return ret;
+        
     }
 }
