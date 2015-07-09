@@ -25,6 +25,7 @@ public class User implements Serializable {
     private String email;
     private String address;
     private String major;
+    private boolean banned;
     private String additionalInfo;
     
     @ManagedProperty("#{userManager}")
@@ -65,6 +66,14 @@ public class User implements Serializable {
     //implictly by 'profile.xhtlm' and 'userInfo.xhtml' to display user info.
     
     
+    
+    public boolean getBanned() {
+        return this.banned;
+    }
+    
+    public void setBanned(boolean banned) {
+        this.banned = banned;
+    }
     /**
      * Gets user email from userManager
      * @return email
@@ -228,7 +237,7 @@ public class User implements Serializable {
      */
     public String updateUserData() {
         UserData data = userManager.find(username);
-        data.updateData(email, address, major, additionalInfo);
+        data.updateData(email, address, major, additionalInfo, banned);
         userManager.saveBinary();
         return "profile_new";
     }

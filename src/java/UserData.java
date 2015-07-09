@@ -16,7 +16,7 @@ import javax.faces.bean.SessionScoped;
  *Stores the data of the current user
  * @author bitsplease
  */
-class UserData implements Serializable {
+public class UserData implements Serializable {
     
     @Expose
     private String name;
@@ -24,6 +24,7 @@ class UserData implements Serializable {
     private String password;
     @Expose
     private String email;
+    private boolean banned;
     private String address;
     private String major;
     private String additionalInfo;
@@ -35,6 +36,7 @@ class UserData implements Serializable {
      * @param password password of the user account
      */
     UserData(String name, String password) {
+        this.banned = false;
         this.name = name;
         this.password = password;
     }
@@ -46,11 +48,12 @@ class UserData implements Serializable {
      * @param major the major of the user
      * @param additionalInfo any extra information about the user
      */
-    void updateData(String email, String address, String major, String additionalInfo) {
+    void updateData(String email, String address, String major, String additionalInfo,boolean banned) {
         this.email = email;
         this.address = address;
         this.major = major;
         this.additionalInfo = additionalInfo;
+        this.banned = banned;
     }
     
     /**
@@ -60,6 +63,9 @@ class UserData implements Serializable {
      * @return true if password is correct, false otherwise
      */
     boolean checkLogin(String password) {
+        if (this.banned == true) {
+            return false;
+        }
         return password.equals(this.password);
     }
     
@@ -71,6 +77,15 @@ class UserData implements Serializable {
         return email;
     }
     
+    
+    public boolean getBanned() {
+        return banned;
+   
+    }
+    
+    public void setBanned(boolean banned) {
+        this.banned = banned;
+    }
     /**
      * Getter for user address
      * @return address
@@ -139,6 +154,9 @@ class UserData implements Serializable {
         this.name = name;
     }
     
+    public void banUser() {
+        this.banned = true;
+    }
    
     
 }

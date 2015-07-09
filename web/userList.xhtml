@@ -27,7 +27,7 @@ and open the template in the editor.
                     </b:navLink>
                 </div>
                 
-                <b:commandButton action="userList" value="Request User List"
+                <b:commandButton action="#{admin.login()}" value="Request User List"
                                  look="success" icon="chevron-right"
                                  iconAlign="right"/>
                 <b:messages style="color:darkRed" for="password" errorClass="text"/>
@@ -40,7 +40,7 @@ and open the template in the editor.
         </b:navBar>
         <b:jumbotron>
             <b:container>
-                <h1>Moviematic Admin Login Success! </h1>
+                <h1>List of Users</h1>
                 <p>
                 </p>
 <!--                <p>
@@ -48,6 +48,27 @@ and open the template in the editor.
                 </p>-->
 
 
+            <h:form style="padding-top: 15px">
+            <p:dataTable id="userTable" var="userData" value="#{admin.userManager.getCurrentQuery()}" rows="25" paginator="true">
+                    <p:column  headerText="Action">
+                        <h:commandLink value="Ban User" action="#{userData.banUser()}" >
+                        </h:commandLink>
+                    </p:column>
+                    <p:column headerText="Username">
+                       <h:outputText value="#{userData.name}" />
+                    </p:column>
+                    <p:column headerText="Account Banned">
+                       <h:outputText value="#{userData.banned}" />
+                    </p:column>
+                    <p:column headerText="Email">
+                       <h:outputText value="#{userData.email}" />
+                    </p:column>
+
+                    <p:column headerText="Major">
+                       <h:outputText value="#{userData.major}" />
+                    </p:column>
+                 </p:dataTable>
+            </h:form>
 
             </b:container>
 
