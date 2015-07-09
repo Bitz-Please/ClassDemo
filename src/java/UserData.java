@@ -156,7 +156,7 @@ public class UserData implements Serializable {
     }
     
     public void banUser() {
-        this.banned = true;
+        banned = !banned;
     }
 
     /**
@@ -173,5 +173,14 @@ public class UserData implements Serializable {
         return password;
     }
    
+    public String getBanStatus(){
+        String ret;
+        if (banned == true) {
+            ret = "Unban User";
+        } else {
+            ret = "Ban User";
+        }
+        return ret;
+    }
     
 }
