@@ -18,11 +18,11 @@ import javax.faces.bean.SessionScoped;
  */
 public class UserData implements Serializable {
     
-    @Expose
+    //@Expose
     private String name;
-    @Expose
+    //@Expose
     private String password;
-    @Expose
+    //@Expose
     private String email;
     private boolean banned;
     private String address;
@@ -66,7 +66,7 @@ public class UserData implements Serializable {
         if (this.banned == true) {
             return false;
         }
-        return password.equals(this.password);
+        return password.equals(this.getPassword());
     }
     
     /**
@@ -82,6 +82,7 @@ public class UserData implements Serializable {
         return banned;
    
     }
+    
     
     public void setBanned(boolean banned) {
         this.banned = banned;
@@ -156,6 +157,20 @@ public class UserData implements Serializable {
     
     public void banUser() {
         this.banned = true;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
     }
    
     
