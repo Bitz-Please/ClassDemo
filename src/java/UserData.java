@@ -5,7 +5,6 @@ import java.util.Map;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.inject.Named;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

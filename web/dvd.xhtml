@@ -16,7 +16,7 @@ and open the template in the editor.
         <ui:include src="header_new.xhtml" />
         <div>
         <h:form>
-            <p:dataTable id="dvdTable" var="dvd" value="#{rtservice.dvdMovies}" rows="25" paginator="true">
+            <p:dataTable id="dvdTable" var="dvd" value="#{movielistbean.dvdMovies}" rows="25" paginator="true">
                     <p:column  headerText="Title">
                         <h:commandLink value="#{dvd.title}" action="#{moviebean.setMovieAndGo(dvd)}">
                         </h:commandLink>

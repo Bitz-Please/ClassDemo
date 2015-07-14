@@ -8,49 +8,22 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ApplicationScoped;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import javax.annotation.PostConstruct;
-import java.io.Reader;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
 
-@ManagedBean (name = "rtservice")
-@ApplicationScoped
 
 public class RTRESTService implements Serializable {
 
     private final String API_KEY = "yedukp76ffytfuy24zsqk7f5";
-    
-    private List<Movie> dvdMovies = new ArrayList<Movie>();
-    private String dvdData;
-    
-    private List<Movie> theaterMovies = new ArrayList<Movie>();
-    private String theaterData;
-
-    
-    @PostConstruct
-    protected void init() {
-        
-        dvdData = rottenRestNewDVDs();
-        theaterData = rottenRestOpenings();
-        buildDvdMovies();
-        buildTheaterMovies();
-        
-    }
-    
-
+   
     /***********************************************
      * Private API starts here                      *
      ***********************************************/
@@ -174,53 +147,20 @@ public class RTRESTService implements Serializable {
         return rottenRestCall(endpoint);
     }
     
-    /**
-     *  Builds the Movie Object Classes based off the JSON movie response info
-     *  from the RottenTomatoes API call. Work done by gson.fromJson()
-     *  The particular query call for rottenTomatoes is the Current DVD 
-     *  releases.
-     */
-    public void buildDvdMovies() {
-        Gson gson = new GsonBuilder().registerTypeAdapter(Integer.class,
-                    new IntegerTypeAdapter()).create();
-        RTResponse response = gson.fromJson(dvdData, RTResponse.class);
-        List<Movie> movies = response.getMovies();
-        for (Movie m : movies) {
-            getDvdMovies().add(m);
-        }   
-    }
-    
-    
-    /**
-     *  Builds the Movie Object Classes based off the JSON movie response info
-     *  from the RottenTomatoes API call. Work done by gson.fromJson()
-     *  The particular query call for rottenTomatoes is the Current Theater 
-     *  releases.
-     */
-    public void buildTheaterMovies() {
-        Gson gson = new GsonBuilder().registerTypeAdapter(Integer.class,
-                    new IntegerTypeAdapter()).create();
-        RTResponse response = gson.fromJson(theaterData, RTResponse.class);
-        List<Movie> movies = response.getMovies();
-        for (Movie m : movies) {
-            System.out.print(m);
-            getTheaterMovies().add(m);
-        }    
-    }
-    
+     
     /**
      *  Turns the JSON response information from RottenTomatoes API into 
      *  valid Movie objects. Then gives the ArrayList of movies back to be displayed
      *  to the user who searched.
      * 
-     * @param queryData The raw JSON query data from RottenTomatoes API
+     * @param data The raw JSON data from RottenTomatoes API
      * @return 
      */
-    private ArrayList<Movie> generateSearch(String queryData) {
+    private ArrayList<Movie> generateList(String data) {
         Gson gson = new GsonBuilder().registerTypeAdapter(Integer.class,
                     new IntegerTypeAdapter()).create();
-        System.out.println("FINAL TEST ---------------------->" + queryData);
-        RTResponse response = gson.fromJson(queryData, RTResponse.class);
+        System.out.println("FINAL TEST ---------------------->" + data);
+        RTResponse response = gson.fromJson(data, RTResponse.class);
         ArrayList<Movie> movies = response.getMovies();
         return movies;
     }
@@ -236,24 +176,19 @@ public class RTRESTService implements Serializable {
     public ArrayList<Movie> search(String search) {
         String queryData = rottenRestSearch(search);
         System.out.println("Query Data ------------->" + queryData);
-        return generateSearch(queryData);
+        return generateList(queryData);
     }
     
-    
-
-    /**
-     * @return the dvdMovies
-     */
-    public List<Movie> getDvdMovies() {
-        return dvdMovies;
+    public ArrayList<Movie> getTheaterMovies() {
+        String theaterData = rottenRestOpenings();
+        System.out.println("Theater Data ------------->" + theaterData);
+        return generateList(theaterData);
     }
     
-    
-
-    /**
-     * @return the theaterMovies
-     */
-    public List<Movie> getTheaterMovies() {
-        return theaterMovies;
+    public ArrayList<Movie> getDvdMovies() {
+        String dvdData = rottenRestNewDVDs();
+        System.out.println("Dvd Data ------------->" + dvdData);
+        return generateList(dvdData);
     }
+    
 }
