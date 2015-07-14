@@ -46,7 +46,7 @@ public class MovieManager implements Serializable {
      * @param newMovies the movies to add
      * @return the results of the query
      */
-    public String addMovie(ArrayList<Movie> newMovies) {
+    public void addMovie(ArrayList<Movie> newMovies) {
 
         currentQuery = newMovies;
         for(Movie mov : newMovies) {
@@ -55,8 +55,6 @@ public class MovieManager implements Serializable {
                 saveBinary();
             } 
         }
-        
-        return "query_results";
     }
 
     /**
