@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"         
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Admin User List</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+       <h:body style="padding-top: 50px; padding-bottom: 20px;">
+        <b:navBar brand="Bits-Please" inverse="true" fixed="top">
+            
+
+            <h:form styleClass="navbar-form navbar-right">
+                           <div class="form-group">
+                
+                <b:navLink value="Home" href="login.xhtml"
+                        icon="glyphicon glyphicon-home"
+                        iconAlign="left">
+                </b:navLink>
+                </div>
+                
+                
+                <b:messages style="color:darkRed" for="password" errorClass="text"/>
+            </h:form>
+        </b:navBar>
+        <b:jumbotron>
+            <b:container>
+                <h1>Sorry, but you are currently banned.</h1>
+            </b:container>      
+        </b:jumbotron>
+           
+           
+           
+        <b:container>
+            <hr/>
+            <footer>
+            <p>© Bits-Please 2015</p>
+            </footer>
+        </b:container>
+
+    </h:body>
+  
+</html>

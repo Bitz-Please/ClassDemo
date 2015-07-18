@@ -8,10 +8,12 @@
     <h:head>
         <title>Welcome</title>
         <meta name="author" content="The Author"></meta>
+        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+        <script type="text/javascript">stLight.options({publisher: "3d8a13ca-9919-40a0-8fc1-de74cfd7aee7", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
     </h:head>
     <!-- Add 50px padding top to the body for the navbar -->
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
-        <ui:include src="header_new.xhtml" />
+        <ui:include src="header.xhtml" />
         <b:jumbotron>
             <b:container>
                 <h1>Welcome, #{user.username}!</h1>
@@ -29,6 +31,10 @@
             <hr/>
             <footer>
             <p>© Company 2014</p>
+            <span class='st_facebook_large' displayText='Facebook'></span>
+            <span class='st_twitter_large' displayText='Tweet'></span>
+            <span class='st_googleplus_large' displayText='Google +'></span>
+            <span class='st_reddit_large' displayText='Reddit'></span>
             </footer>
         </b:container>
 

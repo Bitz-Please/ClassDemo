@@ -1,10 +1,10 @@
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -21,9 +21,11 @@ import javax.faces.bean.SessionScoped;
 @ApplicationScoped
 public class UserData implements Serializable {
     
+    
     private String name;
     private String password;
     private String email;
+    private boolean banned;
     private String address;
     private String major;
     private String additionalInfo;
@@ -35,6 +37,7 @@ public class UserData implements Serializable {
      * @param password password of the user account
      */
     UserData(String name, String password) {
+        this.banned = false;
         this.name = name;
         this.password = password;
     }
@@ -46,11 +49,12 @@ public class UserData implements Serializable {
      * @param major the major of the user
      * @param additionalInfo any extra information about the user
      */
-    void updateData(String email, String address, String major, String additionalInfo) {
-        this.setEmail(email);
-        this.setAddress(address);
-        this.setMajor(major);
-        this.setAdditionalInfo(additionalInfo);
+    void updateData(String email, String address, String major, String additionalInfo,boolean banned) {
+        this.email = email;
+        this.address = address;
+        this.major = major;
+        this.additionalInfo = additionalInfo;
+        this.banned = banned;
     }
     
     /**
@@ -71,6 +75,16 @@ public class UserData implements Serializable {
         return email;
     }
     
+    
+    public boolean getBanned() {
+        return banned;
+   
+    }
+    
+    
+    public void setBanned(boolean banned) {
+        this.banned = banned;
+    }
     /**
      * Getter for user address
      * @return address
@@ -127,7 +141,7 @@ public class UserData implements Serializable {
     public Map<Movie, String> getPersonalRatings() {
         return personalRatings;
     }
-
+    
     /**
      * @return the name
      */
@@ -142,11 +156,16 @@ public class UserData implements Serializable {
         this.name = name;
     }
 
+
     /**
      * @return the password
      */
     public String getPassword() {
         return password;
+    }
+    
+    public void banUser() {
+        banned = !banned;
     }
 
     /**
@@ -190,5 +209,14 @@ public class UserData implements Serializable {
     public void setPersonalRatings(Map<Movie, String> personalRatings) {
         this.personalRatings = personalRatings;
     }
-    
+   
+    public String getBanStatus(){
+        String ret;
+        if (banned == true) {
+            ret = "Unban User";
+        } else {
+            ret = "Ban User";
+        }
+        return ret;
+    }
 }

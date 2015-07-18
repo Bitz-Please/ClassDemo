@@ -21,7 +21,8 @@ public class MovieBean implements Serializable {
     private Movie movie;
     private String rate;
     
-    
+    @ManagedProperty("#{movieManager}")
+    private MovieManager movieManager;
     /**
      * Constructs a new MOvieBean object
      */
@@ -35,7 +36,7 @@ public class MovieBean implements Serializable {
      * @param movie
      * @return 
      */
-    public String setMovieAndGo(Movie movie, MovieManager movieManager) {
+    public String setMovieAndGo(Movie movie) {
         this.movie = movieManager.getMovie(movie.getTitle());
         return "movie";
     }
@@ -117,5 +118,16 @@ public class MovieBean implements Serializable {
      */
     public String getAvgRating() {
         return "" + movie.getAvgRating().intValue();
+    }
+    
+    public void addMovie(ArrayList<Movie> newMovies) {
+        movieManager.addMovie(newMovies);
+    }
+
+    /**
+     * @param movieManager the movieManager to set
+     */
+    public void setMovieManager(MovieManager movieManager) {
+        this.movieManager = movieManager;
     }
 }

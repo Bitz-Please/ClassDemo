@@ -25,14 +25,11 @@ public class User implements Serializable {
     private String email;
     private String address;
     private String major;
+    private boolean banned;
     private String additionalInfo;
-    
     
     @ManagedProperty("#{userManager}")
     private UserManager userManager;
-    
-    @ManagedProperty("#{movieManager}")
-    private MovieManager movieManager;
     
 
     /**
@@ -66,6 +63,14 @@ public class User implements Serializable {
     //implictly by 'profile.xhtlm' and 'userInfo.xhtml' to display user info.
     
     
+    
+    public boolean getBanned() {
+        return this.banned;
+    }
+    
+    public void setBanned(boolean banned) {
+        this.banned = banned;
+    }
     /**
      * Gets user email from userManager
      * @return email
@@ -161,17 +166,19 @@ public class User implements Serializable {
         System.out.println("Doing some business logic here");
         UserData data = userManager.find(username);
         
-        if (data == null || !data.checkLogin(password)) {
+        if (data == null) {
             username="";
             password="";
             System.out.println("No such user found or password wrong");
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage("Username or Password incorrect"));
             return null;
+        } else if (data.getBanned()) {
+            return "banned";
         }
         System.out.println("Login Success");
         userManager.saveBinary();
-            return "home_new"; //"home"
+        return "home"; //"home"
     }
     
     /**
@@ -215,13 +222,6 @@ public class User implements Serializable {
         this.userManager = userManager;
     }
     
-    /**
-     * Connects movieManager with User
-     * @param movieManager 
-     */
-    public void setMovieManager(MovieManager movieManager) {
-        this.movieManager = movieManager;
-    }
     
     /**
      * Provides userManager with user data to store
@@ -229,9 +229,9 @@ public class User implements Serializable {
      */
     public String updateUserData() {
         UserData data = userManager.find(username);
-        data.updateData(email, address, major, additionalInfo);
+        data.updateData(email, address, major, additionalInfo, banned);
         userManager.saveBinary();
-        return "profile_new";
+        return "profile";
     }
     
     /**
@@ -254,15 +254,12 @@ public class User implements Serializable {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
         userManager.setRating(input, username, rating);
         input.addRatings(rating, username);
-        userManager.saveBinary();
-        movieManager.saveBinary();
         return "movie";
-        
     }
     
-    /*
-    public String getRating(Movie input) {
-        
+    public String logout() {
+        username = "";
+        password = "";
+        return "login";
     }
-    */
 }

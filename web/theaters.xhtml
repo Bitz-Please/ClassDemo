@@ -14,13 +14,16 @@ and open the template in the editor.
     </h:head>
 
     <h:body style="padding-top: 100px; padding-bottom: 20px;">
-        <ui:include src="header_new.xhtml" />
+        <ui:include src="header.xhtml" />
         <div>
         <h:form>
             <p:dataTable id="dvdTable" var="dvd" value="#{movielistbean.theaterMovies}" rows="25" paginator="true">
                     <p:column  headerText="Title">
-                        <h:commandLink value="#{dvd.title}" action="#{moviebean.setMovieAndGo(dvd, movieManager)}">
-                        </h:commandLink>
+                        <center>
+                            <h:commandLink value="#{dvd.title}" action="#{moviebean.setMovieAndGo(dvd)}">
+                            </h:commandLink>
+                            <p><img src="#{dvd.poster}" height="auto" width="60%" action="#{moviebean.setMovieAndGo(dvd)}"/></p>
+                        </center>
                     </p:column>
 
                     <p:column headerText="Rating">

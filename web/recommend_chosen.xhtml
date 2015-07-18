@@ -16,7 +16,7 @@ and open the template in the editor.
     
     <h:body style="padding-top: 50px; padding-bottom: 20px;">
         <div>
-        <ui:include src="header_new.xhtml" />
+        <ui:include src="header.xhtml" />
             <b:jumbotron>
                 <b:row>
                     <b:container>
@@ -73,7 +73,7 @@ and open the template in the editor.
                         <!--</b:row>-->
                     </h:panelGrid>
                     <b:commandButton update="panel" value="Update" action="recommend_chosen" />
-                    <b:commandButton update="panel" value="Cancel" action="home_new" />
+                    <b:commandButton update="panel" value="Cancel" action="home" />
                 </p:panel>
                 </h:form>
             </b:jumbotron>
@@ -81,7 +81,7 @@ and open the template in the editor.
         
         <p:panel>
             
-               <p:commandButton value="Home" action="home_new"/>
+               <p:commandButton value="Home" action="home"/>
         </p:panel>
         <b:container>
             <h:form style="padding-top: 15px">

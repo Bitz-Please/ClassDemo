@@ -160,6 +160,7 @@ public class UserManager {
     public void setRating(Movie input, String user, String rating) {
         System.out.println("Adding rating " + rating + " to movie " + input.getTitle());
         users.get(user).setRating(input, rating);
+        saveBinary();
     }
     
     /**
@@ -188,18 +189,13 @@ public class UserManager {
         return lastPart.toString().replace("%20", " ") + "/";
     }
     
-    public List<UserData> getUserList() {
-        
-        Set<Map.Entry<String, UserData>> tempList = users.entrySet();
-        List<UserData> ret = new ArrayList<>();
-        for (Map.Entry<String, UserData> current : tempList) {
-            ret.add(current.getValue());
+   public ArrayList<UserData> getCurrentQuery() {
+        ArrayList<UserData> ret = new ArrayList<UserData>();
+        for(UserData current : users.values()) {
+            ret.add(current);
+            System.out.println(current.getName());
         }
-        
-        for(UserData current: ret) {
-            System.out.println("HI, MY NAME IS " + current.getName());
-            System.out.println("HI, MY EMAIL IS " + current.getEmail());
-        }
+        System.out.println("getting list of users");
         return ret;
         
     }

@@ -27,8 +27,8 @@ public class MovieManager implements Serializable {
      
     private final String FILE_NAME; 
     private static Map<String, Movie> movies = new HashMap<>();
-    private ArrayList<Movie> currentQuery;
-    private String currentRecommendation;
+    private static ArrayList<Movie> currentQuery;
+    private static String currentRecommendation;
     
     /**
      * Creates the movie manager object
@@ -102,7 +102,7 @@ public class MovieManager implements Serializable {
      * @return the current query of movies
      */
     public ArrayList<Movie> getCurrentQuery() {
-        ArrayList<Movie> ret = new ArrayList<Movie>();
+        ArrayList<Movie> ret = new ArrayList<>();
         for(Movie current : currentQuery) {
             ret.add(movies.get(current.getTitle()));
         }

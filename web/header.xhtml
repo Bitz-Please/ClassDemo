@@ -7,18 +7,13 @@
 	xmlns:f="http://java.sun.com/jsf/core"
         xmlns:b="http://bootsfaces.net/ui">
     
-	<b:navBar brand="Bits-Please" inverse="true" fixed="top">
+    <b:navBar brand="Bits-Please" inverse="true" fixed="top" brandHref="home.xhtml">
             <b:navbarLinks>
-                <b:navLink value="Home" href="home_new.xhtml"
+                <b:navLink value="Home" href="home.xhtml"
                            icon="glyphicon glyphicon-home"
                            iconAlign="left">
                 </b:navLink>
                  <b:navLink value="Movie Recommender" href="recommend.xhtml"
-                           icon ="glyphicon glyphicon-stats"
-                           iconAlign="left">
-                </b:navLink>
-                
-                <b:navLink value="User List" href="userlist.xhtml"
                            icon ="glyphicon glyphicon-stats"
                            iconAlign="left">
                 </b:navLink>
@@ -33,19 +28,19 @@
             </b:navbarLinks>
             <h:form styleClass="navbar-left" style="padding-top:10px; padding-left: 25px">
                 <p:inputText placeholder="Search Movie Title"
-                             id="query" value="#{movielistbean.search}"
+                             id="query" value="#{searchbean.search}"
                              required="true" label="Query" 
                              style="width: 350px"/>
                 <b:commandButton value="" look="inverse" icon="glyphicon glyphicon-search"
-                                 iconAlign="right" action="query_results"
+                           iconAlign="right" action="#{movieBean.addMovie(searchbean.search())}"
                            size="mini">
                 </b:commandButton>
             </h:form>
             <h:form styleClass="navbar-right">
                 <b:navbarLinks>
                     <b:dropMenu value="#{user.username}">
-                        <b:navLink value="Account" href="profile_new.xhtml"></b:navLink>
-                        <b:navLink value="Logout" onclick="#{user.logout()}"></b:navLink>
+                        <b:navLink value="Account" href="profile.xhtml"></b:navLink>
+                        <b:navLink value="Logout" href="login.xhtml"></b:navLink>
                     </b:dropMenu>
                 </b:navbarLinks>
             </h:form>
