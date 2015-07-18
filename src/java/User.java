@@ -179,7 +179,7 @@ public class User implements Serializable {
         }
         System.out.println("Login Success");
         userManager.saveBinary();
-            return "home_new"; //"home"
+            return "home"; //"home"
     }
     
     /**
@@ -239,7 +239,7 @@ public class User implements Serializable {
         UserData data = userManager.find(username);
         data.updateData(email, address, major, additionalInfo, banned);
         userManager.saveBinary();
-        return "profile_new";
+        return "profile";
     }
     
     /**

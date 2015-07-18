@@ -4,10 +4,45 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:b="http://bootsfaces.net/ui">
     
-	<center>
-            
-		<h:outputText value="Welcome to the app! #{user.username}" styleClass="background-color: #87B6D9"/>
-	</center>
+	<b:navBar brand="Bits-Please" inverse="true" fixed="top">
+            <b:navbarLinks>
+                <b:navLink value="Home" href="home.xhtml"
+                           icon="glyphicon glyphicon-home"
+                           iconAlign="left">
+                </b:navLink>
+                 <b:navLink value="Movie Recommender" href="recommend.xhtml"
+                           icon ="glyphicon glyphicon-stats"
+                           iconAlign="left">
+                </b:navLink>
+                
+                <b:dropMenu value="Top Movies">
+                    <b:navLink icon="glyphicon glyphicon-film" iconAlign="left"
+                               value="Top Box Office" href="theaters.xhtml"></b:navLink>
+                    <b:navLink icon="glyphicon glyphicon-record" iconAlign="left"
+                               value="Top DVDs" href="dvd.xhtml"></b:navLink>
+                </b:dropMenu>
+                
+            </b:navbarLinks>
+            <h:form styleClass="navbar-left" style="padding-top:10px; padding-left: 25px">
+                <p:inputText placeholder="Search Movie Title"
+                             id="query" value="#{searchbean.search}"
+                             required="true" label="Query" 
+                             style="width: 350px"/>
+                <b:commandButton value="" look="inverse" icon="glyphicon glyphicon-search"
+                           iconAlign="right" action="#{movieManager.addMovie(searchbean.search())}"
+                           size="mini">
+                </b:commandButton>
+            </h:form>
+            <h:form styleClass="navbar-right">
+                <b:navbarLinks>
+                    <b:dropMenu value="#{user.username}">
+                        <b:navLink value="Account" href="profile.xhtml"></b:navLink>
+                        <b:navLink value="Logout" href="login.xhtml"></b:navLink>
+                    </b:dropMenu>
+                </b:navbarLinks>
+            </h:form>
+        </b:navBar>
 </ui:composition>
