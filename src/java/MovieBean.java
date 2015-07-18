@@ -35,8 +35,8 @@ public class MovieBean implements Serializable {
      * @param movie
      * @return 
      */
-    public String setMovieAndGo(Movie movie) {
-        this.movie = movie;
+    public String setMovieAndGo(Movie movie, MovieManager movieManager) {
+        this.movie = movieManager.getMovie(movie.getTitle());
         return "movie";
     }
    
