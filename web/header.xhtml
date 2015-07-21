@@ -28,11 +28,11 @@
             </b:navbarLinks>
             <h:form styleClass="navbar-left" style="padding-top:10px; padding-left: 25px">
                 <p:inputText placeholder="Search Movie Title"
-                             id="query" value="#{searchbean.search}"
+                             id="query" value="#{movielistbean.search}"
                              required="true" label="Query" 
                              style="width: 350px"/>
                 <b:commandButton value="" look="inverse" icon="glyphicon glyphicon-search"
-                           iconAlign="right" action="#{movieBean.addMovie(searchbean.search())}"
+                           iconAlign="right" action="#{moviebean.addMovie(movielistbean.getSearchMovies())}"
                            size="mini">
                 </b:commandButton>
             </h:form>

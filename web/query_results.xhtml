@@ -19,8 +19,11 @@ and open the template in the editor.
         <h:form style="padding-top: 15px">
             <p:dataTable id="dvdTable" var="dvd" value="#{movielistbean.searchMovies}" rows="25" paginator="true">
                     <p:column  headerText="Title">
-                        <h:commandLink value="#{dvd.title}" action="#{moviebean.setMovieAndGo(dvd)}">
-                        </h:commandLink>
+                        <center>
+                            <h:commandLink value="#{dvd.title}" action="#{moviebean.setMovieAndGo(dvd)}">
+                            </h:commandLink>
+                            <p><img src="#{dvd.poster}" height="auto" width="60%" action="#{moviebean.setMovieAndGo(dvd)}"/></p>
+                        </center>
                     </p:column>
 
                     <p:column headerText="Rating">
