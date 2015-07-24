@@ -20,7 +20,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class RTRESTService implements Serializable {
+public class RTRESTService implements APIService, Serializable {
 
     private final String API_KEY = "yedukp76ffytfuy24zsqk7f5";
    
@@ -101,14 +101,13 @@ public class RTRESTService implements Serializable {
      * Public API starts here                      *
      ***********************************************/
 
-    /**
+     /**
      * Takes a user's query and searches Rotten Tomatoes for matches
      *
      * @param query The user's search term
      * @return Matched results from rotten tomatoes
      */
-
-    public String rottenRestSearch(String query) {
+    private String RestSearch(String query) {
         String[] words = query.split(" ");
         StringBuilder sentence = new StringBuilder(words[0]);
 
@@ -128,7 +127,7 @@ public class RTRESTService implements Serializable {
      *
      * @return First page of opening movies from Rotten Tomatoes
      */
-    public String rottenRestOpenings() {
+    private String RestOpenings() {
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/" +
                 "opening.json?apikey=" + API_KEY;
 
@@ -140,7 +139,7 @@ public class RTRESTService implements Serializable {
      *
      * @return First page of newly released DVDs from Rotten Tomatoes
      */
-    public String rottenRestNewDVDs() {
+    private String RestNewDVDs() {
         String endpoint = "http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/" +
                 "new_releases.json?apikey=" + API_KEY;
 
@@ -156,37 +155,36 @@ public class RTRESTService implements Serializable {
      * @param data The raw JSON data from RottenTomatoes API
      * @return 
      */
-    private ArrayList<Movie> generateList(String data) {
+    private ArrayList<Item> generateList(String data) {
         Gson gson = new GsonBuilder().registerTypeAdapter(Integer.class,
                     new IntegerTypeAdapter()).create();
         System.out.println("FINAL TEST ---------------------->" + data);
         RTResponse response = gson.fromJson(data, RTResponse.class);
         ArrayList<Movie> movies = response.getMovies();
-        return movies;
+        ArrayList<Item> ret = new ArrayList<Item>();
+        for(Movie mov : movies) {
+            ret.add((Item) mov);
+        }
+        return ret;
     }
     
-    /**
-     *  Takes the search information and passes it into the rottenSearch.
-     * 
-     *  Passes the queryData into the formating method generateSearch().
-     * 
-     * @param search The search information that they want to look for
-     * @return 
-     */
-    public ArrayList<Movie> search(String search) {
-        String queryData = rottenRestSearch(search);
+    @Override
+    public ArrayList<Item> search(String search) {
+        String queryData = RestSearch(search);
         System.out.println("Query Data ------------->" + queryData);
         return generateList(queryData);
     }
     
-    public ArrayList<Movie> getTheaterMovies() {
-        String theaterData = rottenRestOpenings();
+    @Override
+    public ArrayList<Item> getNewOpenings() {
+        String theaterData = RestOpenings();
         System.out.println("Theater Data ------------->" + theaterData);
         return generateList(theaterData);
     }
     
-    public ArrayList<Movie> getDvdMovies() {
-        String dvdData = rottenRestNewDVDs();
+    @Override
+    public ArrayList<Item> getNewReleases() {
+        String dvdData = RestNewDVDs();
         System.out.println("Dvd Data ------------->" + dvdData);
         return generateList(dvdData);
     }

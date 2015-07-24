@@ -30,7 +30,7 @@ public class EmailBean {
     }
 
     
-    public void sendEmail(User user) {
+    public void sendEmail(User user, String content) {
        Session session = Session.getInstance(props,
         new javax.mail.Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {

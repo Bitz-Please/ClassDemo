@@ -36,15 +36,16 @@ and open the template in the editor.
             <b:container>
                 <h:form>
                 <p:panel id="panel">
-                    <h:panelGrid columns="3" cellpadding="5">
+                    <h:panelGrid columns="3" cellpadding="10">
                         <!--<h:column >-->
-                        <p:outputLabel for="email" value="Email:" style="padding-top:10px; padding-left: 0px"/>
+                        <center>
+                        <p:outputLabel for="email" value="Email:" style="padding-top:10px; padding-left: 10px; padding-bottom: 10px"/>
                         <p:inputText id="email" value="#{user.email}" 
-                                     required="false" label="Email" style="padding-top:10px; padding-left: 0px">
-                        </p:inputText>                      
-                        <p:outputLabel for="address" value="Address:" style="padding-top:10px; padding-left: 0px"/>
+                                     required="false" label="Email" style="padding-top:10px; padding-left: 10px; padding-bottom: 10px">
+                        </p:inputText >                      
+                        <p:outputLabel for="address" value="Address:" style="padding-top:10px; padding-left: 10px; padding-bottom: 10px"/>
                         <p:inputText id="address" value="#{user.address}" 
-                                     required="false" label="Address" style="padding-top:10px; padding-left: 0px">                             
+                                     required="false" label="Address" style="padding-top:10px; padding-left: 10px; padding-bottom: 10px">                             
                         </p:inputText>                    
                         <!--<p:message for="address" display="icon" />-->
                         <p:outputLabel for="additionalInfo" value="Additional Information:" style="padding-top:10px; padding-left: 0px" />
@@ -94,6 +95,7 @@ and open the template in the editor.
                         </p:selectOneMenu>
                         <!--<p:message for="chooseMajor" display="icon" />-->
                         <!--</b:row>-->
+                        </center>
                     </h:panelGrid>
                     <b:commandButton update="panel" value="Update" action="#{user.updateUserData()}" />
                     <b:commandButton update="panel" value="Cancel" action="profile" />
