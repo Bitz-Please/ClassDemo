@@ -46,16 +46,21 @@ public class MovieManager implements Serializable {
      * @param newMovies the movies to add
      * @return the results of the query
      */
-    public void addMovie(ArrayList<Movie> newMovies) {
+    public void addMovie(ArrayList<Item> newMovies) {
 
-        currentQuery = newMovies;
-        for(Movie mov : newMovies) {
-            if (!this.movies.containsKey(mov.getTitle())) {
-                this.movies.put(mov.getTitle() ,mov);
+        ArrayList<Movie> buildQuery = new ArrayList<>();
+        for(Item mov : newMovies) {
+            buildQuery.add((Movie) mov);
+            Movie current = (Movie) mov;
+            if (!this.movies.containsKey(current.getTitle())) {
+                this.movies.put(current.getTitle(), current);
                 saveBinary();
             } 
         }
+        currentQuery = buildQuery;
     }
+    
+    
 
     /**
      * Saves the persistent data in the project's Resources folder

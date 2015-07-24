@@ -120,7 +120,8 @@ public class MovieBean implements Serializable {
         return "" + movie.getAvgRating().intValue();
     }
     
-    public String addMovie(ArrayList<Movie> newMovies) {
+    
+    public String addMovie(ArrayList<Item> newMovies) {
         movieManager.addMovie(newMovies);
         return "query_results";
     }

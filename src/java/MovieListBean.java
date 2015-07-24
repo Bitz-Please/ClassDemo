@@ -13,30 +13,30 @@ import javax.faces.bean.SessionScoped;
 
 public class MovieListBean {
     
-    private RTRESTService rtService;
+    private APIService currentAPI;
     private String search;
     MovieManager movieManager;
-    ArrayList<Movie> movies;
+    ArrayList<Item> movies;
     
     public MovieListBean() {
-        rtService = new RTRESTService();
+        currentAPI = new RTRESTService();
         movieManager = new MovieManager();
     }
     
-    public ArrayList<Movie> getTheaterMovies() {
-        movies = rtService.getTheaterMovies();
+    public ArrayList<Item> getTheaterMovies() {
+        movies = currentAPI.getNewOpenings();
         movieManager.addMovie(movies);
         return movies;
     }
     
-    public ArrayList<Movie> getDvdMovies() {
-        movies = rtService.getDvdMovies();
+    public ArrayList<Item> getDvdMovies() {
+        movies = currentAPI.getNewReleases();
         movieManager.addMovie(movies);
         return movies;
     }
      
-    public ArrayList<Movie> getSearchMovies() {
-        movies = rtService.search(search);
+    public ArrayList<Item> getSearchMovies() {
+        movies = currentAPI.search(search);
         movieManager.addMovie(movies);
         return movies;
     }

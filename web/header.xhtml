@@ -7,8 +7,10 @@
 	xmlns:f="http://java.sun.com/jsf/core"
         xmlns:b="http://bootsfaces.net/ui">
     
-    <b:navBar brand="Bits-Please" inverse="true" fixed="top" brandHref="home.xhtml">
+    <b:navBar brand="Bits-Please" inverse="true" fixed="top" brandHref="home.xhtml" >
+            
             <b:navbarLinks>
+                
                 <b:navLink value="Home" href="home.xhtml"
                            icon="glyphicon glyphicon-home"
                            iconAlign="left">
@@ -40,9 +42,11 @@
                 <b:navbarLinks>
                     <b:dropMenu value="#{user.username}">
                         <b:navLink value="Account" href="profile.xhtml"></b:navLink>
-                        <b:navLink value="Logout" href="login.xhtml"></b:navLink>
+                        <b:navLink value="Logout" href="index.xhtml"></b:navLink>
                     </b:dropMenu>
                 </b:navbarLinks>
             </h:form>
+        <img style="max-width:60px;"
+                src="images/logowithwhite.png"></img>
         </b:navBar>
 </ui:composition>

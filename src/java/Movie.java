@@ -23,7 +23,7 @@ import javax.faces.bean.SessionScoped;
 @Generated("org.jsonschema2pojo")
 @ManagedBean
 @SessionScoped
-public class Movie implements Serializable, Comparable{
+public class Movie implements Serializable, Comparable, Item{
 
     @Expose
     private String id;
